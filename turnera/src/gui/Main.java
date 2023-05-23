@@ -1,19 +1,27 @@
 package gui;
 
 
+import dao.DAOCreate;
+import dao.DAOException;
+import dao.DAOMedico;
+import entidades.Medico;
+
 import javax.swing.*;
 import java.awt.*;
 
 
 public class Main {
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                LoginFrame frame = new LoginFrame();
-                frame.setVisible(true);
-                frame.setSize(400, 300); // Ajusta el tamaño de la ventana emergente
-                frame.setLocationRelativeTo(null); // Centra la ventana emergente
-            }
-        });
+    public static void main(String[] args) throws DAOException {
+        DAOMedico daoMedico = new DAOMedico();
+        daoMedico.buscar(1);
+
+
+
+
+
+
+
+
+
     }
 }

@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class DAORelacionMedicoObraSocial implements DAO<Medico>{
     private String DB_JDBC_DRIVER="org.h2.Driver";
-    private String DB_URL="jdbc:h2~/base";
-    private String DB_USER="sa";
-    private String DB_PASSWORD="";
+    private String DB_URL="jdbc:h2:C:/Users/bnbgi/OneDrive/Escritorio/server/test";
+    private String DB_USER="gio";
+    private String DB_PASSWORD="gio";
     @Override
     public void guardar(Medico elemento) throws DAOException {
         Connection connection=null;
