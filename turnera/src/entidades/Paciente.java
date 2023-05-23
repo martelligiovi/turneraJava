@@ -7,9 +7,4 @@ public class Paciente extends Persona{
         this.obraSocial = obraSocial;
     }
 
-
-
-
-
-
 }
