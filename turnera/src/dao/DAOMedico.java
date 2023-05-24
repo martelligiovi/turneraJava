@@ -15,7 +15,7 @@ import java.util.ArrayList;
             try {
                 Class.forName(DB_JDBC_DRIVER);
                 connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-                preparedStatement=connection.prepareStatement("INSERT into Medico Values(?,?,?,?,?)");
+                preparedStatement=connection.prepareStatement("INSERT into Medico Values(?,?,?,?)");
                 preparedStatement.setLong(1,elemento.getLegajo());
                 preparedStatement.setString(2, elemento.getNombre());
 
@@ -39,7 +39,7 @@ import java.util.ArrayList;
             try {
                 Class.forName(DB_JDBC_DRIVER);
                 connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-                preparedStatement=connection.prepareStatement("UPDATE medico SET nombre=?, domicilio=?, telefono=? WHERE id=?");
+                preparedStatement=connection.prepareStatement("UPDATE Medico SET nombre=?, apellido=?, dni=? WHERE id=?");
 
                 preparedStatement.setLong(1,elemento.getLegajo());
                 preparedStatement.setString(2, elemento.getNombre());
@@ -64,7 +64,7 @@ import java.util.ArrayList;
             try {
                 Class.forName(DB_JDBC_DRIVER);
                 connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-                preparedStatement=connection.prepareStatement("DELETE FROM medico  WHERE id=?");
+                preparedStatement=connection.prepareStatement("DELETE FROM Medico  WHERE legajo=?");
 
                 preparedStatement.setLong(1,id);
                 int res=preparedStatement.executeUpdate();
@@ -84,7 +84,7 @@ import java.util.ArrayList;
             try {
                 Class.forName(DB_JDBC_DRIVER);
                 connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-                preparedStatement=connection.prepareStatement("SELECT * FROM medico  WHERE id=?");
+                preparedStatement=connection.prepareStatement("SELECT * FROM Medico  WHERE legajo=?");
                 preparedStatement.setLong(1,id);
                 ResultSet resultSet =preparedStatement.executeQuery();
                 if (resultSet.next()) {
@@ -113,7 +113,7 @@ import java.util.ArrayList;
             try {
                 Class.forName(DB_JDBC_DRIVER);
                 connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-                preparedStatement=connection.prepareStatement("SELECT * FROM medico");
+                preparedStatement=connection.prepareStatement("SELECT * FROM Medico");
                 ResultSet resultSet =preparedStatement.executeQuery();
                 while (resultSet.next()) {
 

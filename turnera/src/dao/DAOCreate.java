@@ -15,7 +15,7 @@ public class DAOCreate{
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Medico (dni INT PRIMARY KEY, nombre VARCHAR(50), apellido VARCHAR(50), legajo VARCHAR(50), honorarios INT)");
+            preparedStatement = connection.prepareStatement("CREATE TABLE Medico (dni INT , nombre VARCHAR(50), apellido VARCHAR(50), INT legajo PRIMARY KEY)");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Medico " + res);
         }
@@ -39,13 +39,13 @@ public class DAOCreate{
         }
     }
 
-    public static void createTurno(){
+    private static void createTurno(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Turno (dnimedico INT, dnipaciente INT, fecha DATE, hora TIME, PRIMARY KEY (dnimedico, dnipaciente), FOREIGN KEY (dnimedico) REFERENCES Medico(dni), FOREIGN KEY (dnipaciente) REFERENCES Paciente(dni));\n");
+            preparedStatement = connection.prepareStatement("CREATE TABLE Turno (legajoMedico INT, dniPaciente INT, fecha INT, PRIMARY KEY (legajoMedico, dniPaciente), FOREIGN KEY (legajoMedico) REFERENCES Medico(dni), FOREIGN KEY (dniPaciente) REFERENCES Paciente(dni));\n");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Turno " + res);
         }
@@ -53,13 +53,13 @@ public class DAOCreate{
             System.out.println(e.getMessage());
         }
     }
-    private static void createRelmedosoc(){
+    private static void createRelacionMedicoObrasocial(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Relmedosoc (dnimedico INT, dnipaciente INT, PRIMARY KEY (dnimedico, dnipaciente), FOREIGN KEY (dnimedico) REFERENCES Medico(dni), FOREIGN KEY (dnipaciente) REFERENCES Paciente(dni));\n");
+            preparedStatement = connection.prepareStatement("CREATE TABLE RelacionMedicoObrasocial (legajoMedico INT, codObrasocial INT, PRIMARY KEY (legajoMedico, codObrasocial), FOREIGN KEY (legajoMedico) REFERENCES Medico(legajo), FOREIGN KEY (codObrasocial) REFERENCES Obrasocial(cod));\n");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Relmedosoc " + res);
         }catch (ClassNotFoundException | SQLException e){
@@ -72,7 +72,7 @@ public class DAOCreate{
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE ObraSocial (osocial INT PRIMARY KEY, nombre VARCHAR(50))");
+            preparedStatement = connection.prepareStatement("CREATE TABLE ObraSocial (cod INT PRIMARY KEY, nombre VARCHAR(50))");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla ObraSocial " + res);
         }catch (ClassNotFoundException | SQLException e){
@@ -84,7 +84,7 @@ public class DAOCreate{
         createMedico();
         createPaciente();
         createTurno();
-        createRelmedosoc();
+        createRelacionMedicoObrasocial();
         createObraSocial();
     }
 
@@ -130,13 +130,13 @@ public class DAOCreate{
             System.out.println(e.getMessage());
         }
     }
-    private static void dropRelmedosoc(){
+    private static void dropRelacionMedicoObrasocial(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("DROP TABLE Relmedosoc");
+            preparedStatement = connection.prepareStatement("DROP TABLE RelacionMedicoObrasocial");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha eliminado la tabla Relmedosoc " + res);
         }
@@ -162,7 +162,7 @@ public class DAOCreate{
         dropMedico();
         dropPaciente();
         dropTurno();
-        dropRelmedosoc();
+        dropRelacionMedicoObrasocial();
         dropObraSocial();
     }
 }

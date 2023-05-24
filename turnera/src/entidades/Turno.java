@@ -1,13 +1,13 @@
 package entidades;
 
 public class Turno {
-    private Paciente paciente;
-    private Medico medico;
-    private String fecha;
+    private int dniPaciente;
+    private int legajoMedico;
+    private int fecha;
     private Double costo;
-    public Turno(Paciente paciente, Medico medico, String fecha, Double costo){
-        this.paciente = paciente;
-        this.medico = medico;
+    public Turno(String fecha, Double costo, int dniPaciente, int legajoMedico){
+        this.dniPaciente = dniPaciente;
+        this.legajoMedico = legajoMedico;
         this.fecha = fecha;
         this.costo = costo;
     }
