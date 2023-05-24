@@ -18,7 +18,7 @@ import java.util.ArrayList;
                 preparedStatement=connection.prepareStatement("INSERT into Medico Values(?,?,?,?,?)");
                 preparedStatement.setLong(1,elemento.getLegajo());
                 preparedStatement.setString(2, elemento.getNombre());
-                preparedStatement.setString(3, elemento.getNombre());
+
                 preparedStatement.setString(4, elemento.getApellido());
                 preparedStatement.setInt(5, elemento.getDni());
 

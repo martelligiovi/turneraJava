@@ -15,7 +15,7 @@ public class DAOCreate{
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Medico (dni INT PRIMARY KEY, nombre VARCHAR(50), apellido VARCHAR(50), licencia VARCHAR(50), honorarios INT)");
+            preparedStatement = connection.prepareStatement("CREATE TABLE Medico (dni INT PRIMARY KEY, nombre VARCHAR(50), apellido VARCHAR(50), legajo VARCHAR(50), honorarios INT)");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Medico " + res);
         }
@@ -30,7 +30,7 @@ public class DAOCreate{
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Paciente (dni INT PRIMARY KEY, nombre VARCHAR(50), apellido VARCHAR(50), osocial INT)");
+            preparedStatement = connection.prepareStatement("CREATE TABLE Paciente (dni INT PRIMARY KEY, nombre VARCHAR(50), apellido VARCHAR(50), codObrasocial INT)");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Paciente " + res);
         }
