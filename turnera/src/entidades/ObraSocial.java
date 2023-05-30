@@ -2,18 +2,18 @@ package entidades;
 
 public class ObraSocial {
     private String nombre;
-    private int codigo;
+    private int cod;
     public ObraSocial(String nombre, int codigo){
         this.nombre = nombre;
-        this.codigo = codigo;
+        this.cod = codigo;
     }
 
     public String getNombre(){
         return this.nombre;
     }
 
-    public int getCodigo(){
-        return this.codigo;
+    public int getCod(){
+        return this.cod;
     }
 
     public void setNombre(String nombre){
@@ -21,7 +21,7 @@ public class ObraSocial {
     }
 
     public void setCodigo(int codigo){
-        this.codigo = codigo;
+        this.cod = codigo;
     }
 
     @Override

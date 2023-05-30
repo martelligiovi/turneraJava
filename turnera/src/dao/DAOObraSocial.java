@@ -13,14 +13,14 @@ public class DAOObraSocial implements DAO<ObraSocial>{
     private String DB_USER="gio";
     private String DB_PASSWORD="gio";
     @Override
-    public void guardar(ObraSocial elemento) throws DAOException {
+    public void guarder(ObraSocial elemento) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
             preparedStatement=connection.prepareStatement("INSERT into Obrasocial Values(?,?)");
-            preparedStatement.setLong(1,elemento.getCodigo());
+            preparedStatement.setLong(1,elemento.getCod());
             preparedStatement.setString(2, elemento.getNombre());
 
             int res=preparedStatement.executeUpdate();
@@ -77,7 +77,7 @@ public class DAOObraSocial implements DAO<ObraSocial>{
     public ObraSocial buscar(long id) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
-        ObraSocial medico=null;
+        ObraSocial obraSocial=null;
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
@@ -85,7 +85,7 @@ public class DAOObraSocial implements DAO<ObraSocial>{
             preparedStatement.setLong(1,id);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
-                ObraSocial = new ObraSocial(
+                obraSocial = new ObraSocial(
                         resultSet.getString("NOMBRE"),
                         resultSet.getInt("COD")
                 );
@@ -95,7 +95,7 @@ public class DAOObraSocial implements DAO<ObraSocial>{
         {
             throw  new DAOException(e.getMessage());
         }
-        return medico;
+        return obraSocial;
     }
 
 
@@ -108,7 +108,7 @@ public class DAOObraSocial implements DAO<ObraSocial>{
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-            preparedStatement=connection.prepareStatement("SELECT * FROM medico");
+            preparedStatement=connection.prepareStatement("SELECT * FROM obraSocial");
             ResultSet resultSet =preparedStatement.executeQuery();
             while (resultSet.next()) {
 

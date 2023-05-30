@@ -1,7 +1,5 @@
 package dao;
 
-import dao.DAOException;
-
 import java.util.ArrayList;
 
 public interface DAO<T>{

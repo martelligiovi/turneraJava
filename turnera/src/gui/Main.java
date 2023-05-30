@@ -12,8 +12,7 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) throws DAOException {
-        DAOMedico daoMedico = new DAOMedico();
-        daoMedico.buscar(1);
+
 
 
 

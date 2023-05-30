@@ -45,7 +45,7 @@ public class DAOCreate{
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Turno (legajoMedico INT, dniPaciente INT, fecha INT, PRIMARY KEY (legajoMedico, dniPaciente), FOREIGN KEY (legajoMedico) REFERENCES Medico(dni), FOREIGN KEY (dniPaciente) REFERENCES Paciente(dni));\n");
+            preparedStatement = connection.prepareStatement("CREATE TABLE Turno (legajoMedico INT, dniPaciente INT, fecha INT,costo INT,PRIMARY KEY (legajoMedico, dniPaciente), FOREIGN KEY (legajoMedico) REFERENCES Medico(dni), FOREIGN KEY (dniPaciente) REFERENCES Paciente(dni));\n");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Turno " + res);
         }

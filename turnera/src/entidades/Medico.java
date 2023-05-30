@@ -9,8 +9,10 @@ public class Medico extends Persona{
         this.legajo = legajo;
     }
 
-
-    private Turno crearTurno(int dniPaciente, String fecha, double costo){
+    public Medico(){
+        super();
+    }
+    private Turno crearTurno(int dniPaciente, int fecha, double costo){
         Turno turno = new Turno(fecha, costo, dniPaciente, this.legajo);
         return turno;
     }
