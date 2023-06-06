@@ -1,13 +1,8 @@
 package dao;
 
-import entidades.ObraSocial;
 
-import java.sql.*;
-import java.util.ArrayList;
-
-
-public class DAORelacionObraSocialObraSocial implements DAO<ObraSocial>{
-    private String DB_JDBC_DRIVER="org.h2.Driver";
+public class DAORelacionMedicoObraSocial /*implements DAO<ObraSocial>*/{
+    /*private String DB_JDBC_DRIVER="org.h2.Driver";
     private String DB_URL="jdbc:h2:C:/Users/bnbgi/OneDrive/Escritorio/server/test";
     private String DB_USER="gio";
     private String DB_PASSWORD="gio";
@@ -134,5 +129,5 @@ public class DAORelacionObraSocialObraSocial implements DAO<ObraSocial>{
             throw  new DAOException(e.getMessage());
         }
         return datos;
-    }
+    }*/
 }

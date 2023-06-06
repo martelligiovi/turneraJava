@@ -3,72 +3,87 @@ package gui;
 import dao.DAOMedico;
 import entidades.Medico;
 import serrvice.MedicoService;
+import serrvice.ServiceException;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioMedico {
+public class FormularioMedico extends JPanel{
     DAOMedico daomedico;
-    JPanel FormularioMedico;
-    JLabel jLabelnombre;
+    JPanel formularioMedico;
+    JLabel jLabelNombre;
     JTextField  jTextFieldNombre;
-    JButton jButtonNombre;
+    JButton jButtonSend;
+    JButton jButtonExit;
+    JLabel jLabelApellido;
+    JTextField jTextFieldApellido;
+    JLabel jLabelDni;
+    JTextField jTextFieldDni;
+    JLabel jLabelLegajo;
+    JTextField jTextFieldLegajo;
+    JPanel jPanelBotones;
+    PanelManager panel;
 
-     public FormularioMedico (){
-         creadorFormularioMedico();
+
+    public FormularioMedico (PanelManager panel){
+
+        this.panel=panel;
+        creadorFormularioMedico();
+
+
 }
     public void creadorFormularioMedico(){
         MedicoService medicoService = new MedicoService();
-        JPanel formularioMedico = new JPanel();
-        formularioMedico.setLayout(new GridLayout(2,3));
-        JFrame frame = new JFrame("Formulario Medico");
-        jButtonNombre = new JButton();
-        jLabelnombre = new JLabel();
+        formularioMedico = new JPanel();
+        formularioMedico.setLayout(new GridLayout(5,2));
+        jLabelNombre = new JLabel("Nombre");
+        jLabelApellido = new JLabel("Apellido");
+        jLabelDni = new JLabel("Dni");
+        jLabelLegajo = new JLabel("Legajo");
         jTextFieldNombre = new JTextField();
-        //quieroo crear  los botones, los labels y textfield de los demas parametros
-        JButton jButtonApellido = new JButton();
-        JLabel jLabelApellido = new JLabel();
-        JTextField jTextFieldApellido = new JTextField();
-        JButton jButtonDni = new JButton();
-        JLabel jLabelDni = new JLabel();
-        JTextField jTextFieldDni = new JTextField();
-        JButton jButtonLegajo = new JButton();
-        JLabel jLabelLegajo = new JLabel();
-        JTextField jTextFieldLegajo = new JTextField();
-        jButtonNombre.setText("Guardar");
-        formularioMedico.add(jLabelnombre);
+        jTextFieldApellido = new JTextField();
+        //quiero usar un jtextfield que solo acepte numeros y que no se pueda escribir mas de 8 numeros
+        jTextFieldDni = new JTextField();
+        jTextFieldLegajo = new JTextField();
+        jButtonSend = new JButton("Enviar");
+        jButtonExit = new JButton("Salir");
+        jPanelBotones=new JPanel();
+
+        formularioMedico.add(jLabelNombre);
         formularioMedico.add(jTextFieldNombre);
-        formularioMedico.add(jButtonNombre);
         formularioMedico.add(jLabelApellido);
         formularioMedico.add(jTextFieldApellido);
-        formularioMedico.add(jButtonApellido);
         formularioMedico.add(jLabelDni);
         formularioMedico.add(jTextFieldDni);
-        formularioMedico.add(jButtonDni);
         formularioMedico.add(jLabelLegajo);
         formularioMedico.add(jTextFieldLegajo);
-        formularioMedico.add(jButtonLegajo);
-        frame.add(formularioMedico);
-        frame.setSize(500,500);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        formularioMedico.add(jButtonSend);
+        formularioMedico.add(jButtonExit);
 
+        
 
-        jButtonNombre.addActionListener(new ActionListener() {
+        jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Medico medico = new Medico();
                 medico.setNombre(jTextFieldNombre.getText());
-
+                medico.setApellido(jTextFieldApellido.getText());
+                medico.setDni(Integer.parseInt(jTextFieldDni.getText()));
+                medico.setLegajo(Integer.parseInt(jTextFieldLegajo.getText()));
+                try {
+                    medicoService.guardarMedico(medico);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
     }
 
 
-
-
-
+    public JPanel getFormularioMedico() {
+        return formularioMedico;
+    }
 }

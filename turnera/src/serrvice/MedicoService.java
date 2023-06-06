@@ -10,7 +10,7 @@ public class MedicoService {
         }
         public void guardarMedico(Medico medico) throws ServiceException {
             try {
-                daoMedico.guarder(medico);
+                daoMedico.guardar(medico);
             } catch (Exception e) {
                 throw new ServiceException(e.getMessage());
             }

@@ -90,12 +90,7 @@ public class DAOTurno implements DAO<Turno>{
             preparedStatement.setLong(1,id);
             ResultSet resultSet =preparedStatement.executeQuery();
             if (resultSet.next()) {
-                turno = new Turno(
-                        resultSet.getString("NOMBRE"),
-                        resultSet.getString("APELLIDO"),
-                        resultSet.getInt("LEGAJO"),
-                        resultSet.getInt("DNI")
-                );
+               // turno = new Turno(resultSet.getString("NOMBRE"));
             }
         }
         catch (ClassNotFoundException | SQLException e)
@@ -119,13 +114,11 @@ public class DAOTurno implements DAO<Turno>{
             ResultSet resultSet =preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                turno = new Turno(
-                resultSet.getString("NOMBRE"),
-                resultSet.getString("APELLIDO"),
+                /*turno = new Turno(
                 resultSet.getInt("LEGAJO"),
                 resultSet.getInt("DNI")
                 );
-                datos.add(turno);
+                datos.add(turno);*/
             }
         }
         catch (ClassNotFoundException | SQLException e)

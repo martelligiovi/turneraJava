@@ -14,4 +14,7 @@ public class Paciente extends Persona{
     public void setCodObraSocial(String codObraSocial) {
         this.codObraSocial = codObraSocial;
     }
+    public Paciente(){
+    super();
+    }
 }

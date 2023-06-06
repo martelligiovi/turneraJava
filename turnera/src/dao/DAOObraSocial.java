@@ -13,7 +13,7 @@ public class DAOObraSocial implements DAO<ObraSocial>{
     private String DB_USER="gio";
     private String DB_PASSWORD="gio";
     @Override
-    public void guarder(ObraSocial elemento) throws DAOException {
+    public void guardar(ObraSocial elemento) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         try {

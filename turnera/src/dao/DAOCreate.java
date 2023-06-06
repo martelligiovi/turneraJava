@@ -15,7 +15,7 @@ public class DAOCreate{
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Medico (dni INT , nombre VARCHAR(50), apellido VARCHAR(50), INT legajo PRIMARY KEY)");
+            preparedStatement = connection.prepareStatement("CREATE TABLE Medico (dni INT , nombre VARCHAR(50), apellido VARCHAR(50), legajo INT PRIMARY KEY)");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Medico " + res);
         }
@@ -45,7 +45,7 @@ public class DAOCreate{
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Turno (legajoMedico INT, dniPaciente INT, fecha INT,costo INT,PRIMARY KEY (legajoMedico, dniPaciente), FOREIGN KEY (legajoMedico) REFERENCES Medico(dni), FOREIGN KEY (dniPaciente) REFERENCES Paciente(dni));\n");
+            preparedStatement = connection.prepareStatement("CREATE TABLE Turno (legajoMedico INT, dniPaciente INT, fecha INT,costo INT,PRIMARY KEY (legajoMedico, dniPaciente), FOREIGN KEY (legajoMedico) REFERENCES Medico(legajo), FOREIGN KEY (dniPaciente) REFERENCES Paciente(dni));\n");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Turno " + res);
         }
@@ -80,7 +80,7 @@ public class DAOCreate{
         }
     }
 
-    public static void createTables(){
+    public static void createTablas(){
         createMedico();
         createPaciente();
         createTurno();
@@ -88,7 +88,7 @@ public class DAOCreate{
         createObraSocial();
     }
 
-    private static void dropMedico(){
+    public static void dropMedico(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
@@ -102,7 +102,7 @@ public class DAOCreate{
             System.out.println(e.getMessage());
         }
     }
-    private static void dropPaciente(){
+    public static void dropPaciente(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
@@ -130,13 +130,13 @@ public class DAOCreate{
             System.out.println(e.getMessage());
         }
     }
-    private static void dropRelacionMedicoObrasocial(){
+    public static void dropRelacionMedicoObrasocial(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("DROP TABLE RelacionMedicoObrasocial");
+            preparedStatement = connection.prepareStatement("DROP TABLE RelMedOsoc");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha eliminado la tabla Relmedosoc " + res);
         }
@@ -159,10 +159,10 @@ public class DAOCreate{
         }
     }
     public static void dropAllTables() {
-        dropMedico();
-        dropPaciente();
         dropTurno();
+        dropMedico();
         dropRelacionMedicoObrasocial();
+        dropPaciente();
         dropObraSocial();
     }
 }
