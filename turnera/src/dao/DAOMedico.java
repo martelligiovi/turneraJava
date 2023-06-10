@@ -16,11 +16,15 @@ import java.util.ArrayList;
                 Class.forName(DB_JDBC_DRIVER);
                 connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
                 preparedStatement=connection.prepareStatement("INSERT into Medico Values(?,?,?,?)");
-                preparedStatement.setLong(1,elemento.getLegajo());
+                preparedStatement.setInt(1, elemento.getDni());
+                System.out.println(elemento.getDni());
                 preparedStatement.setString(2, elemento.getNombre());
+                System.out.println(elemento.getNombre());
+                preparedStatement.setString(3, elemento.getApellido());
+                System.out.println(elemento.getApellido());
+                preparedStatement.setInt(4,elemento.getLegajo());
+                System.out.println(elemento.getLegajo());
 
-                preparedStatement.setString(4, elemento.getApellido());
-                preparedStatement.setInt(5, elemento.getDni());
 
                 int res=preparedStatement.executeUpdate();
                 System.out.println("Se agregaron " + res);
@@ -88,11 +92,11 @@ import java.util.ArrayList;
                 preparedStatement.setLong(1,id);
                 ResultSet resultSet =preparedStatement.executeQuery();
                 if (resultSet.next()) {
-                    medico = new Medico(
+                    medico = new Medico(resultSet.getInt("DNI"),
                             resultSet.getString("NOMBRE"),
                             resultSet.getString("APELLIDO"),
-                            resultSet.getInt("LEGAJO"),
-                            resultSet.getInt("DNI")
+                            resultSet.getInt("LEGAJO")
+
                     );
                 }
             }
@@ -118,10 +122,10 @@ import java.util.ArrayList;
                 while (resultSet.next()) {
 
                     medico = new Medico(
-                    resultSet.getString("NOMBRE"),
+                            resultSet.getInt("DNI"),
+                            resultSet.getString("NOMBRE"),
                     resultSet.getString("APELLIDO"),
-                    resultSet.getInt("LEGAJO"),
-                    resultSet.getInt("DNI")
+                    resultSet.getInt("LEGAJO")
                     );
                     datos.add(medico);
                 }

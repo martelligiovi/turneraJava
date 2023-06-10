@@ -6,11 +6,12 @@ public abstract class Persona {
     private int dni;
 
     public Persona(String nombre, String apellido, int dni) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
     }
 
     public Persona() {
-
-
     }
 
     public String getNombre() {
@@ -36,5 +37,4 @@ public abstract class Persona {
     public void setDni(int dni) {
         this.dni = dni;
     }
-
 }

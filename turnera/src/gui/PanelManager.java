@@ -15,7 +15,6 @@ public class PanelManager {
         ventana.setVisible(true);
         formularioMedico = new FormularioMedico(this);
         mostrar(formularioMedico.getFormularioMedico());
-        mostrar(formularioPaciente.getFormularioPaciente());
     }
     public void mostrar(JPanel panel){
         ventana.getContentPane().removeAll();

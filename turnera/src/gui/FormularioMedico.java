@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormularioMedico extends JPanel{
-    DAOMedico daomedico;
+    MedicoService medicoService;
     JPanel formularioMedico;
     JLabel jLabelNombre;
     JTextField  jTextFieldNombre;
@@ -51,12 +51,13 @@ public class FormularioMedico extends JPanel{
         jButtonExit = new JButton("Salir");
         jPanelBotones=new JPanel();
 
+
+        formularioMedico.add(jLabelDni);
+        formularioMedico.add(jTextFieldDni);
         formularioMedico.add(jLabelNombre);
         formularioMedico.add(jTextFieldNombre);
         formularioMedico.add(jLabelApellido);
         formularioMedico.add(jTextFieldApellido);
-        formularioMedico.add(jLabelDni);
-        formularioMedico.add(jTextFieldDni);
         formularioMedico.add(jLabelLegajo);
         formularioMedico.add(jTextFieldLegajo);
         formularioMedico.add(jButtonSend);
@@ -68,9 +69,9 @@ public class FormularioMedico extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Medico medico = new Medico();
+                medico.setDni(Integer.parseInt(jTextFieldDni.getText()));
                 medico.setNombre(jTextFieldNombre.getText());
                 medico.setApellido(jTextFieldApellido.getText());
-                medico.setDni(Integer.parseInt(jTextFieldDni.getText()));
                 medico.setLegajo(Integer.parseInt(jTextFieldLegajo.getText()));
                 try {
                     medicoService.guardarMedico(medico);

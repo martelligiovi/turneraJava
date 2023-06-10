@@ -4,7 +4,7 @@ public class Medico extends Persona{
     private int legajo;
 
 
-    public Medico(String nombre, String apellido, int legajo, int dni){
+    public Medico(int dni, String nombre, String apellido, int legajo){
         super(nombre, apellido, dni);
         this.legajo = legajo;
     }
@@ -25,6 +25,11 @@ public class Medico extends Persona{
     public void setLegajo(int legajo) {
         this.legajo = legajo;
     }
+
+
+
+
+
 }
 
 
