@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelManager {
-    public FormularioMedico formularioMedico;
-    public FormularioPaciente formularioPaciente;
+    public FormularioSeleccionUsuario formularioSeleccionUsuario;
+
     JFrame ventana;
     public PanelManager()
     {
@@ -13,8 +13,8 @@ public class PanelManager {
         ventana.setSize(500,500);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setVisible(true);
-        formularioMedico = new FormularioMedico(this);
-        mostrar(formularioMedico.getFormularioMedico());
+        formularioSeleccionUsuario = new FormularioSeleccionUsuario(this);
+        mostrar(formularioSeleccionUsuario.getformularioSeleccionUsuario());
     }
     public void mostrar(JPanel panel){
         ventana.getContentPane().removeAll();

@@ -1,17 +1,17 @@
 package entidades;
 
 public class Paciente extends Persona{
-    private String codObraSocial;
+    private int codObraSocial;
     public Paciente(String nombre, String apellido, int codObrasocial, int dni){
         super(nombre, apellido, dni);
         this.codObraSocial = codObraSocial;
     }
 
-    public String getCodObraSocial() {
+    public int getCodObraSocial() {
         return codObraSocial;
     }
 
-    public void setCodObraSocial(String codObraSocial) {
+    public void setCodObraSocial(int codObraSocial) {
         this.codObraSocial = codObraSocial;
     }
     public Paciente(){

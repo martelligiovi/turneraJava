@@ -11,6 +11,8 @@ public class Turno {
         this.fecha = fecha;
         this.costo = costo;
     }
+    public Turno(){
+    }
 
     public int getDniPaciente() {
         return dniPaciente;

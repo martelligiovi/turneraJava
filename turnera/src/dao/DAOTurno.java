@@ -22,7 +22,7 @@ public class DAOTurno implements DAO<Turno>{
             preparedStatement.setInt(1,elemento.getLegajoMedico());
             preparedStatement.setInt(2, elemento.getDniPaciente());
             preparedStatement.setInt(3, elemento.getFecha());
-            preparedStatement.setDouble(3, elemento.getCosto());
+            preparedStatement.setDouble(4, elemento.getCosto());
 
 
             int res=preparedStatement.executeUpdate();

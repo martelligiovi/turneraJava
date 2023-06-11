@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormularioPaciente extends JPanel{
-    DAOPaciente daomedico;
+    DAOPaciente daopaciente;
     JPanel formularioPaciente;
     JLabel jLabelNombre;
     JTextField  jTextFieldNombre;
@@ -20,8 +20,8 @@ public class FormularioPaciente extends JPanel{
     JTextField jTextFieldApellido;
     JLabel jLabelDni;
     JTextField jTextFieldDni;
-    JLabel jLabelLegajo;
-    JTextField jTextFieldLegajo;
+    JLabel jLabelCodObraSocial;
+    JTextField jTextFieldCodObraSocial;
     JPanel jPanelBotones;
     PanelManager panel;
 
@@ -40,23 +40,23 @@ public class FormularioPaciente extends JPanel{
         jLabelNombre = new JLabel("Nombre");
         jLabelApellido = new JLabel("Apellido");
         jLabelDni = new JLabel("Dni");
-        jLabelLegajo = new JLabel("Legajo");
+        jLabelCodObraSocial = new JLabel("Codigo de obra social");
         jTextFieldNombre = new JTextField();
         jTextFieldApellido = new JTextField();
         jTextFieldDni = new JTextField();
-        jTextFieldLegajo = new JTextField();
+        jTextFieldCodObraSocial = new JTextField();
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
         jPanelBotones=new JPanel();
 
+        formularioPaciente.add(jLabelDni);
+        formularioPaciente.add(jTextFieldDni);
         formularioPaciente.add(jLabelNombre);
         formularioPaciente.add(jTextFieldNombre);
         formularioPaciente.add(jLabelApellido);
         formularioPaciente.add(jTextFieldApellido);
-        formularioPaciente.add(jLabelDni);
-        formularioPaciente.add(jTextFieldDni);
-        formularioPaciente.add(jLabelLegajo);
-        formularioPaciente.add(jTextFieldLegajo);
+        formularioPaciente.add(jLabelCodObraSocial);
+        formularioPaciente.add(jTextFieldCodObraSocial);
         formularioPaciente.add(jButtonSend);
         formularioPaciente.add(jButtonExit);
 
@@ -65,10 +65,11 @@ public class FormularioPaciente extends JPanel{
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Paciente medico = new Paciente();
-                medico.setNombre(jTextFieldNombre.getText());
-                medico.setApellido(jTextFieldApellido.getText());
-                medico.setDni(Integer.parseInt(jTextFieldDni.getText()));
+                Paciente paciente = new Paciente();
+                paciente.setNombre(jTextFieldNombre.getText());
+                paciente.setApellido(jTextFieldApellido.getText());
+                paciente.setCodObraSocial(Integer.parseInt(jTextFieldCodObraSocial.getText()));
+                paciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
 
             }
         });
