@@ -114,11 +114,11 @@ public class DAOTurno implements DAO<Turno>{
             ResultSet resultSet =preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                /*turno = new Turno(
-                resultSet.getInt("LEGAJO"),
-                resultSet.getInt("DNI")
-                );
-                datos.add(turno);*/
+                turno = new Turno();
+                turno.setLegajoMedico(resultSet.getInt("legajoMedico"));
+                turno.setDniPaciente(resultSet.getInt("dniPaciente"));
+                turno.setFecha(resultSet.getInt("fecha"));
+                datos.add(turno);
             }
         }
         catch (ClassNotFoundException | SQLException e)

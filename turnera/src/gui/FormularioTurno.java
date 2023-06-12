@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormularioTurno extends JPanel{
-    DAOTurno daoturno;
+    DAOTurno daoTurno;
     JPanel formularioTurno;
     JLabel jLabelLegajoMedico;
     JTextField  jTextFieldLegajoMedico;
@@ -34,7 +34,7 @@ public class FormularioTurno extends JPanel{
 
     }
     public void creadorFormularioTurno(){
-        DAOTurno daoTurno = new DAOTurno();
+        daoTurno = new DAOTurno();
         formularioTurno = new JPanel();
         formularioTurno.setLayout(new GridLayout(5,2));
         jLabelLegajoMedico = new JLabel("legajo midico");
@@ -59,7 +59,13 @@ public class FormularioTurno extends JPanel{
         formularioTurno.add(jButtonSend);
         formularioTurno.add(jButtonExit);
 
-
+        jButtonExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
+                panel.mostrar(formularioAdmin.getFormularioAdmin());
+            }
+        });
 
         jButtonSend.addActionListener(new ActionListener() {
             @Override

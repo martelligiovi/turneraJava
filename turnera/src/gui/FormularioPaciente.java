@@ -60,7 +60,13 @@ public class FormularioPaciente extends JPanel{
         formularioPaciente.add(jButtonSend);
         formularioPaciente.add(jButtonExit);
 
-
+        jButtonExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
+                panel.mostrar(formularioAdmin.getFormularioAdmin());
+            }
+        });
 
         jButtonSend.addActionListener(new ActionListener() {
             @Override

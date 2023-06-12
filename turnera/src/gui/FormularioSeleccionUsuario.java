@@ -9,6 +9,7 @@ public class FormularioSeleccionUsuario extends JPanel{
 
     JPanel formularioSeleccionUsuario;
     FormularioAdmin formularioAdmin;
+    FormularioUsuarioMedico formularioUsuarioMedico;
     PanelManager panel;
     JButton jButtonAdmin;
     JButton jButtonMedico;
@@ -24,6 +25,7 @@ public class FormularioSeleccionUsuario extends JPanel{
 
     }
     public void creadorFormularioSeleccionUsuario(){
+        formularioUsuarioMedico = new FormularioUsuarioMedico(panel);
         formularioSeleccionUsuario = new JPanel();
         formularioAdmin= new FormularioAdmin(panel);
         formularioSeleccionUsuario.setLayout(new GridLayout(3,1));
@@ -35,11 +37,17 @@ public class FormularioSeleccionUsuario extends JPanel{
         formularioSeleccionUsuario.add(jButtonPaciente);
 
 
-
+        jButtonMedico.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.mostrar(formularioUsuarioMedico.getFormularioUsuarioMedico());
+            }
+        });
 
         jButtonAdmin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
