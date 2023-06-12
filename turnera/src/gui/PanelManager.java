@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class PanelManager {
     public FormularioSeleccionUsuario formularioSeleccionUsuario;
+    public FormularioAdmin formularioAdmin;
 
     JFrame ventana;
     public PanelManager()
@@ -23,4 +24,16 @@ public class PanelManager {
         ventana.getContentPane().repaint();
         ventana.pack();
     }
+    //hacer el mostrarPanelAdmin
+    public void mostrarFormularioAdmin(){
+        JPanel formularioAdmin = new FormularioAdmin(this);
+        ventana.getContentPane().removeAll();
+        ventana.getContentPane().add(BorderLayout.SOUTH, formularioAdmin);
+        ventana.getContentPane().validate();
+        ventana.getContentPane().repaint();
+        ventana.pack();
+    }
+
+
+
 }

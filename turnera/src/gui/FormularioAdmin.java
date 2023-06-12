@@ -3,7 +3,7 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-public class FormularioAdmin {
+public class FormularioAdmin extends JPanel{
     FormularioMedico formularioMedico;
     FormularioPaciente formularioPaciente;
     FormularioTurno formularioTurno;

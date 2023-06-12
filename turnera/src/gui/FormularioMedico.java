@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormularioMedico extends JPanel{
+
     MedicoService medicoService;
     JPanel formularioMedico;
     JLabel jLabelNombre;
@@ -35,7 +36,7 @@ public class FormularioMedico extends JPanel{
 
 }
     public void creadorFormularioMedico(){
-        MedicoService medicoService = new MedicoService();
+        medicoService = new MedicoService();
         formularioMedico = new JPanel();
         formularioMedico.setLayout(new GridLayout(5,2));
         jLabelNombre = new JLabel("Nombre");
@@ -63,7 +64,14 @@ public class FormularioMedico extends JPanel{
         formularioMedico.add(jButtonSend);
         formularioMedico.add(jButtonExit);
 
-        
+        jButtonExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
+                panel.mostrar(formularioAdmin.getFormularioAdmin());
+            }
+        });
+
 
         jButtonSend.addActionListener(new ActionListener() {
             @Override
