@@ -28,14 +28,10 @@ public class FormularioMedico extends JPanel{
     JPanel jPanelBotones;
     PanelManager panel;
 
-
     public FormularioMedico (PanelManager panel){
-
         this.panel=panel;
         creadorFormularioMedico();
-
-
-}
+    }
     public void creadorFormularioMedico(){
         medicoService = new MedicoService();
         formularioMedico = new JPanel();

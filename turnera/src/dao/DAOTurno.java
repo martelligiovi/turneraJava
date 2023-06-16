@@ -127,4 +127,28 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
+
+    public ArrayList<String> buscarHorarios(String fecha, int legajoMedico) throws DAOException {
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ArrayList<String> datos=new ArrayList<>();
+        String turno=null;
+        try {
+            Class.forName(DB_JDBC_DRIVER);
+            connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE SUBSTRING(fecha, 1, 10) = ? AND legajoMedico = ?");
+            preparedStatement.setString(1, fecha);
+            preparedStatement.setInt(2, legajoMedico);
+            ResultSet resultSet =preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                turno = resultSet.getString("fecha");
+                datos.add(turno);
+            }
+        }
+        catch (ClassNotFoundException | SQLException e)
+        {
+            throw  new DAOException(e.getMessage());
+        }
+        return datos;
+    }
 }

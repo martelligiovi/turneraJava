@@ -16,8 +16,8 @@ import javax.swing.*;
 import javax.swing.text.*;
 
 public class FormularioTurno extends JPanel{
-    DAOTurno daoTurno;
     JPanel formularioTurno;
+    FormularioHora formularioHora;
     JLabel jLabelLegajoMedico;
     JComboBox  jComboBoxLegajoMedico;
     JButton jButtonSend;
@@ -42,7 +42,6 @@ public class FormularioTurno extends JPanel{
     }
     public void creadorFormularioTurno(){
         daoMedico = new DAOMedico();
-        daoTurno = new DAOTurno();
         daoPaciente = new DAOPaciente();
         formularioTurno = new JPanel();
         formularioTurno.setLayout(new GridLayout(5,2));
@@ -51,7 +50,7 @@ public class FormularioTurno extends JPanel{
         jLabelDniPaciente = new JLabel("Dni paciente");
         jComboBoxDniPaciente = new JComboBox();
         jLabelFecha = new JLabel("Fecha");
-        jTextFieldFecha = new JFormattedTextField(createMaskFormatter("####/##/## ##"));
+        jTextFieldFecha = new JFormattedTextField(createMaskFormatter("####/##/##"));
         jLabelCosto = new JLabel("Costo");
         jTextFieldCosto = new JTextField();
         jButtonSend = new JButton("Enviar");
@@ -99,13 +98,8 @@ public class FormularioTurno extends JPanel{
                 turno.setDniPaciente(Integer.parseInt(jComboBoxDniPaciente.getSelectedItem().toString()));
                 turno.setFecha(jTextFieldFecha.getText());
                 turno.setCosto(Double.parseDouble(jTextFieldCosto.getText()));
-                try {
-                    daoTurno.guardar(turno);
-                } catch (DAOException ex) {
-                    throw new RuntimeException(ex);
-                }
-                FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormularioAdmin());
+                FormularioHora formularioHora = new FormularioHora(panel, turno);
+                panel.mostrar(formularioHora.getFormularioHora());
             }
         });
     }
@@ -131,7 +125,40 @@ public class FormularioTurno extends JPanel{
         }
         return pacientes;
     }
+/*
+    public ArrayList<String> fillarrayHoras(ArrayList<String> horariosTomados){
+        int horaInicial = 10; // Hora inicial (10:00)
+        ArrayList<String> horariosTurnos = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            horariosTurnos.add(String.format("%02d:00", horaInicial));
+            horariosTurnos.add(String.format("%02d:30", horaInicial));
+            horaInicial++;
+        }
+        horariosTurnos.removeAll(horariosTomados);
+        return horariosTurnos;
+    }
 
+    private ArrayList<String> horariosTomados(String fecha, int legajoMedico) {
+        ArrayList<String> fechasTomadas = new ArrayList<>();
+        ArrayList<String> horariosTomados = new ArrayList<>();
+        try {
+            fechasTomadas = daoTurno.buscarHorarios(fecha, legajoMedico);
+        } catch (DAOException e) {
+            throw new RuntimeException(e);
+        }
+        for (String fechaHora : fechasTomadas) {
+            String[] partes = fechaHora.split(" ");
+            String hora = partes[1]; // Segunda parte es la hora
+            horariosTomados.add(hora);
+        }
+        return horariosTomados;
+    }
+    private DefaultComboBoxModel<String> model(ArrayList<String> horarios) {
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        model.addAll(horarios); // Agrega todos los elementos del array a la
+        return model;
+    }
+*/
     private MaskFormatter createMaskFormatter(String mask) {
         MaskFormatter formatter = null;
         try {
