@@ -21,7 +21,7 @@ public class DAOTurno implements DAO<Turno>{
             preparedStatement=connection.prepareStatement("INSERT into Turno Values(?,?,?,?)");
             preparedStatement.setInt(1,elemento.getLegajoMedico());
             preparedStatement.setInt(2, elemento.getDniPaciente());
-            preparedStatement.setInt(3, elemento.getFecha());
+            preparedStatement.setString(3, elemento.getFecha());
             preparedStatement.setDouble(4, elemento.getCosto());
 
 
@@ -46,7 +46,7 @@ public class DAOTurno implements DAO<Turno>{
 
             preparedStatement.setInt(1,elemento.getLegajoMedico());
             preparedStatement.setInt(2, elemento.getDniPaciente());
-            preparedStatement.setInt(3, elemento.getFecha());
+            preparedStatement.setString(3, elemento.getFecha());
             preparedStatement.setDouble(3, elemento.getCosto());
             int res=preparedStatement.executeUpdate();
             System.out.println("Se modificaron " + res);
@@ -117,7 +117,7 @@ public class DAOTurno implements DAO<Turno>{
                 turno = new Turno();
                 turno.setLegajoMedico(resultSet.getInt("legajoMedico"));
                 turno.setDniPaciente(resultSet.getInt("dniPaciente"));
-                turno.setFecha(resultSet.getInt("fecha"));
+                turno.setFecha(resultSet.getString("fecha"));
                 datos.add(turno);
             }
         }

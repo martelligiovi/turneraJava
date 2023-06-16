@@ -1,5 +1,6 @@
 package gui;
 
+import dao.DAOException;
 import dao.DAOMedico;
 import entidades.Medico;
 import serrvice.MedicoService;
@@ -67,7 +68,8 @@ public class FormularioMedico extends JPanel{
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
+                FormularioAdmin formularioAdmin = null;
+                formularioAdmin = new FormularioAdmin(panel);
                 panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
@@ -86,6 +88,9 @@ public class FormularioMedico extends JPanel{
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
                 }
+                FormularioAdmin formularioAdmin = null;
+                formularioAdmin = new FormularioAdmin(panel);
+                panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
 

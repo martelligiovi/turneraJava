@@ -37,7 +37,7 @@ public class FormularioUsuarioMedico {
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String legajo = jTextFieldLegajo.getText();
+                /*String legajo = jTextFieldLegajo.getText();
                 ArrayList<Turno> turnos = daoTurno.buscarTodos(legajo);
 
                 // Realiza la acción deseada con el ArrayList de turnos
@@ -47,7 +47,7 @@ public class FormularioUsuarioMedico {
                     message.append(turno.toString()).append("\n");
                 }
                 JOptionPane.showMessageDialog(formularioUsuarioMedico, message.toString(), "Turnos del médico", JOptionPane.INFORMATION_MESSAGE);
-            }
+            */}
         });
 
 

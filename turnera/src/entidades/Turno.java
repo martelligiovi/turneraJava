@@ -3,9 +3,9 @@ package entidades;
 public class Turno {
     private int dniPaciente;
     private int legajoMedico;
-    private int fecha;
+    private String fecha;
     private Double costo;
-    public Turno(int fecha, Double costo, int dniPaciente, int legajoMedico){
+    public Turno(String fecha, Double costo, int dniPaciente, int legajoMedico){
         this.dniPaciente = dniPaciente;
         this.legajoMedico = legajoMedico;
         this.fecha = fecha;
@@ -30,11 +30,11 @@ public class Turno {
         this.legajoMedico = legajoMedico;
     }
 
-    public int getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(int fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

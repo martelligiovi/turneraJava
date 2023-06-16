@@ -1,5 +1,6 @@
 package gui;
 
+import dao.DAOException;
 import dao.DAOPaciente;
 import entidades.Paciente;
 
@@ -63,7 +64,8 @@ public class FormularioPaciente extends JPanel{
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
+                FormularioAdmin formularioAdmin = null;
+                formularioAdmin = new FormularioAdmin(panel);
                 panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
@@ -72,11 +74,18 @@ public class FormularioPaciente extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Paciente paciente = new Paciente();
+                paciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
                 paciente.setNombre(jTextFieldNombre.getText());
                 paciente.setApellido(jTextFieldApellido.getText());
                 paciente.setCodObraSocial(Integer.parseInt(jTextFieldCodObraSocial.getText()));
-                paciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
-
+                try {
+                    daoPaciente.guardar(paciente);
+                } catch (DAOException daoException) {
+                    daoException.printStackTrace();
+                }
+                FormularioAdmin formularioAdmin = null;
+                formularioAdmin = new FormularioAdmin(panel);
+                panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
 

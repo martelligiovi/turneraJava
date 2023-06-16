@@ -19,11 +19,12 @@ public class DAOPaciente implements DAO<Paciente>{
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-            preparedStatement=connection.prepareStatement("INSERT into Paciente Values(?,?,?,?,?)");
-            preparedStatement.setString(1, elemento.getNombre());
-            preparedStatement.setString(2, elemento.getApellido());
-            preparedStatement.setInt(3, elemento.getCodObraSocial());
-            preparedStatement.setInt(4, elemento.getDni());
+            preparedStatement=connection.prepareStatement("INSERT into Paciente Values(?,?,?,?)");
+            preparedStatement.setInt(1, elemento.getDni());
+            preparedStatement.setString(2, elemento.getNombre());
+            preparedStatement.setString(3, elemento.getApellido());
+            preparedStatement.setInt(4, elemento.getCodObraSocial());
+
 
             int res=preparedStatement.executeUpdate();
             System.out.println("Se agregaron " + res);
@@ -122,7 +123,7 @@ public class DAOPaciente implements DAO<Paciente>{
                 paciente = new Paciente(
                 resultSet.getString("NOMBRE"),
                 resultSet.getString("APELLIDO"),
-                resultSet.getInt("LEGAJO"),
+                resultSet.getInt("CODOBRASOCIAL"),
                 resultSet.getInt("DNI")
                 );
                 datos.add(paciente);

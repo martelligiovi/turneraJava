@@ -1,5 +1,7 @@
 package gui;
 
+import dao.DAOException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
