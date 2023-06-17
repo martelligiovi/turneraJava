@@ -13,6 +13,14 @@ public class Turno {
     }
     public Turno(){
     }
+public String getHora(){
+    String[] partes = this.fecha.split(" ");
+    String hora = partes[1]; // Segunda parte es la hora
+    return hora;
+    }
+
+
+
 
     public int getDniPaciente() {
         return dniPaciente;

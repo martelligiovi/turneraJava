@@ -58,7 +58,7 @@ public class FormularioTurno extends JPanel{
 
         jTextFieldFecha.setColumns(10);
         jTextFieldFecha.setFocusLostBehavior(JFormattedTextField.COMMIT);
-        jTextFieldFecha.setText("yyyy/MM/dd HH");
+        jTextFieldFecha.setText("yyyy/MM/dd");
 
         ArrayList<Medico> medicos = fillarrayMedicos();
         for (Medico m : medicos) {

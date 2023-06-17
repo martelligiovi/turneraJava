@@ -19,6 +19,8 @@ public class FormularioHora {
     DAOTurno daoTurno;
     JLabel jLabelHora;
     JComboBox jComboBoxHora;
+    JButton jButtonSend;
+    JButton jButtonExit;
     PanelManager panel;
     Turno turno;
     public FormularioHora (Turno turno){
@@ -40,10 +42,12 @@ public class FormularioHora {
         for (String hora : hs) {
             jComboBoxHora.addItem(hora);
         }
-        JButton jButtonSend = new JButton("Enviar");
+        jButtonSend = new JButton("Enviar");
+        jButtonExit = new JButton("Salir");
         formularioHora.add(jLabelHora);
         formularioHora.add(jComboBoxHora);
         formularioHora.add(jButtonSend);
+        formularioHora.add(jButtonExit);
 
         jButtonSend.addActionListener(new ActionListener() {
             @Override
@@ -58,10 +62,25 @@ public class FormularioHora {
                 } catch (DAOException ex) {
                     ex.printStackTrace();
                 }
+                FormularioAdmin formularioAdmin = null;
+                formularioAdmin = new FormularioAdmin(panel);
+                panel.mostrar(formularioAdmin.getFormularioAdmin());
+            }
+        });
+        jButtonExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FormularioTurno formularioTurno = null;
+                formularioTurno = new FormularioTurno(panel);
+                panel.mostrar(formularioTurno.getFormularioTurno());
             }
         });
 
-            }
+
+
+
+
+    }
     public ArrayList<String> fillarrayHoras(ArrayList<String> horariosTomados){
         int horaInicial = 10; // Hora inicial (10:00)
         ArrayList<String> horariosTurnos = new ArrayList<>();
