@@ -7,7 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class FormularioReporteFinal {
+public class FormularioReporteFinal extends JPanel{
     PanelManager panel;
     private JPanel formularioReporteFinal;
     private ArrayList<Turno> listaTurnos;

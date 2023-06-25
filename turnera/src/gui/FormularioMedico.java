@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioMedico extends JPanel{
+public class FormularioMedico extends JPanel implements Formulario{
 
     MedicoService medicoService;
     JPanel formularioMedico;
@@ -29,11 +29,12 @@ public class FormularioMedico extends JPanel{
 
     public FormularioMedico (PanelManager panel){
         this.panel=panel;
-        creadorFormularioMedico();
-        agregarFormularioMedico();
+        creadorFormulario();
+        agregarFormulario();
         agregarFuncionesBotones();
     }
-    private void creadorFormularioMedico(){
+    @Override
+    public void creadorFormulario(){
         medicoService = new MedicoService();
         formularioMedico = new JPanel();
         formularioMedico.setLayout(new GridLayout(5,2));
@@ -48,7 +49,8 @@ public class FormularioMedico extends JPanel{
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
     }
-    private void agregarFormularioMedico(){
+    @Override
+    public void agregarFormulario(){
         formularioMedico.add(jLabelDni);
         formularioMedico.add(jTextFieldDni);
         formularioMedico.add(jLabelNombre);
@@ -61,13 +63,14 @@ public class FormularioMedico extends JPanel{
         formularioMedico.add(jButtonSend);
 
     }
-    private void agregarFuncionesBotones(){
+    @Override
+    public void agregarFuncionesBotones(){
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FormularioAdmin formularioAdmin = null;
                 formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormularioAdmin());
+                panel.mostrar(formularioAdmin.getFormulario());
             }
         });
         jButtonSend.addActionListener(new ActionListener() {
@@ -85,13 +88,13 @@ public class FormularioMedico extends JPanel{
                 }
                 FormularioAdmin formularioAdmin = null;
                 formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormularioAdmin());
+                panel.mostrar(formularioAdmin.getFormulario());
             }
         });
     }
 
 
-    public JPanel getFormularioMedico() {
+    public JPanel getFormulario() {
         return formularioMedico;
     }
 }

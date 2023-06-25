@@ -36,7 +36,7 @@ public class FormularioTurnosMedicos {
         }
         formularioTurnosMedicos.add(new JScrollPane(new JTable(model)));
     }
-    public JPanel getFormularioTurnosMedicos() {
+    public JPanel getFormulario() {
         return formularioTurnosMedicos;
     }
 }

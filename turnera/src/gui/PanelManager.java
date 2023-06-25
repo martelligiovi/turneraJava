@@ -13,7 +13,7 @@ public class PanelManager {
         ventana=new JFrame("Clinica");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         formularioSeleccionUsuario = new FormularioSeleccionUsuario(this);
-        mostrar(formularioSeleccionUsuario.getformularioSeleccionUsuario());
+        mostrar(formularioSeleccionUsuario.getFormulario());
         ventana.setVisible(true);
     }
     public void mostrar(JPanel panel){

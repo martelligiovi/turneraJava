@@ -11,9 +11,11 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-public class FormularioUsuarioMedico {
+public class FormularioUsuarioMedico extends JPanel implements Formulario{
     PanelManager panel;
     JPanel formularioUsuarioMedico;
+    FormularioSeleccionUsuario formularioSeleccionUsuario;
+    FormularioTurnosMedicos formularioTurnosMedicos;
     DAOTurno daoTurno;
     JLabel jLabelLegajo;
     JTextField jTextFieldLegajo;
@@ -24,11 +26,12 @@ public class FormularioUsuarioMedico {
 
     public FormularioUsuarioMedico(PanelManager panel){
         this.panel=panel;
-        creadorFormularioUsuarioMedico();
-        agregarFormularioUsuarioMedico();
+        creadorFormulario();
+        agregarFormulario();
         agregarFuncionesBotones();
     }
-    public void creadorFormularioUsuarioMedico(){
+    @Override
+    public void creadorFormulario(){
         daoTurno = new DAOTurno();
         formularioUsuarioMedico = new JPanel();
         formularioUsuarioMedico.setLayout(new GridLayout(3,2));
@@ -39,7 +42,8 @@ public class FormularioUsuarioMedico {
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
     }
-    public void agregarFormularioUsuarioMedico(){
+    @Override
+    public void agregarFormulario(){
         formularioUsuarioMedico.add(jLabelLegajo);
         formularioUsuarioMedico.add(jTextFieldLegajo);
         formularioUsuarioMedico.add(jLabelFecha);
@@ -47,33 +51,32 @@ public class FormularioUsuarioMedico {
         formularioUsuarioMedico.add(jButtonExit);
         formularioUsuarioMedico.add(jButtonSend);
     }
-    private void agregarFuncionesBotones(){
+    @Override
+    public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FormularioTurnosMedicos formularioTurnosMedicos = null;
                 try {
                     formularioTurnosMedicos = new FormularioTurnosMedicos(panel,jTextFieldFecha.getText(),Integer.parseInt(jTextFieldLegajo.getText()));
                 } catch (DAOException ex) {
                     throw new RuntimeException(ex);
                 }
-                panel.mostrar(formularioTurnosMedicos.getFormularioTurnosMedicos());
+                panel.mostrar(formularioTurnosMedicos.getFormulario());
             }
         });
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FormularioSeleccionUsuario formularioSeleccionUsuario = null;
                 formularioSeleccionUsuario = new FormularioSeleccionUsuario(panel);
-                panel.mostrar(formularioSeleccionUsuario.getformularioSeleccionUsuario());
+                panel.mostrar(formularioSeleccionUsuario.getFormulario());
             }
         });
     }
-
-    public JPanel getFormularioUsuarioMedico() {
+    @Override
+    public JPanel getFormulario() {
         return formularioUsuarioMedico;
     }
-    private MaskFormatter createMaskFormatter(String mask) {
+    public MaskFormatter createMaskFormatter(String mask) {
         MaskFormatter formatter = null;
         try {
             formatter = new MaskFormatter(mask);

@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioSeleccionUsuario extends JPanel{
+public class FormularioSeleccionUsuario extends JPanel implements Formulario{
 
     JPanel formularioSeleccionUsuario;
     FormularioAdmin formularioAdmin;
@@ -18,41 +18,43 @@ public class FormularioSeleccionUsuario extends JPanel{
     JButton jButtonPaciente;
     public FormularioSeleccionUsuario (PanelManager panel){
         this.panel=panel;
-        creadorFormularioSeleccionUsuario();
+        creadorFormulario();
         agregarFormulario();
-        agregagarFuncionesBotones();
+        agregarFuncionesBotones();
     }
-    public void creadorFormularioSeleccionUsuario(){
+    @Override
+    public void creadorFormulario(){
         formularioSeleccionUsuario = new JPanel();
         formularioSeleccionUsuario.setLayout(new GridLayout(3,1));
         jButtonAdmin = new JButton("Administrador");
         jButtonMedico = new JButton("Medico");
         jButtonPaciente = new JButton("Paciente");
     }
-    private void agregarFormulario(){
+    @Override
+    public void agregarFormulario(){
         formularioSeleccionUsuario.add(jButtonAdmin);
         formularioSeleccionUsuario.add(jButtonMedico);
         formularioSeleccionUsuario.add(jButtonPaciente);
     }
-    private void agregagarFuncionesBotones(){
+    @Override
+    public void agregarFuncionesBotones(){
         jButtonMedico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 formularioUsuarioMedico = new FormularioUsuarioMedico(panel);
-                panel.mostrar(formularioUsuarioMedico.getFormularioUsuarioMedico());
+                panel.mostrar(formularioUsuarioMedico.getFormulario());
             }
         });
         jButtonAdmin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormularioAdmin());
+                panel.mostrar(formularioAdmin.getFormulario());
             }
         });
     }
-
-
-    public JPanel getformularioSeleccionUsuario() {
+    @Override
+    public JPanel getFormulario() {
         return formularioSeleccionUsuario;
     }
 }

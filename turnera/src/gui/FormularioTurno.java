@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.text.*;
 
-public class FormularioTurno extends JPanel{
+public class FormularioTurno extends JPanel implements Formulario{
     JPanel formularioTurno;
     FormularioHora formularioHora;
     JLabel jLabelLegajoMedico;
@@ -29,17 +29,18 @@ public class FormularioTurno extends JPanel{
     JLabel jLabelCosto;
     JTextField jTextFieldCosto;
     PanelManager panel;
-    private DAOMedico daoMedico;
-    private DAOPaciente daoPaciente;
+    public DAOMedico daoMedico;
+    public DAOPaciente daoPaciente;
 
 
     public FormularioTurno (PanelManager panel){
         this.panel=panel;
-        creadorFormularioTurno();
+        creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
     }
-    private void creadorFormularioTurno(){
+    @Override
+    public void creadorFormulario(){
         daoMedico = new DAOMedico();
         daoPaciente = new DAOPaciente();
         formularioTurno = new JPanel();
@@ -67,7 +68,8 @@ public class FormularioTurno extends JPanel{
             jComboBoxDniPaciente.addItem(p.getDni());
         }
     }
-    private void agregarFormulario(){
+    @Override
+    public void agregarFormulario(){
         formularioTurno.add(jLabelLegajoMedico);
         formularioTurno.add(jComboBoxLegajoMedico);
         formularioTurno.add(jLabelDniPaciente);
@@ -79,12 +81,13 @@ public class FormularioTurno extends JPanel{
         formularioTurno.add(jButtonExit);
         formularioTurno.add(jButtonSend);
     }
-    private void agregarFuncionesBotones(){
+    @Override
+    public void agregarFuncionesBotones(){
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormularioAdmin());
+                panel.mostrar(formularioAdmin.getFormulario());
             }
         });
 
@@ -97,13 +100,12 @@ public class FormularioTurno extends JPanel{
                 turno.setFecha(jTextFieldFecha.getText());
                 turno.setCosto(Double.parseDouble(jTextFieldCosto.getText()));
                 FormularioHora formularioHora = new FormularioHora(panel, turno);
-                panel.mostrar(formularioHora.getFormularioHora());
+                panel.mostrar(formularioHora.getFormulario());
             }
         });
     }
-    public JPanel getFormularioTurno() {
-        return formularioTurno;
-    }
+    @Override
+    public JPanel getFormulario() {return formularioTurno;}
     public ArrayList<Medico> fillarrayMedicos(){
         ArrayList<Medico> medicos = new ArrayList<Medico>();
         try {
@@ -123,7 +125,7 @@ public class FormularioTurno extends JPanel{
         }
         return pacientes;
     }
-    private MaskFormatter createMaskFormatter(String mask) {
+    public MaskFormatter createMaskFormatter(String mask) {
         MaskFormatter formatter = null;
         try {
             formatter = new MaskFormatter(mask);

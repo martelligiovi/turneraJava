@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.text.*;
 
-public class FormularioHora {
+public class FormularioHora extends JPanel implements Formulario{
+    FormularioAdmin formularioAdmin;
     JPanel formularioHora;
     DAOTurno daoTurno;
     JLabel jLabelHora;
@@ -30,11 +31,12 @@ public class FormularioHora {
     public FormularioHora (PanelManager panel,Turno turno){
         this.panel=panel;
         this.turno=turno;
-        creadorFormularioHora();
-        agregarFormularioHora();
+        creadorFormulario();
+        agregarFormulario();
         agregarFuncionesBotones();
     }
-    private void creadorFormularioHora(){
+    @Override
+    public void creadorFormulario(){
         daoTurno = new DAOTurno();
         formularioHora = new JPanel();
         formularioHora.setLayout(new GridLayout(2,2));
@@ -46,15 +48,16 @@ public class FormularioHora {
         for (String hora : hs) {
             jComboBoxHora.addItem(hora);
         }
-
     }
-    private void agregarFormularioHora(){
+    @Override
+    public void agregarFormulario(){
         formularioHora.add(jLabelHora);
         formularioHora.add(jComboBoxHora);
         formularioHora.add(jButtonExit);
         formularioHora.add(jButtonSend);
     }
-    private void agregarFuncionesBotones(){
+    @Override
+    public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,9 +71,8 @@ public class FormularioHora {
                 } catch (DAOException ex) {
                     ex.printStackTrace();
                 }
-                FormularioAdmin formularioAdmin = null;
                 formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormularioAdmin());
+                panel.mostrar(formularioAdmin.getFormulario());
             }
         });
         jButtonExit.addActionListener(new ActionListener() {
@@ -78,7 +80,7 @@ public class FormularioHora {
             public void actionPerformed(ActionEvent e) {
                 FormularioTurno formularioTurno = null;
                 formularioTurno = new FormularioTurno(panel);
-                panel.mostrar(formularioTurno.getFormularioTurno());
+                panel.mostrar(formularioTurno.getFormulario());
             }
         });
     }
@@ -114,7 +116,8 @@ public class FormularioHora {
         model.addAll(horarios); // Agrega todos los elementos del array a la
         return model;
     }
-    public JPanel getFormularioHora() {
+    @Override
+    public JPanel getFormulario() {
         return formularioHora;
     }
 

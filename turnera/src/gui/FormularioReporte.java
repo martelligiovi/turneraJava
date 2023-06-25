@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-public class FormularioReporte {
+public class FormularioReporte extends JPanel implements Formulario{
     ArrayList<Turno> listaTurnos;
     FormularioReporteFinal formularioReporteFinal;
     JPanel formularioReporte;
@@ -25,15 +25,16 @@ public class FormularioReporte {
     JLabel jLabelLegajo;
     JButton jButtonSend;
     JButton jButtonExit;
-    private DAOTurno daoTurno;
+    public DAOTurno daoTurno;
 
     public FormularioReporte(PanelManager panel) {
         this.panel=panel;
-        creadorFormularioReporte();
+        creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
     }
-    public void creadorFormularioReporte(){
+    @Override
+    public void creadorFormulario(){
         formularioReporte = new JPanel();
         jButtonSend = new JButton("Buscar");
         jLabelLegajo = new JLabel("Legajo");
@@ -45,7 +46,8 @@ public class FormularioReporte {
         jButtonExit = new JButton("Salir");
         formularioReporte.setLayout(new GridLayout(4,2));
     }
-    private void agregarFormulario(){
+    @Override
+    public void agregarFormulario(){
         formularioReporte.add(jLabelLegajo);
         formularioReporte.add(jTextFieldLegajo);
         formularioReporte.add(jLabelFecha1);
@@ -55,7 +57,8 @@ public class FormularioReporte {
         formularioReporte.add(jButtonExit);
         formularioReporte.add(jButtonSend);
     }
-    private void agregarFuncionesBotones(){
+    @Override
+    public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(e -> {
             try {
                 daoTurno = new DAOTurno();
@@ -72,11 +75,11 @@ public class FormularioReporte {
             public void actionPerformed(ActionEvent e) {
                 FormularioAdmin formularioAdmin = null;
                 formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormularioAdmin());
+                panel.mostrar(formularioAdmin.getFormulario());
             }
         });
     }
-    public JPanel getFormularioReporte() {
+    public JPanel getFormulario() {
         return formularioReporte;
     }
     private MaskFormatter createMaskFormatter(String mask) {
