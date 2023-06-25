@@ -18,5 +18,6 @@ public class Main {
 
     }
 }
-
+//tengo que usar la interfaz de los botones y overraydearlo
+//tambien crear una interfaz para los paneles, y que los paneles implementen esa interfaz, se repiten 3 metodos
 

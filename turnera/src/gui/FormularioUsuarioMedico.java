@@ -25,6 +25,8 @@ public class FormularioUsuarioMedico {
     public FormularioUsuarioMedico(PanelManager panel){
         this.panel=panel;
         creadorFormularioUsuarioMedico();
+        agregarFormularioUsuarioMedico();
+        agregarFuncionesBotones();
     }
     public void creadorFormularioUsuarioMedico(){
         daoTurno = new DAOTurno();
@@ -36,14 +38,16 @@ public class FormularioUsuarioMedico {
         jTextFieldFecha = new JFormattedTextField(createMaskFormatter("####/##/##"));
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
+    }
+    public void agregarFormularioUsuarioMedico(){
         formularioUsuarioMedico.add(jLabelLegajo);
         formularioUsuarioMedico.add(jTextFieldLegajo);
         formularioUsuarioMedico.add(jLabelFecha);
         formularioUsuarioMedico.add(jTextFieldFecha);
         formularioUsuarioMedico.add(jButtonExit);
         formularioUsuarioMedico.add(jButtonSend);
-
-
+    }
+    private void agregarFuncionesBotones(){
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,7 +58,7 @@ public class FormularioUsuarioMedico {
                     throw new RuntimeException(ex);
                 }
                 panel.mostrar(formularioTurnosMedicos.getFormularioTurnosMedicos());
-                }
+            }
         });
         jButtonExit.addActionListener(new ActionListener() {
             @Override
@@ -64,7 +68,6 @@ public class FormularioUsuarioMedico {
                 panel.mostrar(formularioSeleccionUsuario.getformularioSeleccionUsuario());
             }
         });
-
     }
 
     public JPanel getFormularioUsuarioMedico() {

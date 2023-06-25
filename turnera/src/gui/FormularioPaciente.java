@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormularioPaciente extends JPanel{
-    DAOPaciente daopaciente;
+    DAOPaciente daoPaciente;
     JPanel formularioPaciente;
     JLabel jLabelNombre;
     JTextField  jTextFieldNombre;
@@ -23,19 +23,17 @@ public class FormularioPaciente extends JPanel{
     JTextField jTextFieldDni;
     JLabel jLabelCodObraSocial;
     JTextField jTextFieldCodObraSocial;
-    JPanel jPanelBotones;
     PanelManager panel;
 
 
     public FormularioPaciente (PanelManager panel){
-
         this.panel=panel;
         creadorFormularioPaciente();
-
-
+        agregarFormulario();
+        agregarFuncionesBotones();
     }
-    public void creadorFormularioPaciente(){
-        DAOPaciente daoPaciente = new DAOPaciente();
+    private void creadorFormularioPaciente(){
+        daoPaciente = new DAOPaciente();
         formularioPaciente = new JPanel();
         formularioPaciente.setLayout(new GridLayout(5,2));
         jLabelNombre = new JLabel("Nombre");
@@ -48,8 +46,8 @@ public class FormularioPaciente extends JPanel{
         jTextFieldCodObraSocial = new JTextField();
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
-        jPanelBotones=new JPanel();
-
+    }
+    private void agregarFormulario(){
         formularioPaciente.add(jLabelDni);
         formularioPaciente.add(jTextFieldDni);
         formularioPaciente.add(jLabelNombre);
@@ -60,8 +58,8 @@ public class FormularioPaciente extends JPanel{
         formularioPaciente.add(jTextFieldCodObraSocial);
         formularioPaciente.add(jButtonExit);
         formularioPaciente.add(jButtonSend);
-
-
+    }
+    private void agregarFuncionesBotones(){
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,7 +68,6 @@ public class FormularioPaciente extends JPanel{
                 panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
-
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,9 +86,7 @@ public class FormularioPaciente extends JPanel{
                 panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
-
     }
-
 
     public JPanel getFormularioPaciente() {
         return formularioPaciente;

@@ -14,6 +14,7 @@ public class FormularioReporteFinal {
     private JLabel jLabelTotal;
     private JLabel jLabelIntro;
     private DefaultTableModel model;
+    GridBagConstraints gbc;
     String fecha1;
     String fecha2;
 
@@ -25,18 +26,19 @@ public class FormularioReporteFinal {
         crearFormularioReporteFinal();
     }
 
-    public void crearFormularioReporteFinal() {
+    private void crearFormularioReporteFinal() {
         Double total = 0.0;
         formularioReporteFinal = new JPanel(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        gbc = new GridBagConstraints();
 
         jLabelIntro =new JLabel("<html><div style=\"font-size:10px; margin-top: -5px; line-height: 0;\">El médico con legajo: <b><span style=\"font-size:14px;\">" + listaTurnos.get(0).getLegajoMedico() + "</b><br><br></span> entre las fechas <b><span style=\"font-size:14px;\">" + this.fecha1 + "</b></span> y <b><span style=\"font-size:14px;\">" + this.fecha2 + "</div></html>");
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(10, 0, 10, 0);
         formularioReporteFinal.add(jLabelIntro, gbc);
 
+
+        gbc.insets = new Insets(10, 0, 10, 0);
         model = new DefaultTableModel();
         model.addColumn("dni paciente");
         model.addColumn("fecha");

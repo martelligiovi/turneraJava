@@ -16,45 +16,39 @@ public class FormularioSeleccionUsuario extends JPanel{
     JButton jButtonAdmin;
     JButton jButtonMedico;
     JButton jButtonPaciente;
-
-
-
     public FormularioSeleccionUsuario (PanelManager panel){
-
         this.panel=panel;
         creadorFormularioSeleccionUsuario();
-
-
+        agregarFormulario();
+        agregagarFuncionesBotones();
     }
     public void creadorFormularioSeleccionUsuario(){
-        formularioUsuarioMedico = new FormularioUsuarioMedico(panel);
-
         formularioSeleccionUsuario = new JPanel();
-        formularioAdmin= new FormularioAdmin(panel);
         formularioSeleccionUsuario.setLayout(new GridLayout(3,1));
         jButtonAdmin = new JButton("Administrador");
         jButtonMedico = new JButton("Medico");
         jButtonPaciente = new JButton("Paciente");
+    }
+    private void agregarFormulario(){
         formularioSeleccionUsuario.add(jButtonAdmin);
         formularioSeleccionUsuario.add(jButtonMedico);
         formularioSeleccionUsuario.add(jButtonPaciente);
-
-
+    }
+    private void agregagarFuncionesBotones(){
         jButtonMedico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                formularioUsuarioMedico = new FormularioUsuarioMedico(panel);
                 panel.mostrar(formularioUsuarioMedico.getFormularioUsuarioMedico());
             }
         });
-
         jButtonAdmin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                formularioAdmin = new FormularioAdmin(panel);
                 panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
-
     }
 
 

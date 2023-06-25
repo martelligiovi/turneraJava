@@ -30,6 +30,8 @@ public class FormularioReporte {
     public FormularioReporte(PanelManager panel) {
         this.panel=panel;
         creadorFormularioReporte();
+        agregarFormulario();
+        agregarFuncionesBotones();
     }
     public void creadorFormularioReporte(){
         formularioReporte = new JPanel();
@@ -42,6 +44,8 @@ public class FormularioReporte {
         jLabelFecha2 = new JLabel("Fecha 2");
         jButtonExit = new JButton("Salir");
         formularioReporte.setLayout(new GridLayout(4,2));
+    }
+    private void agregarFormulario(){
         formularioReporte.add(jLabelLegajo);
         formularioReporte.add(jTextFieldLegajo);
         formularioReporte.add(jLabelFecha1);
@@ -50,6 +54,8 @@ public class FormularioReporte {
         formularioReporte.add(jTextFieldFecha2);
         formularioReporte.add(jButtonExit);
         formularioReporte.add(jButtonSend);
+    }
+    private void agregarFuncionesBotones(){
         jButtonSend.addActionListener(e -> {
             try {
                 daoTurno = new DAOTurno();
@@ -70,7 +76,6 @@ public class FormularioReporte {
             }
         });
     }
-
     public JPanel getFormularioReporte() {
         return formularioReporte;
     }

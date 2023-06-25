@@ -34,13 +34,12 @@ public class FormularioTurno extends JPanel{
 
 
     public FormularioTurno (PanelManager panel){
-
         this.panel=panel;
         creadorFormularioTurno();
-
-
+        agregarFormulario();
+        agregarFuncionesBotones();
     }
-    public void creadorFormularioTurno(){
+    private void creadorFormularioTurno(){
         daoMedico = new DAOMedico();
         daoPaciente = new DAOPaciente();
         formularioTurno = new JPanel();
@@ -55,22 +54,20 @@ public class FormularioTurno extends JPanel{
         jTextFieldCosto = new JTextField();
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
-
         jTextFieldFecha.setColumns(10);
         jTextFieldFecha.setFocusLostBehavior(JFormattedTextField.COMMIT);
         jTextFieldFecha.setText("yyyy/MM/dd");
-
         ArrayList<Medico> medicos = fillarrayMedicos();
         for (Medico m : medicos) {
             jComboBoxLegajoMedico.addItem(m.getLegajo());
         }
-
         ArrayList<Paciente> pacientes = fillarrayPacientes();
         jComboBoxDniPaciente = new JComboBox();
         for (Paciente p : pacientes) {
             jComboBoxDniPaciente.addItem(p.getDni());
         }
-
+    }
+    private void agregarFormulario(){
         formularioTurno.add(jLabelLegajoMedico);
         formularioTurno.add(jComboBoxLegajoMedico);
         formularioTurno.add(jLabelDniPaciente);
@@ -81,8 +78,8 @@ public class FormularioTurno extends JPanel{
         formularioTurno.add(jTextFieldCosto);
         formularioTurno.add(jButtonExit);
         formularioTurno.add(jButtonSend);
-
-
+    }
+    private void agregarFuncionesBotones(){
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
