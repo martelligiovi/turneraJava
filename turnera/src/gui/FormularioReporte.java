@@ -7,6 +7,8 @@ import entidades.Turno;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -21,7 +23,8 @@ public class FormularioReporte {
     JLabel jLabelFecha2;
     JTextField jTextFieldLegajo;
     JLabel jLabelLegajo;
-    JButton jButtonBuscar;
+    JButton jButtonSend;
+    JButton jButtonExit;
     private DAOTurno daoTurno;
 
     public FormularioReporte(PanelManager panel) {
@@ -30,22 +33,24 @@ public class FormularioReporte {
     }
     public void creadorFormularioReporte(){
         formularioReporte = new JPanel();
-        formularioReporte.setLayout(new GridLayout(4,2));
+        jButtonSend = new JButton("Buscar");
         jLabelLegajo = new JLabel("Legajo");
         jTextFieldLegajo = new JTextField();
         jTextFieldFecha1 = new JFormattedTextField(createMaskFormatter("####/##/##"));
         jTextFieldFecha2 = new JFormattedTextField(createMaskFormatter("####/##/##"));
         jLabelFecha1 = new JLabel("Fecha 1");
         jLabelFecha2 = new JLabel("Fecha 2");
+        jButtonExit = new JButton("Salir");
+        formularioReporte.setLayout(new GridLayout(4,2));
         formularioReporte.add(jLabelLegajo);
         formularioReporte.add(jTextFieldLegajo);
         formularioReporte.add(jLabelFecha1);
         formularioReporte.add(jTextFieldFecha1);
         formularioReporte.add(jLabelFecha2);
         formularioReporte.add(jTextFieldFecha2);
-        jButtonBuscar = new JButton("Buscar");
-        formularioReporte.add(jButtonBuscar);
-        jButtonBuscar.addActionListener(e -> {
+        formularioReporte.add(jButtonExit);
+        formularioReporte.add(jButtonSend);
+        jButtonSend.addActionListener(e -> {
             try {
                 daoTurno = new DAOTurno();
                 listaTurnos = new ArrayList<>();
@@ -54,6 +59,14 @@ public class FormularioReporte {
                 panel.mostrar(formularioReporteFinal.getFormularioReporteFinal());
             } catch (Exception exception) {
                 exception.printStackTrace();
+            }
+        });
+        jButtonExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FormularioAdmin formularioAdmin = null;
+                formularioAdmin = new FormularioAdmin(panel);
+                panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
     }

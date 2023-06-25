@@ -79,8 +79,9 @@ public class FormularioTurno extends JPanel{
         formularioTurno.add(jTextFieldFecha);
         formularioTurno.add(jLabelCosto);
         formularioTurno.add(jTextFieldCosto);
-        formularioTurno.add(jButtonSend);
         formularioTurno.add(jButtonExit);
+        formularioTurno.add(jButtonSend);
+
 
         jButtonExit.addActionListener(new ActionListener() {
             @Override

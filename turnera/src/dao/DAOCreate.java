@@ -81,10 +81,10 @@ public class DAOCreate{
     }
 
     public static void createTablas(){
-        createMedico();
-        createPaciente();
         createTurno();
         createRelacionMedicoObrasocial();
+        createMedico();
+        createPaciente();
         createObraSocial();
     }
 
@@ -136,7 +136,7 @@ public class DAOCreate{
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("DROP TABLE RelMedOsoc");
+            preparedStatement = connection.prepareStatement("DROP TABLE RelacionMedicoObrasocial");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha eliminado la tabla Relmedosoc " + res);
         }

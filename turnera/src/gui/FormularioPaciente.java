@@ -58,8 +58,9 @@ public class FormularioPaciente extends JPanel{
         formularioPaciente.add(jTextFieldApellido);
         formularioPaciente.add(jLabelCodObraSocial);
         formularioPaciente.add(jTextFieldCodObraSocial);
-        formularioPaciente.add(jButtonSend);
         formularioPaciente.add(jButtonExit);
+        formularioPaciente.add(jButtonSend);
+
 
         jButtonExit.addActionListener(new ActionListener() {
             @Override

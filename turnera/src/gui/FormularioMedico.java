@@ -25,14 +25,15 @@ public class FormularioMedico extends JPanel{
     JTextField jTextFieldDni;
     JLabel jLabelLegajo;
     JTextField jTextFieldLegajo;
-    JPanel jPanelBotones;
     PanelManager panel;
 
     public FormularioMedico (PanelManager panel){
         this.panel=panel;
         creadorFormularioMedico();
+        agregarFormularioMedico();
+        agregarFuncionesBotones();
     }
-    public void creadorFormularioMedico(){
+    private void creadorFormularioMedico(){
         medicoService = new MedicoService();
         formularioMedico = new JPanel();
         formularioMedico.setLayout(new GridLayout(5,2));
@@ -42,14 +43,12 @@ public class FormularioMedico extends JPanel{
         jLabelLegajo = new JLabel("Legajo");
         jTextFieldNombre = new JTextField();
         jTextFieldApellido = new JTextField();
-        //quiero usar un jtextfield que solo acepte numeros y que no se pueda escribir mas de 8 numeros
         jTextFieldDni = new JTextField();
         jTextFieldLegajo = new JTextField();
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
-        jPanelBotones=new JPanel();
-
-
+    }
+    private void agregarFormularioMedico(){
         formularioMedico.add(jLabelDni);
         formularioMedico.add(jTextFieldDni);
         formularioMedico.add(jLabelNombre);
@@ -58,9 +57,11 @@ public class FormularioMedico extends JPanel{
         formularioMedico.add(jTextFieldApellido);
         formularioMedico.add(jLabelLegajo);
         formularioMedico.add(jTextFieldLegajo);
-        formularioMedico.add(jButtonSend);
         formularioMedico.add(jButtonExit);
+        formularioMedico.add(jButtonSend);
 
+    }
+    private void agregarFuncionesBotones(){
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,8 +70,6 @@ public class FormularioMedico extends JPanel{
                 panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
-
-
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,7 +88,6 @@ public class FormularioMedico extends JPanel{
                 panel.mostrar(formularioAdmin.getFormularioAdmin());
             }
         });
-
     }
 
 

@@ -59,11 +59,12 @@ public class FormularioUsuarioMedico {
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FormularioAdmin formularioAdmin = null;
-                formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormularioAdmin());
+                FormularioSeleccionUsuario formularioSeleccionUsuario = null;
+                formularioSeleccionUsuario = new FormularioSeleccionUsuario(panel);
+                panel.mostrar(formularioSeleccionUsuario.getformularioSeleccionUsuario());
             }
         });
+
     }
 
     public JPanel getFormularioUsuarioMedico() {

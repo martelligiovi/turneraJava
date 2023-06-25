@@ -11,11 +11,10 @@ public class PanelManager {
     public PanelManager()
     {
         ventana=new JFrame("Clinica");
-        ventana.setSize(500,500);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setVisible(true);
         formularioSeleccionUsuario = new FormularioSeleccionUsuario(this);
         mostrar(formularioSeleccionUsuario.getformularioSeleccionUsuario());
+        ventana.setVisible(true);
     }
     public void mostrar(JPanel panel){
         ventana.getContentPane().removeAll();
@@ -23,6 +22,8 @@ public class PanelManager {
         ventana.getContentPane().validate();
         ventana.getContentPane().repaint();
         ventana.pack();
+        ventana.setLocationRelativeTo(null);
+
     }
     //hacer el mostrarPanelAdmin
     public void mostrarFormularioAdmin(){

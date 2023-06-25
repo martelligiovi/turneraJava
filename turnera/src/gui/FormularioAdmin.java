@@ -20,25 +20,26 @@ public class FormularioAdmin extends JPanel{
     public FormularioAdmin(PanelManager panel){
         this.panel=panel;
         creadorFormularioAdmin();
+        agregarFormularioMedico();
+        agregarFuncionesBotones();
     }
-    public void creadorFormularioAdmin(){
+    private void creadorFormularioAdmin(){
         formularioAdmin = new JPanel();
-
-
-
-
         formularioAdmin.setLayout(new GridLayout(5,1));
         jButtonRegistrarMedico = new JButton("Registrar Medico");
         jButtonRegistrarPaciente = new JButton("Registrar Paciente");
         jButtonRegistrarTurno = new JButton("Registrar Turno");
         jButtonReportes = new JButton("Reportes");
         jButtonExit = new JButton("Salir");
+    }
+    private void agregarFormularioMedico(){
         formularioAdmin.add(jButtonRegistrarMedico);
         formularioAdmin.add(jButtonRegistrarPaciente);
         formularioAdmin.add(jButtonRegistrarTurno);
         formularioAdmin.add(jButtonReportes);
         formularioAdmin.add(jButtonExit);
-
+    }
+    private void agregarFuncionesBotones(){
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,11 +48,6 @@ public class FormularioAdmin extends JPanel{
                 panel.mostrar(formularioSeleccionUsuario.getformularioSeleccionUsuario());
             }
         });
-
-
-
-
-
         jButtonRegistrarMedico.addActionListener(e -> {
             formularioMedico = new FormularioMedico(panel);
             panel.mostrar(formularioMedico.getFormularioMedico());
@@ -68,8 +64,6 @@ public class FormularioAdmin extends JPanel{
             formularioReporte = new FormularioReporte(panel);
             panel.mostrar(formularioReporte.getFormularioReporte());
         });
-
-
     }
     public JPanel getFormularioAdmin(){
         return formularioAdmin;

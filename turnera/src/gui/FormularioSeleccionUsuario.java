@@ -28,6 +28,7 @@ public class FormularioSeleccionUsuario extends JPanel{
     }
     public void creadorFormularioSeleccionUsuario(){
         formularioUsuarioMedico = new FormularioUsuarioMedico(panel);
+
         formularioSeleccionUsuario = new JPanel();
         formularioAdmin= new FormularioAdmin(panel);
         formularioSeleccionUsuario.setLayout(new GridLayout(3,1));

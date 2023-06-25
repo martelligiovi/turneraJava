@@ -31,24 +31,30 @@ public class FormularioHora {
         this.panel=panel;
         this.turno=turno;
         creadorFormularioHora();
+        agregarFormularioHora();
+        agregarFuncionesBotones();
     }
-    public void creadorFormularioHora(){
+    private void creadorFormularioHora(){
         daoTurno = new DAOTurno();
         formularioHora = new JPanel();
         formularioHora.setLayout(new GridLayout(2,2));
         jLabelHora = new JLabel("Hora");
         jComboBoxHora = new JComboBox();
+        jButtonSend = new JButton("Enviar");
+        jButtonExit = new JButton("Salir");
         ArrayList<String> hs = fillarrayHoras(horariosTomados(this.turno.getFecha(),this.turno.getLegajoMedico()));
         for (String hora : hs) {
             jComboBoxHora.addItem(hora);
         }
-        jButtonSend = new JButton("Enviar");
-        jButtonExit = new JButton("Salir");
+
+    }
+    private void agregarFormularioHora(){
         formularioHora.add(jLabelHora);
         formularioHora.add(jComboBoxHora);
-        formularioHora.add(jButtonSend);
         formularioHora.add(jButtonExit);
-
+        formularioHora.add(jButtonSend);
+    }
+    private void agregarFuncionesBotones(){
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,11 +81,6 @@ public class FormularioHora {
                 panel.mostrar(formularioTurno.getFormularioTurno());
             }
         });
-
-
-
-
-
     }
     public ArrayList<String> fillarrayHoras(ArrayList<String> horariosTomados){
         int horaInicial = 10; // Hora inicial (10:00)
@@ -116,7 +117,6 @@ public class FormularioHora {
     public JPanel getFormularioHora() {
         return formularioHora;
     }
-
 
 
 }
