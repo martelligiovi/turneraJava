@@ -151,7 +151,7 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
-    public ArrayList<Turno> buscarTurnos(String fecha, int legajoMedico) throws DAOException {
+    public ArrayList<Turno> buscarTurnosMedico(String fecha, int legajoMedico) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         ArrayList<Turno> datos=new ArrayList<>();
@@ -179,4 +179,34 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
+    public ArrayList<Turno>buscarCobros(String fecha1, String fecha2, int legajo) throws DAOException {
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        Turno turno;
+        ArrayList<Turno> datos=new ArrayList<>();
+
+        try {
+            Class.forName(DB_JDBC_DRIVER);
+            connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE fecha BETWEEN CONCAT(?, ' 00:00') AND CONCAT(?, ' 23:59') AND legajoMedico = ?");
+            preparedStatement.setString(1, fecha1);
+            preparedStatement.setString(2, fecha2);
+            preparedStatement.setInt(3, legajo);
+            ResultSet resultSet =preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                turno=new Turno();
+                turno.setCosto(resultSet.getDouble("costo"));
+                turno.setLegajoMedico(resultSet.getInt("legajoMedico"));
+                turno.setDniPaciente(resultSet.getInt("dniPaciente"));
+                turno.setFecha(resultSet.getString("fecha"));
+                datos.add(turno);
+            }
+        }
+        catch (ClassNotFoundException | SQLException e)
+        {
+            throw  new DAOException(e.getMessage());
+        }
+        return datos;
+    }
+
 }

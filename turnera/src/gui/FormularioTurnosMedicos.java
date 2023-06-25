@@ -30,7 +30,7 @@ public class FormularioTurnosMedicos {
         model.addColumn("dni paciente");
         model.addColumn("hora");
         model.addColumn("costo");
-        ArrayList<Turno> turnos = daoTurno.buscarTurnos(fecha, legajo);
+        ArrayList<Turno> turnos = daoTurno.buscarTurnosMedico(fecha, legajo);
         for (Turno turno : turnos) {
             model.addRow(new Object[]{turno.getDniPaciente(), turno.getHora(), turno.getCosto()});
         }

@@ -9,11 +9,13 @@ public class FormularioAdmin extends JPanel{
     FormularioMedico formularioMedico;
     FormularioPaciente formularioPaciente;
     FormularioTurno formularioTurno;
+    FormularioReporte formularioReporte;
     JPanel formularioAdmin;
     PanelManager panel;
     JButton jButtonRegistrarMedico;
     JButton jButtonRegistrarPaciente;
     JButton jButtonRegistrarTurno;
+    JButton jButtonReportes;
     JButton jButtonExit;
     public FormularioAdmin(PanelManager panel){
         this.panel=panel;
@@ -21,17 +23,20 @@ public class FormularioAdmin extends JPanel{
     }
     public void creadorFormularioAdmin(){
         formularioAdmin = new JPanel();
-        formularioMedico = new FormularioMedico(panel);
-        formularioPaciente = new FormularioPaciente(panel);
-        formularioTurno = new FormularioTurno(panel);
-        formularioAdmin.setLayout(new GridLayout(4,1));
+
+
+
+
+        formularioAdmin.setLayout(new GridLayout(5,1));
         jButtonRegistrarMedico = new JButton("Registrar Medico");
         jButtonRegistrarPaciente = new JButton("Registrar Paciente");
         jButtonRegistrarTurno = new JButton("Registrar Turno");
+        jButtonReportes = new JButton("Reportes");
         jButtonExit = new JButton("Salir");
         formularioAdmin.add(jButtonRegistrarMedico);
         formularioAdmin.add(jButtonRegistrarPaciente);
         formularioAdmin.add(jButtonRegistrarTurno);
+        formularioAdmin.add(jButtonReportes);
         formularioAdmin.add(jButtonExit);
 
         jButtonExit.addActionListener(new ActionListener() {
@@ -48,13 +53,20 @@ public class FormularioAdmin extends JPanel{
 
 
         jButtonRegistrarMedico.addActionListener(e -> {
+            formularioMedico = new FormularioMedico(panel);
             panel.mostrar(formularioMedico.getFormularioMedico());
         });
         jButtonRegistrarPaciente.addActionListener(e -> {
+            formularioPaciente = new FormularioPaciente(panel);
             panel.mostrar(formularioPaciente.getFormularioPaciente());
         });
         jButtonRegistrarTurno.addActionListener(e -> {
+            formularioTurno = new FormularioTurno(panel);
             panel.mostrar(formularioTurno.getFormularioTurno());
+        });
+        jButtonReportes.addActionListener(e -> {
+            formularioReporte = new FormularioReporte(panel);
+            panel.mostrar(formularioReporte.getFormularioReporte());
         });
 
 

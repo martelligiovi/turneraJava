@@ -125,40 +125,6 @@ public class FormularioTurno extends JPanel{
         }
         return pacientes;
     }
-/*
-    public ArrayList<String> fillarrayHoras(ArrayList<String> horariosTomados){
-        int horaInicial = 10; // Hora inicial (10:00)
-        ArrayList<String> horariosTurnos = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            horariosTurnos.add(String.format("%02d:00", horaInicial));
-            horariosTurnos.add(String.format("%02d:30", horaInicial));
-            horaInicial++;
-        }
-        horariosTurnos.removeAll(horariosTomados);
-        return horariosTurnos;
-    }
-
-    private ArrayList<String> horariosTomados(String fecha, int legajoMedico) {
-        ArrayList<String> fechasTomadas = new ArrayList<>();
-        ArrayList<String> horariosTomados = new ArrayList<>();
-        try {
-            fechasTomadas = daoTurno.buscarHorarios(fecha, legajoMedico);
-        } catch (DAOException e) {
-            throw new RuntimeException(e);
-        }
-        for (String fechaHora : fechasTomadas) {
-            String[] partes = fechaHora.split(" ");
-            String hora = partes[1]; // Segunda parte es la hora
-            horariosTomados.add(hora);
-        }
-        return horariosTomados;
-    }
-    private DefaultComboBoxModel<String> model(ArrayList<String> horarios) {
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        model.addAll(horarios); // Agrega todos los elementos del array a la
-        return model;
-    }
-*/
     private MaskFormatter createMaskFormatter(String mask) {
         MaskFormatter formatter = null;
         try {
