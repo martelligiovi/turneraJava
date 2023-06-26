@@ -100,7 +100,10 @@ public class FormularioHora extends JPanel implements Formulario{
         ArrayList<String> fechasTomadas = new ArrayList<>();
         ArrayList<String> horariosTomados = new ArrayList<>();
         try {
-            fechasTomadas = daoTurno.buscarHorarios(fecha, legajoMedico);
+            fechasTomadas = daoTurno.buscarHorariosPorMedico(fecha, legajoMedico);
+            System.out.println(fechasTomadas);
+            fechasTomadas.addAll(daoTurno.buscarHorariosPorPaciente(fecha, legajoMedico));
+            System.out.println(fechasTomadas);
         } catch (DAOException e) {
             throw new RuntimeException(e);
         }

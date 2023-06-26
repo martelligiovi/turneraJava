@@ -12,6 +12,7 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario{
     JPanel formularioSeleccionUsuario;
     FormularioAdmin formularioAdmin;
     FormularioUsuarioMedico formularioUsuarioMedico;
+    FormularioUsuarioPaciente formularioUsuarioPaciente;
     PanelManager panel;
     JButton jButtonAdmin;
     JButton jButtonMedico;
@@ -50,6 +51,13 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario{
             public void actionPerformed(ActionEvent e) {
                 formularioAdmin = new FormularioAdmin(panel);
                 panel.mostrar(formularioAdmin.getFormulario());
+            }
+        });
+        jButtonPaciente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formularioUsuarioPaciente = new FormularioUsuarioPaciente(panel);
+                panel.mostrar(formularioUsuarioPaciente.getFormulario());
             }
         });
     }

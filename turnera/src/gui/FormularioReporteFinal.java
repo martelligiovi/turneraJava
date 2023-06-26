@@ -1,5 +1,6 @@
 package gui;
 
+import dao.DAOMedico;
 import entidades.Turno;
 
 import javax.swing.*;
@@ -44,6 +45,7 @@ public class FormularioReporteFinal extends JPanel{
         model.addColumn("fecha");
         model.addColumn("costo");
         for (Turno turno : listaTurnos) {
+            System.out.println("2");
             model.addRow(new Object[]{turno.getDniPaciente(), turno.getFecha(), turno.getCosto()});
             total += turno.getCosto();
         }

@@ -128,7 +128,7 @@ public class DAOTurno implements DAO<Turno>{
         return datos;
     }
 
-    public ArrayList<String> buscarHorarios(String fecha, int legajoMedico) throws DAOException {
+    public ArrayList<String> buscarHorariosPorMedico(String fecha, int legajoMedico) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         ArrayList<String> datos=new ArrayList<>();
@@ -139,6 +139,29 @@ public class DAOTurno implements DAO<Turno>{
             preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE SUBSTRING(fecha, 1, 10) = ? AND legajoMedico = ?");
             preparedStatement.setString(1, fecha);
             preparedStatement.setInt(2, legajoMedico);
+            ResultSet resultSet =preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                turno = resultSet.getString("fecha");
+                datos.add(turno);
+            }
+        }
+        catch (ClassNotFoundException | SQLException e)
+        {
+            throw  new DAOException(e.getMessage());
+        }
+        return datos;
+    }
+    public ArrayList<String> buscarHorariosPorPaciente(String fecha, int dni) throws DAOException {
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ArrayList<String> datos=new ArrayList<>();
+        String turno=null;
+        try {
+            Class.forName(DB_JDBC_DRIVER);
+            connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE SUBSTRING(fecha, 1, 10) = ? AND dnipaciente = ?");
+            preparedStatement.setString(1, fecha);
+            preparedStatement.setInt(2, dni);
             ResultSet resultSet =preparedStatement.executeQuery();
             while (resultSet.next()) {
                 turno = resultSet.getString("fecha");
@@ -179,6 +202,7 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
+
     public ArrayList<Turno>buscarCobros(String fecha1, String fecha2, int legajo) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
@@ -199,6 +223,34 @@ public class DAOTurno implements DAO<Turno>{
                 turno.setLegajoMedico(resultSet.getInt("legajoMedico"));
                 turno.setDniPaciente(resultSet.getInt("dniPaciente"));
                 turno.setFecha(resultSet.getString("fecha"));
+                datos.add(turno);
+            }
+        }
+        catch (ClassNotFoundException | SQLException e)
+        {
+            throw  new DAOException(e.getMessage());
+        }
+        return datos;
+    }
+    public ArrayList<Turno> buscarTurnosPaciente(int dni) throws DAOException {
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ArrayList<Turno> datos=new ArrayList<>();
+        Turno turno=new Turno();
+        try {
+            Class.forName(DB_JDBC_DRIVER);
+            connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+            preparedStatement=connection.prepareStatement("SELECT *\n" +
+                    "FROM turno\n" +
+                    "WHERE DniPaciente = ?\n" +
+                    "ORDER BY fecha DESC;\n");
+            preparedStatement.setInt(1, dni);
+            ResultSet resultSet =preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                turno = new Turno();
+                turno.setLegajoMedico(resultSet.getInt("legajoMedico"));
+                turno.setFecha(resultSet.getString("fecha"));
+                turno.setCosto(resultSet.getDouble("costo"));
                 datos.add(turno);
             }
         }

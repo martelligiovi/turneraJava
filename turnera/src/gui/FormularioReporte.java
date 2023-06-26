@@ -1,7 +1,10 @@
 package gui;
 
 import dao.DAOException;
+import dao.DAOMedico;
 import dao.DAOTurno;
+import entidades.Medico;
+import entidades.Paciente;
 import entidades.Turno;
 
 import javax.swing.*;
@@ -13,15 +16,17 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 public class FormularioReporte extends JPanel implements Formulario{
+    DAOMedico daoMedico;
     ArrayList<Turno> listaTurnos;
     FormularioReporteFinal formularioReporteFinal;
+    FormularioAdmin formularioAdmin;
     JPanel formularioReporte;
     PanelManager panel;
     JFormattedTextField jTextFieldFecha1;
     JLabel jLabelFecha1;
     JFormattedTextField jTextFieldFecha2;
     JLabel jLabelFecha2;
-    JTextField jTextFieldLegajo;
+    JComboBox jComboBoxLegajoMedico;
     JLabel jLabelLegajo;
     JButton jButtonSend;
     JButton jButtonExit;
@@ -38,18 +43,22 @@ public class FormularioReporte extends JPanel implements Formulario{
         formularioReporte = new JPanel();
         jButtonSend = new JButton("Buscar");
         jLabelLegajo = new JLabel("Legajo");
-        jTextFieldLegajo = new JTextField();
         jTextFieldFecha1 = new JFormattedTextField(createMaskFormatter("####/##/##"));
         jTextFieldFecha2 = new JFormattedTextField(createMaskFormatter("####/##/##"));
         jLabelFecha1 = new JLabel("Fecha 1");
         jLabelFecha2 = new JLabel("Fecha 2");
         jButtonExit = new JButton("Salir");
+        jComboBoxLegajoMedico = new JComboBox();
+        ArrayList<Integer> legajos = fillarrayLegajosMedicos();
+        for (Integer m : legajos) {
+            jComboBoxLegajoMedico.addItem(m);
+        }
         formularioReporte.setLayout(new GridLayout(4,2));
     }
     @Override
     public void agregarFormulario(){
         formularioReporte.add(jLabelLegajo);
-        formularioReporte.add(jTextFieldLegajo);
+        formularioReporte.add(jComboBoxLegajoMedico);
         formularioReporte.add(jLabelFecha1);
         formularioReporte.add(jTextFieldFecha1);
         formularioReporte.add(jLabelFecha2);
@@ -63,17 +72,17 @@ public class FormularioReporte extends JPanel implements Formulario{
             try {
                 daoTurno = new DAOTurno();
                 listaTurnos = new ArrayList<>();
-                ArrayList<Turno> listaTurnos = daoTurno.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),Integer.parseInt(jTextFieldLegajo.getText()));
+                ArrayList<Turno> listaTurnos = daoTurno.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),(Integer) jComboBoxLegajoMedico.getSelectedItem());
                 formularioReporteFinal = new FormularioReporteFinal(panel,listaTurnos,jTextFieldFecha1.getText(),jTextFieldFecha2.getText());
                 panel.mostrar(formularioReporteFinal.getFormularioReporteFinal());
             } catch (Exception exception) {
+                JOptionPane.showMessageDialog(null, "No hay turnos");
                 exception.printStackTrace();
             }
         });
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FormularioAdmin formularioAdmin = null;
                 formularioAdmin = new FormularioAdmin(panel);
                 panel.mostrar(formularioAdmin.getFormulario());
             }
@@ -92,7 +101,20 @@ public class FormularioReporte extends JPanel implements Formulario{
         }
         return formatter;
     }
-
+    public ArrayList<Integer> fillarrayLegajosMedicos(){
+        daoMedico = new DAOMedico();
+        ArrayList<Medico> medicos = new ArrayList<Medico>();
+        ArrayList<Integer> legajos = new ArrayList<Integer>();
+        try {
+            medicos = daoMedico.buscarTodos();
+        } catch (DAOException e) {
+            throw new RuntimeException(e);
+        }
+        for(Medico m : medicos){
+            legajos.add(m.getLegajo());
+        }
+        return legajos;
+    }
 
 
 
