@@ -20,6 +20,7 @@ public class FormularioTurnosMedicos {
     public FormularioTurnosMedicos(PanelManager panel,String fecha,int legajo) throws DAOException {
         this.panel=panel;
         creadorFormularioTurnosMedicos(fecha, legajo);
+        decorar();
     }
 
     public void creadorFormularioTurnosMedicos(String fecha,int legajo) throws DAOException {
@@ -38,5 +39,11 @@ public class FormularioTurnosMedicos {
     }
     public JPanel getFormulario() {
         return formularioTurnosMedicos;
+    }
+    public void decorar(){
+        formularioTurnosMedicos.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioTurnosMedicos.setBackground(Color.lightGray);
+        formularioTurnosMedicos.setSize(1000,1000);
+        formularioTurnosMedicos.setOpaque(true);
     }
 }

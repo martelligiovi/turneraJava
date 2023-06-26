@@ -37,6 +37,7 @@ public class FormularioReporte extends JPanel implements Formulario{
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
+        decorar();
     }
     @Override
     public void creadorFormulario(){
@@ -74,7 +75,7 @@ public class FormularioReporte extends JPanel implements Formulario{
                 listaTurnos = new ArrayList<>();
                 ArrayList<Turno> listaTurnos = daoTurno.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),(Integer) jComboBoxLegajoMedico.getSelectedItem());
                 formularioReporteFinal = new FormularioReporteFinal(panel,listaTurnos,jTextFieldFecha1.getText(),jTextFieldFecha2.getText());
-                panel.mostrar(formularioReporteFinal.getFormularioReporteFinal());
+                panel.mostrar(formularioReporteFinal.getFormulario());
             } catch (Exception exception) {
                 JOptionPane.showMessageDialog(null, "No hay turnos");
                 exception.printStackTrace();
@@ -115,7 +116,12 @@ public class FormularioReporte extends JPanel implements Formulario{
         }
         return legajos;
     }
-
+    public void decorar(){
+        formularioReporte.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioReporte.setBackground(Color.lightGray);
+        formularioReporte.setSize(1000,1000);
+        formularioReporte.setOpaque(true);
+    }
 
 
 

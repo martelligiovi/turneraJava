@@ -6,7 +6,7 @@ import entidades.Turno;
 import serrvice.ServiceException;
 
 
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -34,6 +34,7 @@ public class FormularioHora extends JPanel implements Formulario{
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
+        decorar();
     }
     @Override
     public void creadorFormulario(){
@@ -44,7 +45,7 @@ public class FormularioHora extends JPanel implements Formulario{
         jComboBoxHora = new JComboBox();
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
-        ArrayList<String> hs = fillarrayHoras(horariosTomados(this.turno.getFecha(),this.turno.getLegajoMedico()));
+        ArrayList<String> hs = fillarrayHoras(horariosTomados(this.turno.getFecha(),this.turno.getLegajoMedico(),this.turno.getDniPaciente()));
         for (String hora : hs) {
             jComboBoxHora.addItem(hora);
         }
@@ -96,13 +97,13 @@ public class FormularioHora extends JPanel implements Formulario{
         return horariosTurnos;
     }
 
-    public ArrayList<String> horariosTomados(String fecha, int legajoMedico) {
+    public ArrayList<String> horariosTomados(String fecha, int legajoMedico, int dniPaciente) {
         ArrayList<String> fechasTomadas = new ArrayList<>();
         ArrayList<String> horariosTomados = new ArrayList<>();
         try {
             fechasTomadas = daoTurno.buscarHorariosPorMedico(fecha, legajoMedico);
             System.out.println(fechasTomadas);
-            fechasTomadas.addAll(daoTurno.buscarHorariosPorPaciente(fecha, legajoMedico));
+            fechasTomadas.addAll(daoTurno.buscarHorariosPorPaciente(fecha,dniPaciente));
             System.out.println(fechasTomadas);
         } catch (DAOException e) {
             throw new RuntimeException(e);
@@ -123,6 +124,11 @@ public class FormularioHora extends JPanel implements Formulario{
     public JPanel getFormulario() {
         return formularioHora;
     }
-
+    public void decorar(){
+        formularioHora.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioHora.setBackground(Color.lightGray);
+        formularioHora.setSize(1000,1000);
+        formularioHora.setOpaque(true);
+    }
 
 }

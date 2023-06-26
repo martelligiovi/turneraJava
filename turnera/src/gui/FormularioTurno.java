@@ -7,7 +7,7 @@ import entidades.Turno;
 import serrvice.ServiceException;
 
 
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -38,6 +38,7 @@ public class FormularioTurno extends JPanel implements Formulario{
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
+        decorar();
     }
     @Override
     public void creadorFormulario(){
@@ -134,6 +135,12 @@ public class FormularioTurno extends JPanel implements Formulario{
             e.printStackTrace();
         }
         return formatter;
+    }
+    public void decorar(){
+        formularioTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioTurno.setBackground(Color.lightGray);
+        formularioTurno.setSize(1000,1000);
+        formularioTurno.setOpaque(true);
     }
 
 }

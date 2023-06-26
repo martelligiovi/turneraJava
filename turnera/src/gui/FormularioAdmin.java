@@ -22,6 +22,7 @@ public class FormularioAdmin extends JPanel implements Formulario{
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
+        decorar();
     }
     @Override
     public void creadorFormulario(){
@@ -32,6 +33,7 @@ public class FormularioAdmin extends JPanel implements Formulario{
         jButtonRegistrarTurno = new JButton("Registrar Turno");
         jButtonReportes = new JButton("Reportes");
         jButtonExit = new JButton("Salir");
+
     }
     @Override
     public void agregarFormulario(){
@@ -71,5 +73,11 @@ public class FormularioAdmin extends JPanel implements Formulario{
     @Override
     public JPanel getFormulario(){
         return formularioAdmin;
+    }
+    public void decorar(){
+        formularioAdmin.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioAdmin.setBackground(Color.lightGray);
+        formularioAdmin.setSize(1000,1000);
+        formularioAdmin.setOpaque(true);
     }
 }

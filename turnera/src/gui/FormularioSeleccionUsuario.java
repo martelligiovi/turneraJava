@@ -22,6 +22,7 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario{
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
+        decorar();
     }
     @Override
     public void creadorFormulario(){
@@ -64,6 +65,12 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario{
     @Override
     public JPanel getFormulario() {
         return formularioSeleccionUsuario;
+    }
+    public void decorar(){
+        formularioSeleccionUsuario.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioSeleccionUsuario.setBackground(Color.lightGray);
+        formularioSeleccionUsuario.setSize(1000,1000);
+        formularioSeleccionUsuario.setOpaque(true);
     }
 }
 

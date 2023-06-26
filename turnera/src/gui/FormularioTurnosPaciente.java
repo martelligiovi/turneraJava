@@ -18,6 +18,7 @@ public class FormularioTurnosPaciente {
     public FormularioTurnosPaciente(PanelManager panel,int dni) throws DAOException {
         this.panel=panel;
         creadorFormulario(dni);
+        decorar();
     }
     public void creadorFormulario(int dni) throws DAOException {
         formularioTurnosPaciente = new JPanel();
@@ -35,5 +36,11 @@ public class FormularioTurnosPaciente {
     }
     public JPanel getFormulario() {
         return formularioTurnosPaciente;
+    }
+    public void decorar(){
+        formularioTurnosPaciente.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioTurnosPaciente.setBackground(Color.lightGray);
+        formularioTurnosPaciente.setSize(1000,1000);
+        formularioTurnosPaciente.setOpaque(true);
     }
 }

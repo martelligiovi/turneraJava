@@ -31,6 +31,7 @@ public class FormularioPaciente extends JPanel implements Formulario{
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
+        decorar();
     }
     @Override
     public void creadorFormulario(){
@@ -93,5 +94,11 @@ public class FormularioPaciente extends JPanel implements Formulario{
 
     public JPanel getFormulario() {
         return formularioPaciente;
+    }
+    public void decorar(){
+        formularioPaciente.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioPaciente.setBackground(Color.lightGray);
+        formularioPaciente.setSize(1000,1000);
+        formularioPaciente.setOpaque(true);
     }
 }

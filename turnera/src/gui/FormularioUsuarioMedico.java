@@ -29,6 +29,7 @@ public class FormularioUsuarioMedico extends JPanel implements Formulario{
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
+        decorar();
     }
     @Override
     public void creadorFormulario(){
@@ -86,7 +87,12 @@ public class FormularioUsuarioMedico extends JPanel implements Formulario{
         }
         return formatter;
     }
-
+    public void decorar(){
+        formularioUsuarioMedico.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioUsuarioMedico.setBackground(Color.lightGray);
+        formularioUsuarioMedico.setSize(1000,1000);
+        formularioUsuarioMedico.setOpaque(true);
+    }
 
 
 }

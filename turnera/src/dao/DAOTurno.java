@@ -182,7 +182,7 @@ public class DAOTurno implements DAO<Turno>{
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE SUBSTRING(fecha, 1, 10) = ? AND legajoMedico = ?");
+            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE SUBSTRING(fecha, 1, 10) = ? AND legajoMedico = ? ORDER BY fecha DESC;");
             preparedStatement.setString(1, fecha);
             preparedStatement.setInt(2, legajoMedico);
             ResultSet resultSet =preparedStatement.executeQuery();
@@ -212,7 +212,7 @@ public class DAOTurno implements DAO<Turno>{
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE fecha BETWEEN CONCAT(?, ' 00:00') AND CONCAT(?, ' 23:59') AND legajoMedico = ?");
+            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE fecha BETWEEN CONCAT(?, ' 00:00') AND CONCAT(?, ' 23:59') AND legajoMedico = ? ORDER BY fecha DESC;");
             preparedStatement.setString(1, fecha1);
             preparedStatement.setString(2, fecha2);
             preparedStatement.setInt(3, legajo);
@@ -240,10 +240,7 @@ public class DAOTurno implements DAO<Turno>{
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-            preparedStatement=connection.prepareStatement("SELECT *\n" +
-                    "FROM turno\n" +
-                    "WHERE DniPaciente = ?\n" +
-                    "ORDER BY fecha DESC;\n");
+            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE DniPaciente = ? ORDER BY fecha DESC;");
             preparedStatement.setInt(1, dni);
             ResultSet resultSet =preparedStatement.executeQuery();
             while (resultSet.next()) {

@@ -23,6 +23,7 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario{
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
+        decorar();
     }
 
 
@@ -90,6 +91,12 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario{
                 }
             }
         });
+    }
+    public void decorar(){
+        formularioUsuarioPasiente.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioUsuarioPasiente.setBackground(Color.lightGray);
+        formularioUsuarioPasiente.setSize(1000,1000);
+        formularioUsuarioPasiente.setOpaque(true);
     }
 
 

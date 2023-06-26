@@ -25,27 +25,25 @@ public class FormularioReporteFinal extends JPanel{
         this.fecha1 = fecha1;
         this.fecha2 = fecha2;
         crearFormularioReporteFinal();
+        decorar();
     }
 
     private void crearFormularioReporteFinal() {
-        Double total = 0.0;
         formularioReporteFinal = new JPanel(new GridBagLayout());
         gbc = new GridBagConstraints();
-
         jLabelIntro =new JLabel("<html><div style=\"font-size:10px; margin-top: -5px; line-height: 0;\">El médico con legajo: <b><span style=\"font-size:14px;\">" + listaTurnos.get(0).getLegajoMedico() + "</b><br><br></span> entre las fechas <b><span style=\"font-size:14px;\">" + this.fecha1 + "</b></span> y <b><span style=\"font-size:14px;\">" + this.fecha2 + "</div></html>");
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.CENTER;
         formularioReporteFinal.add(jLabelIntro, gbc);
-
-
         gbc.insets = new Insets(10, 0, 10, 0);
+
         model = new DefaultTableModel();
         model.addColumn("dni paciente");
         model.addColumn("fecha");
         model.addColumn("costo");
+        Double total = 0.0;
         for (Turno turno : listaTurnos) {
-            System.out.println("2");
             model.addRow(new Object[]{turno.getDniPaciente(), turno.getFecha(), turno.getCosto()});
             total += turno.getCosto();
         }
@@ -64,7 +62,13 @@ public class FormularioReporteFinal extends JPanel{
         formularioReporteFinal.add(jLabelTotal, gbc);
     }
 
-    public JPanel getFormularioReporteFinal() {
+    public JPanel getFormulario() {
         return formularioReporteFinal;
+    }
+    public void decorar(){
+        formularioReporteFinal.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioReporteFinal.setBackground(Color.lightGray);
+        formularioReporteFinal.setSize(1000,1000);
+        formularioReporteFinal.setOpaque(true);
     }
 }
