@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class FormularioTurnosMedicos {
+public class FormularioTurnosMedicos implements DecorarFormulario {
     DAOTurno daoTurno;
     DefaultTableModel model;
     JPanel formularioTurnosMedicos;
@@ -40,10 +40,10 @@ public class FormularioTurnosMedicos {
     public JPanel getFormulario() {
         return formularioTurnosMedicos;
     }
+    @Override
     public void decorar(){
         formularioTurnosMedicos.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioTurnosMedicos.setBackground(Color.lightGray);
-        formularioTurnosMedicos.setSize(1000,1000);
         formularioTurnosMedicos.setOpaque(true);
     }
 }

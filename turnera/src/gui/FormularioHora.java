@@ -1,20 +1,15 @@
 package gui;
+
 import dao.*;
-import entidades.Medico;
-import entidades.Paciente;
 import entidades.Turno;
-import serrvice.ServiceException;
-
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
 import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.text.*;
 
-public class FormularioHora extends JPanel implements Formulario{
+public class FormularioHora extends JPanel implements Formulario,DecorarFormulario{
+    FormularioTurno formularioTurno;
     FormularioAdmin formularioAdmin;
     JPanel formularioHora;
     DAOTurno daoTurno;
@@ -24,10 +19,6 @@ public class FormularioHora extends JPanel implements Formulario{
     JButton jButtonExit;
     PanelManager panel;
     Turno turno;
-    public FormularioHora (Turno turno){
-        this.turno=turno;
-        daoTurno = new DAOTurno();
-    }
     public FormularioHora (PanelManager panel,Turno turno){
         this.panel=panel;
         this.turno=turno;
@@ -79,7 +70,6 @@ public class FormularioHora extends JPanel implements Formulario{
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FormularioTurno formularioTurno = null;
                 formularioTurno = new FormularioTurno(panel);
                 panel.mostrar(formularioTurno.getFormulario());
             }
@@ -124,10 +114,11 @@ public class FormularioHora extends JPanel implements Formulario{
     public JPanel getFormulario() {
         return formularioHora;
     }
+    @Override
     public void decorar(){
         formularioHora.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioHora.setBackground(Color.lightGray);
-        formularioHora.setSize(1000,1000);
+        formularioHora.setPreferredSize(new Dimension(220, 70));
         formularioHora.setOpaque(true);
     }
 

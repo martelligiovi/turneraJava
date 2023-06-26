@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-public class FormularioUsuarioMedico extends JPanel implements Formulario{
+public class FormularioUsuarioMedico extends JPanel implements Formulario,DecorarFormulario{
     PanelManager panel;
     JPanel formularioUsuarioMedico;
     FormularioSeleccionUsuario formularioSeleccionUsuario;
@@ -87,10 +87,11 @@ public class FormularioUsuarioMedico extends JPanel implements Formulario{
         }
         return formatter;
     }
+    @Override
     public void decorar(){
         formularioUsuarioMedico.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioUsuarioMedico.setBackground(Color.lightGray);
-        formularioUsuarioMedico.setSize(1000,1000);
+        formularioUsuarioMedico.setPreferredSize(new Dimension(220, 105));
         formularioUsuarioMedico.setOpaque(true);
     }
 

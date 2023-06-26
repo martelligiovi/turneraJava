@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-public class FormularioReporte extends JPanel implements Formulario{
+public class FormularioReporte extends JPanel implements Formulario,DecorarFormulario{
     DAOMedico daoMedico;
     ArrayList<Turno> listaTurnos;
     FormularioReporteFinal formularioReporteFinal;
@@ -69,16 +69,19 @@ public class FormularioReporte extends JPanel implements Formulario{
     }
     @Override
     public void agregarFuncionesBotones(){
-        jButtonSend.addActionListener(e -> {
-            try {
-                daoTurno = new DAOTurno();
-                listaTurnos = new ArrayList<>();
-                ArrayList<Turno> listaTurnos = daoTurno.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),(Integer) jComboBoxLegajoMedico.getSelectedItem());
-                formularioReporteFinal = new FormularioReporteFinal(panel,listaTurnos,jTextFieldFecha1.getText(),jTextFieldFecha2.getText());
-                panel.mostrar(formularioReporteFinal.getFormulario());
-            } catch (Exception exception) {
-                JOptionPane.showMessageDialog(null, "No hay turnos");
-                exception.printStackTrace();
+        jButtonSend.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    daoTurno = new DAOTurno();
+                    listaTurnos = new ArrayList<>();
+                    ArrayList<Turno> listaTurnos = daoTurno.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),(Integer) jComboBoxLegajoMedico.getSelectedItem());
+                    formularioReporteFinal = new FormularioReporteFinal(panel,listaTurnos,jTextFieldFecha1.getText(),jTextFieldFecha2.getText());
+                    panel.mostrar(formularioReporteFinal.getFormulario());
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(null, "No hay turnos");
+                    exception.printStackTrace();
+                }
             }
         });
         jButtonExit.addActionListener(new ActionListener() {
@@ -116,10 +119,11 @@ public class FormularioReporte extends JPanel implements Formulario{
         }
         return legajos;
     }
+    @Override
     public void decorar(){
         formularioReporte.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioReporte.setBackground(Color.lightGray);
-        formularioReporte.setSize(1000,1000);
+        formularioReporte.setPreferredSize(new Dimension(220, 140));
         formularioReporte.setOpaque(true);
     }
 

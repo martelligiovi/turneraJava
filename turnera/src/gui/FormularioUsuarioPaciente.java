@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class FormularioUsuarioPaciente extends JPanel implements Formulario{
+public class FormularioUsuarioPaciente extends JPanel implements Formulario,DecorarFormulario{
     PanelManager panel;
     JPanel formularioUsuarioPasiente;
     FormularioSeleccionUsuario formularioSeleccionUsuario;
@@ -92,10 +92,11 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario{
             }
         });
     }
+    @Override
     public void decorar(){
         formularioUsuarioPasiente.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioUsuarioPasiente.setBackground(Color.lightGray);
-        formularioUsuarioPasiente.setSize(1000,1000);
+        formularioUsuarioPasiente.setPreferredSize(new Dimension(220, 75));
         formularioUsuarioPasiente.setOpaque(true);
     }
 

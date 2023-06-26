@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioMedico extends JPanel implements Formulario{
+public class FormularioMedico extends JPanel implements Formulario,DecorarFormulario{
 
     MedicoService medicoService;
     JPanel formularioMedico;
@@ -98,10 +98,11 @@ public class FormularioMedico extends JPanel implements Formulario{
     public JPanel getFormulario() {
         return formularioMedico;
     }
+    @Override
     public void decorar(){
         formularioMedico.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioMedico.setBackground(Color.lightGray);
-        formularioMedico.setSize(1000,1000);
+        formularioMedico.setPreferredSize(new Dimension(220, 175));
         formularioMedico.setOpaque(true);
     }
 }

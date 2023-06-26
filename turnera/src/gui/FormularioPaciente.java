@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioPaciente extends JPanel implements Formulario{
+public class FormularioPaciente extends JPanel implements Formulario,DecorarFormulario{
     DAOPaciente daoPaciente;
     JPanel formularioPaciente;
     JLabel jLabelNombre;
@@ -95,10 +95,11 @@ public class FormularioPaciente extends JPanel implements Formulario{
     public JPanel getFormulario() {
         return formularioPaciente;
     }
+    @Override
     public void decorar(){
         formularioPaciente.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioPaciente.setBackground(Color.lightGray);
-        formularioPaciente.setSize(1000,1000);
+        formularioPaciente.setPreferredSize(new Dimension(270, 175));
         formularioPaciente.setOpaque(true);
     }
 }

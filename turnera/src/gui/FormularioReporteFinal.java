@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class FormularioReporteFinal extends JPanel{
+public class FormularioReporteFinal extends JPanel implements DecorarFormulario{
     PanelManager panel;
     private JPanel formularioReporteFinal;
     private ArrayList<Turno> listaTurnos;
@@ -65,10 +65,10 @@ public class FormularioReporteFinal extends JPanel{
     public JPanel getFormulario() {
         return formularioReporteFinal;
     }
+    @Override
     public void decorar(){
         formularioReporteFinal.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioReporteFinal.setBackground(Color.lightGray);
-        formularioReporteFinal.setSize(1000,1000);
         formularioReporteFinal.setOpaque(true);
     }
 }

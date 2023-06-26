@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioSeleccionUsuario extends JPanel implements Formulario{
+public class FormularioSeleccionUsuario extends JPanel implements Formulario,DecorarFormulario{
 
     JPanel formularioSeleccionUsuario;
     FormularioAdmin formularioAdmin;
@@ -63,13 +63,12 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario{
         });
     }
     @Override
-    public JPanel getFormulario() {
-        return formularioSeleccionUsuario;
-    }
+    public JPanel getFormulario() {return formularioSeleccionUsuario;}
+    @Override
     public void decorar(){
         formularioSeleccionUsuario.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioSeleccionUsuario.setBackground(Color.lightGray);
-        formularioSeleccionUsuario.setSize(1000,1000);
+        formularioSeleccionUsuario.setPreferredSize(new Dimension(220, 105));
         formularioSeleccionUsuario.setOpaque(true);
     }
 }

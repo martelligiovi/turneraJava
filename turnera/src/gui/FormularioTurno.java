@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.text.*;
 
-public class FormularioTurno extends JPanel implements Formulario{
+public class FormularioTurno extends JPanel implements Formulario,DecorarFormulario{
     JPanel formularioTurno;
     FormularioHora formularioHora;
     JLabel jLabelLegajoMedico;
@@ -136,10 +136,11 @@ public class FormularioTurno extends JPanel implements Formulario{
         }
         return formatter;
     }
+    @Override
     public void decorar(){
         formularioTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioTurno.setBackground(Color.lightGray);
-        formularioTurno.setSize(1000,1000);
+        formularioTurno.setPreferredSize(new Dimension(220, 175));
         formularioTurno.setOpaque(true);
     }
 
