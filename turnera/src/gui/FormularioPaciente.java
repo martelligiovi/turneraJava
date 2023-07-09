@@ -76,19 +76,35 @@ public class FormularioPaciente extends JPanel implements Formulario,DecorarForm
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Paciente paciente = new Paciente();
-                paciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
-                paciente.setNombre(jTextFieldNombre.getText());
-                paciente.setApellido(jTextFieldApellido.getText());
-                paciente.setCodObraSocial(Integer.parseInt(jTextFieldCodObraSocial.getText()));
-                try {
-                    pacienteService.guardar(paciente);
-                } catch (ServiceException ex) {
-                    throw new RuntimeException(ex);
+                String dniText = jTextFieldDni.getText().trim();
+                String nombreText = jTextFieldNombre.getText().trim();
+                String apellidoText = jTextFieldApellido.getText().trim();
+                String codObraSocialText = jTextFieldCodObraSocial.getText().trim();
+
+                if (dniText.isEmpty() || nombreText.isEmpty() || apellidoText.isEmpty() || codObraSocialText.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
+                } else {
+                    try {
+                        Paciente paciente = new Paciente();
+                        paciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
+                        paciente.setNombre(jTextFieldNombre.getText());
+                        paciente.setApellido(jTextFieldApellido.getText());
+                        paciente.setCodObraSocial(Integer.parseInt(jTextFieldCodObraSocial.getText()));
+
+                        pacienteService.guardar(paciente);
+                        JOptionPane.showMessageDialog(null, "Se guardo correctamente");
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Error en el formato de los campos numéricos");
+                        throw new RuntimeException(ex);
+                    } catch (ServiceException ex) {
+                        JOptionPane.showMessageDialog(null, "Paciente existente");
+                        throw new RuntimeException(ex);
+                    }
+                    FormularioAdmin formularioAdmin = null;
+                    formularioAdmin = new FormularioAdmin(panel);
+                    panel.mostrar(formularioAdmin.getFormulario());
                 }
-                FormularioAdmin formularioAdmin = null;
-                formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormulario());
+
             }
         });
     }

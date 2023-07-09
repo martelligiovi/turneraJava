@@ -12,6 +12,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.text.*;
@@ -97,17 +100,36 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                turno = new Turno();
-                turno.setLegajoMedico(Integer.parseInt(jComboBoxLegajoMedico.getSelectedItem().toString()));
-                turno.setDniPaciente(Integer.parseInt(jComboBoxDniPaciente.getSelectedItem().toString()));
-                turno.setFecha(jTextFieldFecha.getText());
-                turno.setCosto(Double.parseDouble(jTextFieldCosto.getText()));
                 try {
-                    formularioHora = new FormularioHora(panel, turno);
+                    turno = new Turno();
+                    turno.setLegajoMedico(Integer.parseInt(jComboBoxLegajoMedico.getSelectedItem().toString()));
+                    turno.setDniPaciente(Integer.parseInt(jComboBoxDniPaciente.getSelectedItem().toString()));
+
+                    String fechaText = jTextFieldFecha.getText().trim();
+                    String costoText = jTextFieldCosto.getText().trim();
+
+                    if (costoText.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese el costo");
+                    } else {
+                        LocalDate currentDate = LocalDate.now();
+                        LocalDate selectedDate = LocalDate.parse(fechaText, DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+
+                        if (selectedDate.isAfter(currentDate)) {
+                            turno.setFecha(fechaText);
+                            turno.setCosto(Double.parseDouble(costoText));
+                            formularioHora = new FormularioHora(panel, turno);
+                            panel.mostrar(formularioHora.getFormulario());
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha posterior a la fecha actual");
+                        }
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Error en el formato de los campos numéricos");
                 } catch (ServiceException ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null, "Error en el servicio: " + ex.getMessage());
+                } catch (DateTimeParseException ex) {
+                    JOptionPane.showMessageDialog(null, "Error en el formato de la fecha");
                 }
-                panel.mostrar(formularioHora.getFormulario());
             }
         });
     }

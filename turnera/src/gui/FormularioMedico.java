@@ -75,19 +75,35 @@ public class FormularioMedico extends JPanel implements Formulario,DecorarFormul
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Medico medico = new Medico();
-                medico.setDni(Integer.parseInt(jTextFieldDni.getText()));
-                medico.setNombre(jTextFieldNombre.getText());
-                medico.setApellido(jTextFieldApellido.getText());
-                medico.setLegajo(Integer.parseInt(jTextFieldLegajo.getText()));
-                try {
-                    medicoService.guardar(medico);
-                } catch (ServiceException ex) {
-                    throw new RuntimeException(ex);
+                String dniText = jTextFieldDni.getText().trim();
+                String nombreText = jTextFieldNombre.getText().trim();
+                String apellidoText = jTextFieldApellido.getText().trim();
+                String legajoText = jTextFieldLegajo.getText().trim();
+
+                if (dniText.isEmpty() || nombreText.isEmpty() || apellidoText.isEmpty() || legajoText.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
+                } else {
+                    try {
+                        Medico medico = new Medico();
+                        medico.setDni(Integer.parseInt(dniText));
+                        medico.setNombre(nombreText);
+                        medico.setApellido(apellidoText);
+                        medico.setLegajo(Integer.parseInt(legajoText));
+
+                        medicoService.guardar(medico);
+                        JOptionPane.showMessageDialog(null, "Se guardó correctamente");
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Error en el formato de los campos numéricos");
+                        throw new RuntimeException(ex);
+                    } catch (ServiceException ex) {
+                        JOptionPane.showMessageDialog(null, "Medico existente");
+                        throw new RuntimeException(ex);
+                    }
+                    FormularioAdmin formularioAdmin = null;
+                    formularioAdmin = new FormularioAdmin(panel);
+                    panel.mostrar(formularioAdmin.getFormulario());
                 }
-                FormularioAdmin formularioAdmin = null;
-                formularioAdmin = new FormularioAdmin(panel);
-                panel.mostrar(formularioAdmin.getFormulario());
+
             }
         });
     }

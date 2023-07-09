@@ -61,11 +61,11 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
                 Turno elemento = new Turno();
                 elemento.setLegajoMedico(turno.getLegajoMedico());
                 elemento.setDniPaciente(turno.getDniPaciente());
-                System.out.println(elemento.getDniPaciente()+" "+elemento.getLegajoMedico());
                 elemento.setFecha(turno.getFecha().concat(" ").concat(jComboBoxHora.getSelectedItem().toString()));
                 elemento.setCosto(turno.getCosto());
                 try {
                     turnoService.guardar(elemento);
+                    JOptionPane.showMessageDialog(null, "se guardo correctamente");
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
                 }
