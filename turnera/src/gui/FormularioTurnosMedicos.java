@@ -4,7 +4,6 @@ import dao.DAOException;
 import dao.DAOMedico;
 import dao.DAOTurno;
 import entidades.Turno;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;

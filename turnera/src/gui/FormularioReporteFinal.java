@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 public class FormularioReporteFinal extends JPanel implements DecorarFormulario{
     PanelManager panel;
-    private JPanel formularioReporteFinal;
-    private ArrayList<Turno> listaTurnos;
-    private JLabel jLabelTotal;
-    private JLabel jLabelIntro;
-    private DefaultTableModel model;
+    JPanel formularioReporteFinal;
+    ArrayList<Turno> listaTurnos;
+    JLabel jLabelTotal;
+    JLabel jLabelIntro;
+    DefaultTableModel model;
     GridBagConstraints gbc;
     String fecha1;
     String fecha2;

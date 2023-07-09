@@ -30,7 +30,7 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
     JLabel jLabelLegajo;
     JButton jButtonSend;
     JButton jButtonExit;
-    public DAOTurno daoTurno;
+    DAOTurno daoTurno;
 
     public FormularioReporte(PanelManager panel) {
         this.panel=panel;

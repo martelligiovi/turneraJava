@@ -6,11 +6,9 @@ public class Paciente extends Persona{
         super(nombre, apellido, dni);
         this.codObraSocial = codObraSocial;
     }
-
     public int getCodObraSocial() {
         return codObraSocial;
     }
-
     public void setCodObraSocial(int codObraSocial) {
         this.codObraSocial = codObraSocial;
     }

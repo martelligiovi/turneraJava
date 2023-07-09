@@ -29,8 +29,8 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
     JLabel jLabelCosto;
     JTextField jTextFieldCosto;
     PanelManager panel;
-    public DAOMedico daoMedico;
-    public DAOPaciente daoPaciente;
+    DAOMedico daoMedico;
+    DAOPaciente daoPaciente;
 
 
     public FormularioTurno (PanelManager panel){
@@ -46,7 +46,7 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
         daoPaciente = new DAOPaciente();
         formularioTurno = new JPanel();
         formularioTurno.setLayout(new GridLayout(5,2));
-        jLabelLegajoMedico = new JLabel("legajo midico");
+        jLabelLegajoMedico = new JLabel("legajo medico");
         jComboBoxLegajoMedico = new JComboBox();
         jLabelDniPaciente = new JLabel("Dni paciente");
         jComboBoxDniPaciente = new JComboBox();
