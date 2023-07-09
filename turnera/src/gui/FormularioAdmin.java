@@ -1,9 +1,12 @@
 package gui;
 
+import service.ServiceException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 
 public class FormularioAdmin extends JPanel implements Formulario,DecorarFormulario{
     FormularioSeleccionUsuario formularioSeleccionUsuario;
@@ -70,14 +73,24 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         jButtonRegistrarTurno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                formularioTurno = new FormularioTurno(panel);
+                try {
+                    formularioTurno = new FormularioTurno(panel);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
                 panel.mostrar(formularioTurno.getFormulario());
             }
         });
         jButtonReportes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                formularioReporte = new FormularioReporte(panel);
+                try {
+                    formularioReporte = new FormularioReporte(panel);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                }
                 panel.mostrar(formularioReporte.getFormulario());
             }
         });

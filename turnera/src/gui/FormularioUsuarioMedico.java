@@ -1,7 +1,8 @@
 package gui;
-import dao.DAOException;
-import dao.DAOTurno;
+
+import service.TurnoService;
 import entidades.Turno;
+import service.ServiceException;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
@@ -16,7 +17,7 @@ public class FormularioUsuarioMedico extends JPanel implements Formulario,Decora
     JPanel formularioUsuarioMedico;
     FormularioSeleccionUsuario formularioSeleccionUsuario;
     FormularioTurnosMedicos formularioTurnosMedicos;
-    DAOTurno daoTurno;
+    TurnoService turnoService;
     JLabel jLabelLegajo;
     JTextField jTextFieldLegajo;
     JLabel jLabelFecha;
@@ -33,7 +34,7 @@ public class FormularioUsuarioMedico extends JPanel implements Formulario,Decora
     }
     @Override
     public void creadorFormulario(){
-        daoTurno = new DAOTurno();
+        turnoService = new TurnoService();
         formularioUsuarioMedico = new JPanel();
         formularioUsuarioMedico.setLayout(new GridLayout(3,2));
         jLabelLegajo = new JLabel("ingrese su legajo");
@@ -59,7 +60,7 @@ public class FormularioUsuarioMedico extends JPanel implements Formulario,Decora
             public void actionPerformed(ActionEvent e) {
                 try {
                     formularioTurnosMedicos = new FormularioTurnosMedicos(panel,jTextFieldFecha.getText(),Integer.parseInt(jTextFieldLegajo.getText()));
-                } catch (DAOException ex) {
+                } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
                 }
                 panel.mostrar(formularioTurnosMedicos.getFormulario());

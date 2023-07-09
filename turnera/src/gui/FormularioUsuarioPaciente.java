@@ -1,6 +1,7 @@
 package gui;
 
-import dao.DAOException;
+
+import service.ServiceException;
 
 import javax.swing.*;
 import javax.swing.text.*;
@@ -61,7 +62,7 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
             public void actionPerformed(ActionEvent e) {
                 try {
                     formularioTurnosPaciente = new FormularioTurnosPaciente(panel, Integer.parseInt(jTextFieldDni.getText()));
-                } catch (DAOException ex) {
+                } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
                 }
                 panel.mostrar(formularioTurnosPaciente.getFormulario());

@@ -1,8 +1,9 @@
 package gui;
 
-import dao.DAOException;
-import dao.DAOPaciente;
+
+import service.PacienteService;
 import entidades.Paciente;
+import service.ServiceException;
 
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormularioPaciente extends JPanel implements Formulario,DecorarFormulario{
-    DAOPaciente daoPaciente;
+    PacienteService pacienteService;
     JPanel formularioPaciente;
     JLabel jLabelNombre;
     JTextField  jTextFieldNombre;
@@ -35,7 +36,7 @@ public class FormularioPaciente extends JPanel implements Formulario,DecorarForm
     }
     @Override
     public void creadorFormulario(){
-        daoPaciente = new DAOPaciente();
+        pacienteService = new PacienteService();
         formularioPaciente = new JPanel();
         formularioPaciente.setLayout(new GridLayout(5,2));
         jLabelNombre = new JLabel("Nombre");
@@ -81,9 +82,9 @@ public class FormularioPaciente extends JPanel implements Formulario,DecorarForm
                 paciente.setApellido(jTextFieldApellido.getText());
                 paciente.setCodObraSocial(Integer.parseInt(jTextFieldCodObraSocial.getText()));
                 try {
-                    daoPaciente.guardar(paciente);
-                } catch (DAOException daoException) {
-                    daoException.printStackTrace();
+                    pacienteService.guardar(paciente);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
                 }
                 FormularioAdmin formularioAdmin = null;
                 formularioAdmin = new FormularioAdmin(panel);

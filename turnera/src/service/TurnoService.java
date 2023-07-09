@@ -1,4 +1,4 @@
-package serrvice;
+package service;
 
 import dao.DAOTurno;
 import entidades.Turno;

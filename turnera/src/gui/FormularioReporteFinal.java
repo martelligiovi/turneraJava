@@ -1,6 +1,4 @@
 package gui;
-
-import dao.DAOMedico;
 import entidades.Turno;
 
 import javax.swing.*;

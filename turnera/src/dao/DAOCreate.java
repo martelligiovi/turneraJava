@@ -39,13 +39,13 @@ public class DAOCreate{
         }
     }
 
-    private static void createTurno(){
+    public static void createTurno(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE Turno (legajoMedico INT, dniPaciente INT, fecha VARCHAT(20),costo INT,PRIMARY KEY (legajoMedico, dniPaciente, fecha), FOREIGN KEY (legajoMedico) REFERENCES Medico(legajo), FOREIGN KEY (dniPaciente) REFERENCES Paciente(dni));\n");
+            preparedStatement = connection.prepareStatement("CREATE TABLE Turno (legajoMedico INT, dniPaciente INT, fecha VARCHAR(20),costo INT,PRIMARY KEY (legajoMedico, dniPaciente, fecha), FOREIGN KEY (legajoMedico) REFERENCES Medico(legajo), FOREIGN KEY (dniPaciente) REFERENCES Paciente(dni));\n");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla Turno " + res);
         }
@@ -116,7 +116,7 @@ public class DAOCreate{
             System.out.println(e.getMessage());
         }
     }
-    private static void dropTurno(){
+    public static void dropTurno(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{

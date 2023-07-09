@@ -1,10 +1,11 @@
 package gui;
 
-import dao.*;
 import entidades.Medico;
 import entidades.Paciente;
 import entidades.Turno;
-import serrvice.ServiceException;
+import service.MedicoService;
+import service.PacienteService;
+import service.ServiceException;
 
 
 import java.awt.*;
@@ -29,11 +30,12 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
     JLabel jLabelCosto;
     JTextField jTextFieldCosto;
     PanelManager panel;
-    DAOMedico daoMedico;
-    DAOPaciente daoPaciente;
+    MedicoService medicoService;
+    PacienteService pacienteService;
+    Turno turno;
 
 
-    public FormularioTurno (PanelManager panel){
+    public FormularioTurno (PanelManager panel) throws ServiceException, ParseException {
         this.panel=panel;
         creadorFormulario();
         agregarFormulario();
@@ -41,9 +43,9 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
         decorar();
     }
     @Override
-    public void creadorFormulario(){
-        daoMedico = new DAOMedico();
-        daoPaciente = new DAOPaciente();
+    public void creadorFormulario() throws ParseException, ServiceException {
+        medicoService = new MedicoService();
+        pacienteService = new PacienteService();
         formularioTurno = new JPanel();
         formularioTurno.setLayout(new GridLayout(5,2));
         jLabelLegajoMedico = new JLabel("legajo medico");
@@ -95,45 +97,41 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Turno turno = new Turno();
+                turno = new Turno();
                 turno.setLegajoMedico(Integer.parseInt(jComboBoxLegajoMedico.getSelectedItem().toString()));
                 turno.setDniPaciente(Integer.parseInt(jComboBoxDniPaciente.getSelectedItem().toString()));
                 turno.setFecha(jTextFieldFecha.getText());
                 turno.setCosto(Double.parseDouble(jTextFieldCosto.getText()));
-                FormularioHora formularioHora = new FormularioHora(panel, turno);
+                try {
+                    formularioHora = new FormularioHora(panel, turno);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                }
                 panel.mostrar(formularioHora.getFormulario());
             }
         });
     }
     @Override
     public JPanel getFormulario() {return formularioTurno;}
-    public ArrayList<Medico> fillarrayMedicos(){
+    public ArrayList<Medico> fillarrayMedicos() throws ServiceException {
         ArrayList<Medico> medicos = new ArrayList<Medico>();
-        try {
-            medicos = daoMedico.buscarTodos();
-        } catch (DAOException e) {
-            throw new RuntimeException(e);
-        }
+        medicos = medicoService.buscarTodos();
         return medicos;
     }
-    public ArrayList<Paciente> fillarrayPacientes(){
+    public ArrayList<Paciente> fillarrayPacientes() throws ServiceException {
         ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
-        Paciente pacienteService = new Paciente();
-        try {
-            pacientes = daoPaciente.buscarTodos();
-        } catch (DAOException e) {
-            throw new RuntimeException(e);
-        }
+        Paciente paciente = new Paciente();
+        pacientes = pacienteService.buscarTodos();
         return pacientes;
     }
-    public MaskFormatter createMaskFormatter(String mask) {
+    public MaskFormatter createMaskFormatter(String mask){
         MaskFormatter formatter = null;
         try {
             formatter = new MaskFormatter(mask);
-            formatter.setPlaceholderCharacter('_');
         } catch (ParseException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
+        formatter.setPlaceholderCharacter('_');
         return formatter;
     }
     @Override

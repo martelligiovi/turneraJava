@@ -1,8 +1,8 @@
 package gui;
 
-import dao.DAOException;
-import dao.DAOMedico;
-import dao.DAOTurno;
+import service.MedicoService;
+import service.ServiceException;
+import service.TurnoService;
 import entidades.Medico;
 import entidades.Paciente;
 import entidades.Turno;
@@ -16,7 +16,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 public class FormularioReporte extends JPanel implements Formulario,DecorarFormulario{
-    DAOMedico daoMedico;
+    MedicoService medicoService;
     ArrayList<Turno> listaTurnos;
     FormularioReporteFinal formularioReporteFinal;
     FormularioAdmin formularioAdmin;
@@ -30,9 +30,9 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
     JLabel jLabelLegajo;
     JButton jButtonSend;
     JButton jButtonExit;
-    DAOTurno daoTurno;
+    TurnoService turnoService;
 
-    public FormularioReporte(PanelManager panel) {
+    public FormularioReporte(PanelManager panel) throws ServiceException {
         this.panel=panel;
         creadorFormulario();
         agregarFormulario();
@@ -40,7 +40,7 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
         decorar();
     }
     @Override
-    public void creadorFormulario(){
+    public void creadorFormulario() throws ServiceException {
         formularioReporte = new JPanel();
         jButtonSend = new JButton("Buscar");
         jLabelLegajo = new JLabel("Legajo");
@@ -73,9 +73,9 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    daoTurno = new DAOTurno();
+                    turnoService = new TurnoService();
                     listaTurnos = new ArrayList<>();
-                    ArrayList<Turno> listaTurnos = daoTurno.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),(Integer) jComboBoxLegajoMedico.getSelectedItem());
+                    ArrayList<Turno> listaTurnos = turnoService.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),(Integer) jComboBoxLegajoMedico.getSelectedItem());
                     formularioReporteFinal = new FormularioReporteFinal(panel,listaTurnos,jTextFieldFecha1.getText(),jTextFieldFecha2.getText());
                     panel.mostrar(formularioReporteFinal.getFormulario());
                 } catch (Exception exception) {
@@ -105,15 +105,11 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
         }
         return formatter;
     }
-    public ArrayList<Integer> fillarrayLegajosMedicos(){
-        daoMedico = new DAOMedico();
+    public ArrayList<Integer> fillarrayLegajosMedicos() throws ServiceException {
+        medicoService = new MedicoService();
         ArrayList<Medico> medicos = new ArrayList<Medico>();
         ArrayList<Integer> legajos = new ArrayList<Integer>();
-        try {
-            medicos = daoMedico.buscarTodos();
-        } catch (DAOException e) {
-            throw new RuntimeException(e);
-        }
+        medicos = medicoService.buscarTodos();
         for(Medico m : medicos){
             legajos.add(m.getLegajo());
         }

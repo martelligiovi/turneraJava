@@ -1,10 +1,14 @@
 package gui;
 
-import dao.*;
+
 import entidades.Turno;
+import service.ServiceException;
+import service.TurnoService;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
 import javax.swing.*;
 
@@ -12,24 +16,25 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
     FormularioTurno formularioTurno;
     FormularioAdmin formularioAdmin;
     JPanel formularioHora;
-    DAOTurno daoTurno;
+    TurnoService turnoService;
     JLabel jLabelHora;
     JComboBox jComboBoxHora;
     JButton jButtonSend;
     JButton jButtonExit;
     PanelManager panel;
     Turno turno;
-    public FormularioHora (PanelManager panel,Turno turno){
+    public FormularioHora (PanelManager panel,Turno turno) throws ServiceException {
         this.panel=panel;
         this.turno=turno;
+        System.out.println("ok");
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
         decorar();
     }
     @Override
-    public void creadorFormulario(){
-        daoTurno = new DAOTurno();
+    public void creadorFormulario() throws ServiceException {
+        turnoService = new TurnoService();
         formularioHora = new JPanel();
         formularioHora.setLayout(new GridLayout(2,2));
         jLabelHora = new JLabel("Hora");
@@ -53,15 +58,16 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Turno turnoDao = new Turno();
-                turnoDao.setLegajoMedico(turno.getLegajoMedico());
-                turnoDao.setDniPaciente(turno.getDniPaciente());
-                turnoDao.setFecha(turno.getFecha().concat(" ").concat(jComboBoxHora.getSelectedItem().toString()));
-                turnoDao.setCosto(turno.getCosto());
+                Turno elemento = new Turno();
+                elemento.setLegajoMedico(turno.getLegajoMedico());
+                elemento.setDniPaciente(turno.getDniPaciente());
+                System.out.println(elemento.getDniPaciente()+" "+elemento.getLegajoMedico());
+                elemento.setFecha(turno.getFecha().concat(" ").concat(jComboBoxHora.getSelectedItem().toString()));
+                elemento.setCosto(turno.getCosto());
                 try {
-                    daoTurno.guardar(turnoDao);
-                } catch (DAOException ex) {
-                    ex.printStackTrace();
+                    turnoService.guardar(elemento);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
                 }
                 formularioAdmin = new FormularioAdmin(panel);
                 panel.mostrar(formularioAdmin.getFormulario());
@@ -70,7 +76,13 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                formularioTurno = new FormularioTurno(panel);
+                try {
+                    formularioTurno = new FormularioTurno(panel);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
                 panel.mostrar(formularioTurno.getFormulario());
             }
         });

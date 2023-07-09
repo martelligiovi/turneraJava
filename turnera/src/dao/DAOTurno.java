@@ -15,6 +15,8 @@ public class DAOTurno implements DAO<Turno>{
     public void guardar(Turno elemento) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
+        System.out.println("legajo");
+        System.out.println(elemento.getLegajoMedico());
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
@@ -23,8 +25,6 @@ public class DAOTurno implements DAO<Turno>{
             preparedStatement.setInt(2, elemento.getDniPaciente());
             preparedStatement.setString(3, elemento.getFecha());
             preparedStatement.setDouble(4, elemento.getCosto());
-
-
             int res=preparedStatement.executeUpdate();
             System.out.println("Se agregaron " + res);
         }

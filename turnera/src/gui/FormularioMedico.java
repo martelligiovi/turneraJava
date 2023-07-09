@@ -1,10 +1,8 @@
 package gui;
 
-import dao.DAOException;
-import dao.DAOMedico;
 import entidades.Medico;
-import serrvice.MedicoService;
-import serrvice.ServiceException;
+import service.MedicoService;
+import service.ServiceException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -83,7 +81,7 @@ public class FormularioMedico extends JPanel implements Formulario,DecorarFormul
                 medico.setApellido(jTextFieldApellido.getText());
                 medico.setLegajo(Integer.parseInt(jTextFieldLegajo.getText()));
                 try {
-                    medicoService.guardarMedico(medico);
+                    medicoService.guardar(medico);
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
                 }

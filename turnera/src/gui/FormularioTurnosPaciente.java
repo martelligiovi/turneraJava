@@ -1,7 +1,8 @@
 package gui;
 
-import dao.DAOException;
-import dao.DAOTurno;
+
+import service.ServiceException;
+import service.TurnoService;
 import entidades.Turno;
 
 import javax.swing.*;
@@ -10,25 +11,25 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class FormularioTurnosPaciente implements DecorarFormulario{
-    DAOTurno daoTurno;
+    TurnoService turnoService;
     DefaultTableModel model;
     JPanel formularioTurnosPaciente;
     PanelManager panel;
     ArrayList<Turno> listaTurnos;
-    public FormularioTurnosPaciente(PanelManager panel,int dni) throws DAOException {
+    public FormularioTurnosPaciente(PanelManager panel,int dni) throws ServiceException {
         this.panel=panel;
         creadorFormulario(dni);
         decorar();
     }
-    public void creadorFormulario(int dni) throws DAOException {
+    public void creadorFormulario(int dni) throws ServiceException {
         formularioTurnosPaciente = new JPanel();
-        daoTurno = new DAOTurno();
+        turnoService = new TurnoService();
         formularioTurnosPaciente.setLayout(new GridLayout(1,1));
         model = new DefaultTableModel();
         model.addColumn("legajo medico");
         model.addColumn("turno");
         model.addColumn("costo");
-        ArrayList<Turno> turnos = daoTurno.buscarTurnosPaciente(dni);
+        ArrayList<Turno> turnos = turnoService.buscarTurnosPaciente(dni);
         for (Turno turno : turnos) {
             model.addRow(new Object[]{turno.getLegajoMedico(), turno.getFecha(), turno.getCosto()});
         }
