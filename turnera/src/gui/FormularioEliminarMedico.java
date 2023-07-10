@@ -11,15 +11,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormularioEliminarMedico implements Formulario,DecorarFormulario{
-    MedicoService medicoService;
     JPanel formularioEliminarMedico;
     JButton jButtonSend;
     JButton jButtonExit;
-
     JLabel jLabelLegajo;
     JTextField jTextFieldLegajo;
     PanelManager panel;
     FormularioAdmin formularioAdmin;
+    MedicoService medicoService;
     FormularioEliminarMedico (PanelManager panel){
         this.panel=panel;
         creadorFormulario();
@@ -29,13 +28,13 @@ public class FormularioEliminarMedico implements Formulario,DecorarFormulario{
     }
     @Override
     public void creadorFormulario(){
-        medicoService = new MedicoService();
         formularioEliminarMedico = new JPanel();
         formularioEliminarMedico.setLayout(new GridLayout(2,2));
         jLabelLegajo = new JLabel("Legajo");
         jTextFieldLegajo = new JTextField();
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
+
     }
     @Override
     public void agregarFormulario(){
@@ -52,6 +51,7 @@ public class FormularioEliminarMedico implements Formulario,DecorarFormulario{
             public void actionPerformed(ActionEvent e) {
                 try {
                     Medico medico = new Medico();
+                    medicoService = new MedicoService();
                     medico.setLegajo(Integer.parseInt(jTextFieldLegajo.getText()));
                     medicoService.eliminar(medico);
                     JOptionPane.showMessageDialog(null,"Medico eliminado");

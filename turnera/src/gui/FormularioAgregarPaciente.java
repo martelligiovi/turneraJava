@@ -1,18 +1,19 @@
 package gui;
 
-import entidades.Medico;
-import service.MedicoService;
+
+import service.PacienteService;
+import entidades.Paciente;
 import service.ServiceException;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioMedico extends JPanel implements Formulario,DecorarFormulario{
-
-    MedicoService medicoService;
-    JPanel formularioMedico;
+public class FormularioAgregarPaciente extends JPanel implements Formulario,DecorarFormulario{
+    PacienteService pacienteService;
+    JPanel formularioAgregarPaciente;
     JLabel jLabelNombre;
     JTextField  jTextFieldNombre;
     JButton jButtonSend;
@@ -21,11 +22,12 @@ public class FormularioMedico extends JPanel implements Formulario,DecorarFormul
     JTextField jTextFieldApellido;
     JLabel jLabelDni;
     JTextField jTextFieldDni;
-    JLabel jLabelLegajo;
-    JTextField jTextFieldLegajo;
+    JLabel jLabelCodObraSocial;
+    JTextField jTextFieldCodObraSocial;
     PanelManager panel;
 
-    public FormularioMedico (PanelManager panel){
+
+    public FormularioAgregarPaciente (PanelManager panel){
         this.panel=panel;
         creadorFormulario();
         agregarFormulario();
@@ -34,33 +36,32 @@ public class FormularioMedico extends JPanel implements Formulario,DecorarFormul
     }
     @Override
     public void creadorFormulario(){
-        medicoService = new MedicoService();
-        formularioMedico = new JPanel();
-        formularioMedico.setLayout(new GridLayout(5,2));
+        pacienteService = new PacienteService();
+        formularioAgregarPaciente = new JPanel();
+        formularioAgregarPaciente.setLayout(new GridLayout(5,2));
         jLabelNombre = new JLabel("Nombre");
         jLabelApellido = new JLabel("Apellido");
         jLabelDni = new JLabel("Dni");
-        jLabelLegajo = new JLabel("Legajo");
+        jLabelCodObraSocial = new JLabel("Codigo de obra social");
         jTextFieldNombre = new JTextField();
         jTextFieldApellido = new JTextField();
         jTextFieldDni = new JTextField();
-        jTextFieldLegajo = new JTextField();
+        jTextFieldCodObraSocial = new JTextField();
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
     }
     @Override
     public void agregarFormulario(){
-        formularioMedico.add(jLabelDni);
-        formularioMedico.add(jTextFieldDni);
-        formularioMedico.add(jLabelNombre);
-        formularioMedico.add(jTextFieldNombre);
-        formularioMedico.add(jLabelApellido);
-        formularioMedico.add(jTextFieldApellido);
-        formularioMedico.add(jLabelLegajo);
-        formularioMedico.add(jTextFieldLegajo);
-        formularioMedico.add(jButtonExit);
-        formularioMedico.add(jButtonSend);
-
+        formularioAgregarPaciente.add(jLabelDni);
+        formularioAgregarPaciente.add(jTextFieldDni);
+        formularioAgregarPaciente.add(jLabelNombre);
+        formularioAgregarPaciente.add(jTextFieldNombre);
+        formularioAgregarPaciente.add(jLabelApellido);
+        formularioAgregarPaciente.add(jTextFieldApellido);
+        formularioAgregarPaciente.add(jLabelCodObraSocial);
+        formularioAgregarPaciente.add(jTextFieldCodObraSocial);
+        formularioAgregarPaciente.add(jButtonExit);
+        formularioAgregarPaciente.add(jButtonSend);
     }
     @Override
     public void agregarFuncionesBotones(){
@@ -78,25 +79,25 @@ public class FormularioMedico extends JPanel implements Formulario,DecorarFormul
                 String dniText = jTextFieldDni.getText().trim();
                 String nombreText = jTextFieldNombre.getText().trim();
                 String apellidoText = jTextFieldApellido.getText().trim();
-                String legajoText = jTextFieldLegajo.getText().trim();
+                String codObraSocialText = jTextFieldCodObraSocial.getText().trim();
 
-                if (dniText.isEmpty() || nombreText.isEmpty() || apellidoText.isEmpty() || legajoText.isEmpty()) {
+                if (dniText.isEmpty() || nombreText.isEmpty() || apellidoText.isEmpty() || codObraSocialText.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
                 } else {
                     try {
-                        Medico medico = new Medico();
-                        medico.setDni(Integer.parseInt(dniText));
-                        medico.setNombre(nombreText);
-                        medico.setApellido(apellidoText);
-                        medico.setLegajo(Integer.parseInt(legajoText));
+                        Paciente paciente = new Paciente();
+                        paciente.setDni(Integer.parseInt(jTextFieldDni.getText()));
+                        paciente.setNombre(jTextFieldNombre.getText());
+                        paciente.setApellido(jTextFieldApellido.getText());
+                        paciente.setCodObraSocial(Integer.parseInt(jTextFieldCodObraSocial.getText()));
 
-                        medicoService.guardar(medico);
-                        JOptionPane.showMessageDialog(null, "Se guardó correctamente");
+                        pacienteService.guardar(paciente);
+                        JOptionPane.showMessageDialog(null, "Se guardo correctamente");
                     } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(null, "Error en el formato de los campos numéricos");
                         throw new RuntimeException(ex);
                     } catch (ServiceException ex) {
-                        JOptionPane.showMessageDialog(null, "Medico existente");
+                        JOptionPane.showMessageDialog(null, "Paciente existente");
                         throw new RuntimeException(ex);
                     }
                     FormularioAdmin formularioAdmin = null;
@@ -108,15 +109,14 @@ public class FormularioMedico extends JPanel implements Formulario,DecorarFormul
         });
     }
 
-
     public JPanel getFormulario() {
-        return formularioMedico;
+        return formularioAgregarPaciente;
     }
     @Override
     public void decorar(){
-        formularioMedico.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        formularioMedico.setBackground(Color.lightGray);
-        formularioMedico.setPreferredSize(new Dimension(220, 175));
-        formularioMedico.setOpaque(true);
+        formularioAgregarPaciente.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioAgregarPaciente.setBackground(Color.lightGray);
+        formularioAgregarPaciente.setPreferredSize(new Dimension(270, 175));
+        formularioAgregarPaciente.setOpaque(true);
     }
 }

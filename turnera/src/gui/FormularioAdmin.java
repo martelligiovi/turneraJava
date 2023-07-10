@@ -10,9 +10,9 @@ import java.text.ParseException;
 
 public class FormularioAdmin extends JPanel implements Formulario,DecorarFormulario{
     FormularioSeleccionUsuario formularioSeleccionUsuario;
-    FormularioMedico formularioMedico;
-    FormularioPaciente formularioPaciente;
-    FormularioTurno formularioTurno;
+    FormularioAgregarMedico formularioAgregarMedico;
+    FormularioAgregarPaciente formularioAgregarPaciente;
+    FormularioAgregarTurno formularioAgregarTurno;
     FormularioReporte formularioReporte;
     JPanel formularioAdmin;
     PanelManager panel;
@@ -26,8 +26,11 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
     JButton jButtonEliminarMedico;
     FormularioEliminarMedico formularioEliminarMedico;
     JButton jButtonModificarTurno;
+    FormularioModificarTurno formularioModificarTurno;
     JButton jButtonModificarPaciente;
+    FormularioModificarPaciente formularioModificarPaciente;
     JButton jButtonModificarMedico;
+    FormularioModificarMedico formularioModificarMedico;
     JButton jButtonReportes;
     public FormularioAdmin(PanelManager panel){
         this.panel=panel;
@@ -74,28 +77,28 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         jButtonRegistrarMedico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                formularioMedico = new FormularioMedico(panel);
-                panel.mostrar(formularioMedico.getFormulario());
+                formularioAgregarMedico = new FormularioAgregarMedico(panel);
+                panel.mostrar(formularioAgregarMedico.getFormulario());
             }
         });
         jButtonRegistrarPaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                formularioPaciente = new FormularioPaciente(panel);
-                panel.mostrar(formularioPaciente.getFormulario());
+                formularioAgregarPaciente = new FormularioAgregarPaciente(panel);
+                panel.mostrar(formularioAgregarPaciente.getFormulario());
             }
         });
         jButtonRegistrarTurno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    formularioTurno = new FormularioTurno(panel);
+                    formularioAgregarTurno = new FormularioAgregarTurno(panel);
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
-                panel.mostrar(formularioTurno.getFormulario());
+                panel.mostrar(formularioAgregarTurno.getFormulario());
             }
         });
         jButtonReportes.addActionListener(new ActionListener() {
@@ -132,6 +135,31 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                     throw new RuntimeException(ex);
                 }
                 panel.mostrar(formularioEliminarTurno.getFormulario());
+            }
+        });
+        jButtonModificarMedico.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formularioModificarMedico = new FormularioModificarMedico(panel);
+                panel.mostrar(formularioModificarMedico.getFormulario());
+            }
+        });
+        jButtonModificarPaciente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formularioModificarPaciente = new FormularioModificarPaciente(panel);
+                panel.mostrar(formularioModificarPaciente.getFormulario());
+            }
+        });
+        jButtonModificarTurno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    formularioModificarTurno = new FormularioModificarTurno(panel);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                }
+                panel.mostrar(formularioModificarTurno.getFormulario());
             }
         });
     }

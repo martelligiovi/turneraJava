@@ -43,13 +43,15 @@ import java.util.ArrayList;
             try {
                 Class.forName(DB_JDBC_DRIVER);
                 connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-                preparedStatement=connection.prepareStatement("UPDATE Medico SET nombre=?, apellido=?, dni=? WHERE id=?");
+                preparedStatement=connection.prepareStatement("UPDATE Medico SET nombre=?, apellido=?, dni=? WHERE legajo=?");
 
-                preparedStatement.setLong(1,elemento.getLegajo());
-                preparedStatement.setString(2, elemento.getNombre());
-                preparedStatement.setString(3, elemento.getNombre());
-                preparedStatement.setString(4, elemento.getApellido());
-                preparedStatement.setInt(5, elemento.getDni());
+
+                preparedStatement.setString(1, elemento.getNombre());
+                preparedStatement.setString(2, elemento.getApellido());
+                preparedStatement.setInt(3, elemento.getDni());
+                preparedStatement.setLong(4,elemento.getLegajo());
+
+
                 int res=preparedStatement.executeUpdate();
                 System.out.println("Se modificaron " + res);
             }

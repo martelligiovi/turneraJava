@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class FormularioHora extends JPanel implements Formulario,DecorarFormulario{
-    FormularioTurno formularioTurno;
+    FormularioAgregarTurno formularioAgregarTurno;
     FormularioAdmin formularioAdmin;
     JPanel formularioHora;
     TurnoService turnoService;
@@ -77,13 +77,13 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    formularioTurno = new FormularioTurno(panel);
+                    formularioAgregarTurno = new FormularioAgregarTurno(panel);
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
-                panel.mostrar(formularioTurno.getFormulario());
+                panel.mostrar(formularioAgregarTurno.getFormulario());
             }
         });
     }

@@ -50,9 +50,9 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
         jLabelFecha2 = new JLabel("Fecha 2");
         jButtonExit = new JButton("Salir");
         jComboBoxLegajoMedico = new JComboBox();
-        ArrayList<Integer> legajos = fillarrayLegajosMedicos();
-        for (Integer m : legajos) {
-            jComboBoxLegajoMedico.addItem(m);
+        ArrayList<Medico> medicos = fillarrayMedicos();
+        for (Medico m : medicos) {
+            jComboBoxLegajoMedico.addItem(m.getLegajo() + "-" + m.getNombre() + " " + m.getApellido());
         }
         formularioReporte.setLayout(new GridLayout(4,2));
     }
@@ -105,21 +105,18 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
         }
         return formatter;
     }
-    public ArrayList<Integer> fillarrayLegajosMedicos() throws ServiceException {
-        medicoService = new MedicoService();
+    public ArrayList<Medico> fillarrayMedicos() throws ServiceException {
         ArrayList<Medico> medicos = new ArrayList<Medico>();
-        ArrayList<Integer> legajos = new ArrayList<Integer>();
+        medicoService = new MedicoService();
         medicos = medicoService.buscarTodos();
-        for(Medico m : medicos){
-            legajos.add(m.getLegajo());
-        }
-        return legajos;
+        return medicos;
     }
+
     @Override
     public void decorar(){
         formularioReporte.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioReporte.setBackground(Color.lightGray);
-        formularioReporte.setPreferredSize(new Dimension(220, 140));
+        formularioReporte.setPreferredSize(new Dimension(450, 140));
         formularioReporte.setOpaque(true);
     }
 

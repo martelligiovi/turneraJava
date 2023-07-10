@@ -30,9 +30,9 @@ public class PacienteService {
             throw new ServiceException(e.getMessage());
         }
     }
-    public Paciente buscar(int dni) throws ServiceException {
+    public Paciente buscar(Paciente paciente) throws ServiceException {
         try {
-            return daoPaciente.buscar(dni);
+            return daoPaciente.buscar(paciente.getDni());
         } catch (Exception e) {
             throw new ServiceException(e.getMessage());
         }

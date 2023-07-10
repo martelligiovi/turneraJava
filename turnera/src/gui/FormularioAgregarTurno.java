@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.text.*;
 
-public class FormularioTurno extends JPanel implements Formulario,DecorarFormulario{
-    JPanel formularioTurno;
+public class FormularioAgregarTurno extends JPanel implements Formulario,DecorarFormulario{
+    JPanel formularioAgregarTurno;
     FormularioHora formularioHora;
     JLabel jLabelLegajoMedico;
     JComboBox  jComboBoxLegajoMedico;
@@ -38,7 +38,7 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
     Turno turno;
 
 
-    public FormularioTurno (PanelManager panel) throws ServiceException, ParseException {
+    public FormularioAgregarTurno (PanelManager panel) throws ServiceException, ParseException {
         this.panel=panel;
         creadorFormulario();
         agregarFormulario();
@@ -49,8 +49,8 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
     public void creadorFormulario() throws ParseException, ServiceException {
         medicoService = new MedicoService();
         pacienteService = new PacienteService();
-        formularioTurno = new JPanel();
-        formularioTurno.setLayout(new GridLayout(5,2));
+        formularioAgregarTurno = new JPanel();
+        formularioAgregarTurno.setLayout(new GridLayout(5,2));
         jLabelLegajoMedico = new JLabel("legajo medico");
         jComboBoxLegajoMedico = new JComboBox();
         jLabelDniPaciente = new JLabel("Dni paciente");
@@ -76,16 +76,16 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
     }
     @Override
     public void agregarFormulario(){
-        formularioTurno.add(jLabelLegajoMedico);
-        formularioTurno.add(jComboBoxLegajoMedico);
-        formularioTurno.add(jLabelDniPaciente);
-        formularioTurno.add(jComboBoxDniPaciente);
-        formularioTurno.add(jLabelFecha);
-        formularioTurno.add(jTextFieldFecha);
-        formularioTurno.add(jLabelCosto);
-        formularioTurno.add(jTextFieldCosto);
-        formularioTurno.add(jButtonExit);
-        formularioTurno.add(jButtonSend);
+        formularioAgregarTurno.add(jLabelLegajoMedico);
+        formularioAgregarTurno.add(jComboBoxLegajoMedico);
+        formularioAgregarTurno.add(jLabelDniPaciente);
+        formularioAgregarTurno.add(jComboBoxDniPaciente);
+        formularioAgregarTurno.add(jLabelFecha);
+        formularioAgregarTurno.add(jTextFieldFecha);
+        formularioAgregarTurno.add(jLabelCosto);
+        formularioAgregarTurno.add(jTextFieldCosto);
+        formularioAgregarTurno.add(jButtonExit);
+        formularioAgregarTurno.add(jButtonSend);
     }
     @Override
     public void agregarFuncionesBotones(){
@@ -135,7 +135,7 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
         });
     }
     @Override
-    public JPanel getFormulario() {return formularioTurno;}
+    public JPanel getFormulario() {return formularioAgregarTurno;}
     public ArrayList<Medico> fillarrayMedicos() throws ServiceException {
         ArrayList<Medico> medicos = new ArrayList<Medico>();
         medicos = medicoService.buscarTodos();
@@ -159,10 +159,10 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
     }
     @Override
     public void decorar(){
-        formularioTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        formularioTurno.setBackground(Color.lightGray);
-        formularioTurno.setPreferredSize(new Dimension(450, 175));
-        formularioTurno.setOpaque(true);
+        formularioAgregarTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioAgregarTurno.setBackground(Color.lightGray);
+        formularioAgregarTurno.setPreferredSize(new Dimension(450, 175));
+        formularioAgregarTurno.setOpaque(true);
     }
 
 }

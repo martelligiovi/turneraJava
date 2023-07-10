@@ -43,7 +43,7 @@ public class DAOPaciente implements DAO<Paciente>{
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-            preparedStatement=connection.prepareStatement("UPDATE paciente SET nombre=?, domicilio=?, telefono=? WHERE id=?");
+            preparedStatement=connection.prepareStatement("UPDATE paciente SET nombre=?, apellido=?,codObrasocial=? WHERE dni=?");
 
             preparedStatement.setString(1, elemento.getNombre());
             preparedStatement.setString(2, elemento.getApellido());

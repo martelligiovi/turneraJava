@@ -44,12 +44,12 @@ public class DAOTurno implements DAO<Turno>{
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-            preparedStatement=connection.prepareStatement("UPDATE turno SET legajoMedico=?, dniPaciente=?, fecha=?,costo=? WHERE id=?");
+            preparedStatement=connection.prepareStatement("UPDATE turno SET costo=? WHERE legajoMedico=? and dniPaciente=? and fecha=?");
+            preparedStatement.setDouble(1, elemento.getCosto());
+            preparedStatement.setInt(2,elemento.getLegajoMedico());
+            preparedStatement.setInt(3, elemento.getDniPaciente());
+            preparedStatement.setString(4, elemento.getFecha());
 
-            preparedStatement.setInt(1,elemento.getLegajoMedico());
-            preparedStatement.setInt(2, elemento.getDniPaciente());
-            preparedStatement.setString(3, elemento.getFecha());
-            preparedStatement.setDouble(3, elemento.getCosto());
             int res=preparedStatement.executeUpdate();
             System.out.println("Se modificaron " + res);
         }
