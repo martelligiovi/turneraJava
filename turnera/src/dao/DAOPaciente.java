@@ -61,7 +61,7 @@ public class DAOPaciente implements DAO<Paciente>{
     }
 
     @Override
-    public void eliminar(long id) throws DAOException {
+    public void eliminar(Paciente paciente) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         try {
@@ -69,7 +69,7 @@ public class DAOPaciente implements DAO<Paciente>{
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
             preparedStatement=connection.prepareStatement("DELETE FROM paciente  WHERE dni=?");
 
-            preparedStatement.setLong(1,id);
+            preparedStatement.setLong(1,paciente.getDni());
             int res=preparedStatement.executeUpdate();
             System.out.println("Se elimino" + res);
         }

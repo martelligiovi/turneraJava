@@ -26,7 +26,7 @@ public class TurnoService {
     }
     public void eliminar(Turno turno) throws ServiceException {
         try {
-            daoTurno.eliminar(1);
+            daoTurno.eliminar(turno);
         } catch (Exception e) {
             throw new ServiceException(e.getMessage());
         }
@@ -76,6 +76,13 @@ public class TurnoService {
     public ArrayList<Turno> buscarTurnosPaciente(int dni) throws ServiceException {
         try {
             return daoTurno.buscarTurnosPaciente(dni);
+        } catch (Exception e) {
+            throw new ServiceException(e.getMessage());
+        }
+    }
+    public ArrayList<Turno> buscarTurnosPorPacienteYMedico(Turno turno) throws ServiceException {
+        try {
+            return daoTurno.buscarTurnosPorPacienteYMedico(turno.getDniPaciente(), turno.getLegajoMedico());
         } catch (Exception e) {
             throw new ServiceException(e.getMessage());
         }

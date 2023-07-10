@@ -25,6 +25,12 @@ public class Turno {
         this.fecha = "";
         this.costo = 0.0;
     }
+    public Turno(Medico medico, Paciente paciente){
+        this.medico = medico;
+        this.paciente = paciente;
+        this.fecha = "";
+        this.costo = 0.0;
+    }
     public String getHora(){
         String[] partes = this.fecha.split(" ");
         String hora = partes[1]; // Segunda parte es la hora

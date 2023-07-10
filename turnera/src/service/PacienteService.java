@@ -25,7 +25,7 @@ public class PacienteService {
     }
     public void eliminar(Paciente paciente) throws ServiceException {
         try {
-            daoPaciente.eliminar(paciente.getDni());
+            daoPaciente.eliminar(paciente);
         } catch (Exception e) {
             throw new ServiceException(e.getMessage());
         }

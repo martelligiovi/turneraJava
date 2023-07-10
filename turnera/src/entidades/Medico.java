@@ -9,6 +9,9 @@ public class Medico extends Persona{
     public Medico(){
         super();
     }
+    public Medico(int legajo){
+        this.legajo = legajo;
+    }
     public int getLegajo() {
         return legajo;
     }

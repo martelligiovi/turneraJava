@@ -15,6 +15,9 @@ public class Paciente extends Persona{
     public Paciente(){
     super();
     }
+    public Paciente(int dni){
+        super(dni);
+    }
 
     @Override
     public void setDni(int dni) {

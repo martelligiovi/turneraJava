@@ -20,8 +20,11 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
     JButton jButtonRegistrarPaciente;
     JButton jButtonRegistrarTurno;
     JButton jButonEliminarTurno;
+    FormularioEliminarTurno formularioEliminarTurno;
     JButton jButtonEliminarPaciente;
+    FormularioEliminarPaciente formularioEliminarPaciente;
     JButton jButtonEliminarMedico;
+    FormularioEliminarMedico formularioEliminarMedico;
     JButton jButtonModificarTurno;
     JButton jButtonModificarPaciente;
     JButton jButtonModificarMedico;
@@ -104,6 +107,31 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                     throw new RuntimeException(ex);
                 }
                 panel.mostrar(formularioReporte.getFormulario());
+            }
+        });
+        jButtonEliminarMedico.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formularioEliminarMedico = new FormularioEliminarMedico(panel);
+                panel.mostrar(formularioEliminarMedico.getFormulario());
+            }
+        });
+        jButtonEliminarPaciente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formularioEliminarPaciente = new FormularioEliminarPaciente(panel);
+                panel.mostrar(formularioEliminarPaciente.getFormulario());
+            }
+        });
+        jButonEliminarTurno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    formularioEliminarTurno = new FormularioEliminarTurno(panel);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                }
+                panel.mostrar(formularioEliminarTurno.getFormulario());
             }
         });
     }

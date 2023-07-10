@@ -1,5 +1,7 @@
 package dao;
 
+import entidades.Medico;
+import entidades.Paciente;
 import entidades.Turno;
 
 import java.sql.*;
@@ -60,15 +62,16 @@ public class DAOTurno implements DAO<Turno>{
     }
 
     @Override
-    public void eliminar(long id) throws DAOException {
+    public void eliminar(Turno turno) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
-            preparedStatement=connection.prepareStatement("DELETE FROM turno  WHERE id=?");
-
-            preparedStatement.setLong(1,id);
+            preparedStatement=connection.prepareStatement("DELETE FROM turno  WHERE DniPaciente=? and LegajoMedico=? and fecha=?");
+            preparedStatement.setLong(1,turno.getDniPaciente());
+            preparedStatement.setLong(2,turno.getLegajoMedico());
+            preparedStatement.setString(3,turno.getFecha());
             int res=preparedStatement.executeUpdate();
             System.out.println("Se elimino" + res);
         }
@@ -256,5 +259,30 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
-
+    public ArrayList<Turno> buscarTurnosPorPacienteYMedico(int dni,int legajo) throws DAOException {
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ArrayList<Turno> datos=new ArrayList<>();
+        Turno turno=new Turno();
+        try {
+            Class.forName(DB_JDBC_DRIVER);
+            connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+            preparedStatement=connection.prepareStatement("SELECT * FROM turno WHERE DniPaciente = ? AND LegajoMedico=? ORDER BY fecha DESC;");
+            preparedStatement.setInt(1, dni);
+            preparedStatement.setInt(2, legajo);
+            ResultSet resultSet =preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                turno = new Turno();
+                turno.setFecha(resultSet.getString("fecha"));
+                turno.setMedico(new Medico(resultSet.getInt("legajoMedico")));
+                turno.setPaciente(new Paciente(resultSet.getInt("dniPaciente")));
+                datos.add(turno);
+            }
+            return datos;
+        }
+        catch (ClassNotFoundException | SQLException e)
+        {
+            throw  new DAOException(e.getMessage());
+        }
+    }
 }

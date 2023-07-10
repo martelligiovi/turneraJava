@@ -26,14 +26,14 @@ public class MedicoService {
         }
         public void eliminar(Medico medico) throws ServiceException {
             try {
-                daoMedico.eliminar(medico.getLegajo());
+                daoMedico.eliminar(medico);
             } catch (Exception e) {
                 throw new ServiceException(e.getMessage());
             }
         }
-        public Medico buscar(int id) throws ServiceException {
+        public Medico buscar(Medico medico) throws ServiceException {
             try {
-                return daoMedico.buscar(id);
+                return daoMedico.buscar(medico.getLegajo());
             } catch (Exception e) {
                 throw new ServiceException(e.getMessage());
             }

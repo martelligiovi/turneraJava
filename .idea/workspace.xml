@@ -4,25 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c7c8972-ef49-4ebe-92ec-8704881a6af9" name="Changes" comment="cree un login para el admin">
+    <list default="true" id="3c7c8972-ef49-4ebe-92ec-8704881a6af9" name="Changes" comment="implemente los eliminar, me falta que avise que no hay turnos, en caso q este vacia la lista">
+      <change afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarMedico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarPaciente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarTurno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarTurnoFecha.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$5.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/DecorarFormulario.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/DecorarFormulario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/Formulario.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/Formulario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioTurno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioTurno.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/service/MedicoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/service/MedicoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOMedico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOObraSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOObraSocial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOPaciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/Medico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/Paciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/Turno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioHora.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioHora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioLoginAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioLoginAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioReporte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioTurno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosMedicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosMedicos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioPaciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/service/MedicoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/service/MedicoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/service/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/service/PacienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/service/TurnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/service/TurnoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688960722969</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="agregue la botonera de admin, pero no sus funciones">
+      <created>1688966085411</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1688966085411</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,7 +323,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dao" />
     <MESSAGE value="dao implement" />
     <MESSAGE value="implemente la base de dato, me falta adaptar las sentencias" />
     <MESSAGE value="termine hasta DAOObrasocial" />
@@ -333,6 +346,8 @@
     <MESSAGE value="implementado el service" />
     <MESSAGE value="se validan las acciones y hay manejo de errores para  el usuario admin" />
     <MESSAGE value="cree un login para el admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="cree un login para el admin" />
+    <MESSAGE value="agregue la botonera de admin, pero no sus funciones" />
+    <MESSAGE value="implemente los eliminar, me falta que avise que no hay turnos, en caso q este vacia la lista" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemente los eliminar, me falta que avise que no hay turnos, en caso q este vacia la lista" />
   </component>
 </project>

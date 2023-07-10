@@ -62,7 +62,7 @@ import java.util.ArrayList;
         }
 
         @Override
-        public void eliminar(long id) throws DAOException {
+        public void eliminar(Medico medico) throws DAOException {
             Connection connection=null;
             PreparedStatement preparedStatement=null;
             try {
@@ -70,7 +70,7 @@ import java.util.ArrayList;
                 connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
                 preparedStatement=connection.prepareStatement("DELETE FROM Medico  WHERE legajo=?");
 
-                preparedStatement.setLong(1,id);
+                preparedStatement.setLong(1,medico.getLegajo());
                 int res=preparedStatement.executeUpdate();
                 System.out.println("Se elimino" + res);
             }
