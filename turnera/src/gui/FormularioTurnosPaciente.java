@@ -15,13 +15,14 @@ public class FormularioTurnosPaciente implements DecorarFormulario{
     DefaultTableModel model;
     JPanel formularioTurnosPaciente;
     PanelManager panel;
-    ArrayList<Turno> listaTurnos;
-    public FormularioTurnosPaciente(PanelManager panel,int dni) throws ServiceException {
+    ArrayList<Turno> turnos;
+    public FormularioTurnosPaciente(PanelManager panel,ArrayList<Turno> turnos) throws ServiceException {
         this.panel=panel;
-        creadorFormulario(dni);
+        this.turnos=turnos;
+        creadorFormulario();
         decorar();
     }
-    public void creadorFormulario(int dni) throws ServiceException {
+    public void creadorFormulario() throws ServiceException {
         formularioTurnosPaciente = new JPanel();
         turnoService = new TurnoService();
         formularioTurnosPaciente.setLayout(new GridLayout(1,1));
@@ -29,8 +30,7 @@ public class FormularioTurnosPaciente implements DecorarFormulario{
         model.addColumn("legajo medico");
         model.addColumn("turno");
         model.addColumn("costo");
-        ArrayList<Turno> turnos = turnoService.buscarTurnosPaciente(dni);
-        for (Turno turno : turnos) {
+        for (Turno turno : this.turnos) {
             model.addRow(new Object[]{turno.getLegajoMedico(), turno.getFecha(), turno.getCosto()});
         }
         formularioTurnosPaciente.add(new JScrollPane(new JTable(model)));

@@ -10,6 +10,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 public class FormularioUsuarioMedico extends JPanel implements Formulario,DecorarFormulario{
@@ -58,12 +61,26 @@ public class FormularioUsuarioMedico extends JPanel implements Formulario,Decora
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String fechaText = jTextFieldFecha.getText().trim();
+                String legajoText = jTextFieldLegajo.getText().trim();
+
+                // Verificar que se haya ingresado una fecha válida
+                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
                 try {
-                    formularioTurnosMedicos = new FormularioTurnosMedicos(panel,jTextFieldFecha.getText(),Integer.parseInt(jTextFieldLegajo.getText()));
+                    LocalDate fecha = LocalDate.parse(fechaText, dateFormatter);
+                    ArrayList<Turno> turnos = turnoService.buscarTurnosMedico(fechaText, Integer.parseInt(legajoText));
+
+                    if (turnos.size() == 0) {
+                        JOptionPane.showMessageDialog(null, "No hay turnos disponibles");
+                    } else {
+                        formularioTurnosMedicos = new FormularioTurnosMedicos(panel, turnos);
+                        panel.mostrar(formularioTurnosMedicos.getFormulario());
+                    }
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
+                } catch (DateTimeParseException ex) {
+                    JOptionPane.showMessageDialog(null, "Formato de fecha incorrecto.\n Use el formato yyyy/MM/dd");
                 }
-                panel.mostrar(formularioTurnosMedicos.getFormulario());
             }
         });
         jButtonExit.addActionListener(new ActionListener() {

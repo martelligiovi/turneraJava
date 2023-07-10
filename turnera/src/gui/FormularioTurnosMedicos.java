@@ -9,28 +9,26 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class FormularioTurnosMedicos implements DecorarFormulario {
-    TurnoService turnoService;
     DefaultTableModel model;
     JPanel formularioTurnosMedicos;
     PanelManager panel;
-    ArrayList<Turno> listaTurnos;
+    ArrayList<Turno> turnos;
 
-    public FormularioTurnosMedicos(PanelManager panel,String fecha,int legajo) throws ServiceException {
+    public FormularioTurnosMedicos(PanelManager panel,ArrayList<Turno> turnos) throws ServiceException {
         this.panel=panel;
-        creadorFormularioTurnosMedicos(fecha, legajo);
+        this.turnos=turnos;
+        creadorFormularioTurnosMedicos();
         decorar();
     }
 
-    public void creadorFormularioTurnosMedicos(String fecha,int legajo) throws ServiceException {
+    public void creadorFormularioTurnosMedicos() throws ServiceException {
         formularioTurnosMedicos = new JPanel();
-        turnoService = new TurnoService();
         formularioTurnosMedicos.setLayout(new GridLayout(1,1));
         model = new DefaultTableModel();
         model.addColumn("dni paciente");
         model.addColumn("hora");
         model.addColumn("costo");
-        ArrayList<Turno> turnos = turnoService.buscarTurnosMedico(fecha, legajo);
-        for (Turno turno : turnos) {
+        for (Turno turno : this.turnos) {
             model.addRow(new Object[]{turno.getDniPaciente(), turno.getHora(), turno.getCosto()});
         }
         formularioTurnosMedicos.add(new JScrollPane(new JTable(model)));

@@ -66,12 +66,12 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
         jTextFieldFecha.setText("yyyy/MM/dd");
         ArrayList<Medico> medicos = fillarrayMedicos();
         for (Medico m : medicos) {
-            jComboBoxLegajoMedico.addItem(m.getLegajo());
+            jComboBoxLegajoMedico.addItem(m.getLegajo() + "-" + m.getNombre() + " " + m.getApellido());
         }
         ArrayList<Paciente> pacientes = fillarrayPacientes();
         jComboBoxDniPaciente = new JComboBox();
         for (Paciente p : pacientes) {
-            jComboBoxDniPaciente.addItem(p.getDni());
+            jComboBoxDniPaciente.addItem(p.getDni() + "-" + p.getNombre() + " " + p.getApellido());
         }
     }
     @Override
@@ -102,8 +102,9 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
             public void actionPerformed(ActionEvent e) {
                 try {
                     turno = new Turno();
-                    turno.setLegajoMedico(Integer.parseInt(jComboBoxLegajoMedico.getSelectedItem().toString()));
-                    turno.setDniPaciente(Integer.parseInt(jComboBoxDniPaciente.getSelectedItem().toString()));
+                    turno.setLegajoMedico(Integer.parseInt(jComboBoxLegajoMedico.getSelectedItem().toString().split("-")[0]));
+                    turno.setDniPaciente(Integer.parseInt(jComboBoxDniPaciente.getSelectedItem().toString().split("-")[0]));
+
 
                     String fechaText = jTextFieldFecha.getText().trim();
                     String costoText = jTextFieldCosto.getText().trim();
@@ -160,7 +161,7 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
     public void decorar(){
         formularioTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioTurno.setBackground(Color.lightGray);
-        formularioTurno.setPreferredSize(new Dimension(220, 175));
+        formularioTurno.setPreferredSize(new Dimension(420, 175));
         formularioTurno.setOpaque(true);
     }
 

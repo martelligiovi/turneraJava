@@ -187,7 +187,6 @@ public class DAOTurno implements DAO<Turno>{
             preparedStatement.setInt(2, legajoMedico);
             ResultSet resultSet =preparedStatement.executeQuery();
             while (resultSet.next()) {
-
                 turno = new Turno();
                 turno.setLegajoMedico(resultSet.getInt("legajoMedico"));
                 turno.setDniPaciente(resultSet.getInt("dniPaciente"));

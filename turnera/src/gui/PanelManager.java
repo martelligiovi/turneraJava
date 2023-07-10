@@ -34,7 +34,12 @@ public class PanelManager {
         ventana.getContentPane().repaint();
         ventana.pack();
     }
+    public JFrame getVentana() {
+        return ventana;
+    }
 
 
-
+    public void cerrarVentana() {
+        ventana.dispose();
+    }
 }

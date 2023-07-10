@@ -79,6 +79,24 @@ public class DAOCreate{
             System.out.println(e.getMessage());
         }
     }
+    //admin solo tiene usuario y contraseña, y los valores que van son admin y admin
+    public static void crearAdmin(){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement2 = null;
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            preparedStatement = connection.prepareStatement("CREATE TABLE Admin (usuario VARCHAR(50), contraseña VARCHAR(50))");
+            preparedStatement2 = connection.prepareStatement("INSERT INTO Admin VALUES ('admin', 'admin')");
+            int res = preparedStatement.executeUpdate();
+            int res2 = preparedStatement2.executeUpdate();
+            System.out.println("Se ha creado la tabla Admin " + res);
+            System.out.println("Se ha insertado el usuario admin " + res2);
+        }catch (ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     public static void createTablas(){
         createTurno();

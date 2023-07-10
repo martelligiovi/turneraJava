@@ -1,13 +1,16 @@
 package gui;
 
 
+import entidades.Turno;
 import service.ServiceException;
+import service.TurnoService;
 
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class FormularioUsuarioPaciente extends JPanel implements Formulario,DecorarFormulario{
@@ -19,6 +22,7 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
     JTextField jTextFieldDni;
     JButton jButtonSend;
     JButton jButtonExit;
+    TurnoService turnoService;
     public FormularioUsuarioPaciente(PanelManager panel){
         this.panel=panel;
         creadorFormulario();
@@ -30,6 +34,7 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
 
     @Override
     public void creadorFormulario() {
+        turnoService = new TurnoService();
         formularioUsuarioPasiente = new JPanel();
         formularioUsuarioPasiente.setLayout(new GridLayout(2,2));
         jLabelDni = new JLabel("Ingrese su dni:");
@@ -61,11 +66,16 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    formularioTurnosPaciente = new FormularioTurnosPaciente(panel, Integer.parseInt(jTextFieldDni.getText()));
+                    ArrayList<Turno> turnos = turnoService.buscarTurnosPaciente(Integer.parseInt(jTextFieldDni.getText()));
+                    if (turnos.size() == 0) {
+                        JOptionPane.showMessageDialog(null, "No hay turnos disponibles");
+                    } else {
+                        formularioTurnosPaciente = new FormularioTurnosPaciente(panel, turnos);
+                        panel.mostrar(formularioTurnosPaciente.getFormulario());
+                    }
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
                 }
-                panel.mostrar(formularioTurnosPaciente.getFormulario());
             }
         });
     }
