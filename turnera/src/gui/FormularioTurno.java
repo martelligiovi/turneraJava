@@ -161,7 +161,7 @@ public class FormularioTurno extends JPanel implements Formulario,DecorarFormula
     public void decorar(){
         formularioTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioTurno.setBackground(Color.lightGray);
-        formularioTurno.setPreferredSize(new Dimension(420, 175));
+        formularioTurno.setPreferredSize(new Dimension(450, 175));
         formularioTurno.setOpaque(true);
     }
 

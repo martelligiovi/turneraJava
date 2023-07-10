@@ -4,23 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c7c8972-ef49-4ebe-92ec-8704881a6af9" name="Changes" comment="se validan las acciones y hay manejo de errores para  el usuario admin">
-      <change afterPath="$PROJECT_DIR$/turnera/src/dao/DAOAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioLoginAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/turnera/src/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/turnera/dao/DAOCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/dao/DAOCreate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/turnera/dao/DAOTurno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/dao/DAOTurno.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOTurno.java" afterDir="false" />
+    <list default="true" id="3c7c8972-ef49-4ebe-92ec-8704881a6af9" name="Changes" comment="cree un login para el admin">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/DecorarFormulario.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/DecorarFormulario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/Formulario.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/Formulario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioHora.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioHora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioLoginAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioLoginAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioReporte.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioSeleccionUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioSeleccionUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioTurno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosMedicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosMedicos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioMedico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/PanelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/PanelManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +280,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688940485524</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="cree un login para el admin">
+      <created>1688960645359</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1688960645359</updated>
+    </task>
+    <task id="LOCAL-00029" summary="cree un login para el admin">
+      <created>1688960722969</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1688960722969</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,6 +332,7 @@
     <MESSAGE value="no hay un error de tipeo en un form, no hay lógica en los formulario, turno almacena objeto medico y paciente y cree los service, falta implementarlos" />
     <MESSAGE value="implementado el service" />
     <MESSAGE value="se validan las acciones y hay manejo de errores para  el usuario admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="se validan las acciones y hay manejo de errores para  el usuario admin" />
+    <MESSAGE value="cree un login para el admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="cree un login para el admin" />
   </component>
 </project>

@@ -19,8 +19,13 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
     JButton jButtonRegistrarMedico;
     JButton jButtonRegistrarPaciente;
     JButton jButtonRegistrarTurno;
+    JButton jButonEliminarTurno;
+    JButton jButtonEliminarPaciente;
+    JButton jButtonEliminarMedico;
+    JButton jButtonModificarTurno;
+    JButton jButtonModificarPaciente;
+    JButton jButtonModificarMedico;
     JButton jButtonReportes;
-    JButton jButtonExit;
     public FormularioAdmin(PanelManager panel){
         this.panel=panel;
         creadorFormulario();
@@ -31,12 +36,18 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
     @Override
     public void creadorFormulario(){
         formularioAdmin = new JPanel();
-        formularioAdmin.setLayout(new GridLayout(5,1));
+        formularioAdmin.setLayout(new GridLayout(4, 3));
         jButtonRegistrarMedico = new JButton("Registrar Medico");
         jButtonRegistrarPaciente = new JButton("Registrar Paciente");
         jButtonRegistrarTurno = new JButton("Registrar Turno");
+        jButtonEliminarMedico = new JButton("Eliminar Medico");
+        jButtonEliminarPaciente = new JButton("Eliminar Paciente");
+        jButonEliminarTurno = new JButton("Eliminar Turno");
+        jButtonModificarMedico = new JButton("Modificar Medico");
+        jButtonModificarPaciente = new JButton("Modificar Paciente");
+        jButtonModificarTurno = new JButton("Modificar Turno");
         jButtonReportes = new JButton("Reportes");
-        jButtonExit = new JButton("Salir");
+
 
     }
     @Override
@@ -44,18 +55,19 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         formularioAdmin.add(jButtonRegistrarMedico);
         formularioAdmin.add(jButtonRegistrarPaciente);
         formularioAdmin.add(jButtonRegistrarTurno);
+        formularioAdmin.add(jButtonEliminarMedico);
+        formularioAdmin.add(jButtonEliminarPaciente);
+        formularioAdmin.add(jButonEliminarTurno);
+        formularioAdmin.add(jButtonModificarMedico);
+        formularioAdmin.add(jButtonModificarPaciente);
+        formularioAdmin.add(jButtonModificarTurno);
+        //quiero agregar una objeto invisible para que se vea bien
+        formularioAdmin.add(new JLabel(""));
         formularioAdmin.add(jButtonReportes);
-        formularioAdmin.add(jButtonExit);
+
     }
     @Override
     public void agregarFuncionesBotones(){
-        jButtonExit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                formularioSeleccionUsuario = new FormularioSeleccionUsuario(panel);
-                panel.mostrar(formularioSeleccionUsuario.getFormulario());
-            }
-        });
         jButtonRegistrarMedico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,7 +115,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
     public void decorar(){
         formularioAdmin.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioAdmin.setBackground(Color.lightGray);
-        formularioAdmin.setPreferredSize(new Dimension(220, 175));
+        formularioAdmin.setPreferredSize(new Dimension(450, 175));
         formularioAdmin.setOpaque(true);
     }
 }
