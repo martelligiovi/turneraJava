@@ -1,10 +1,8 @@
 package gui;
 
-
 import entidades.Turno;
 import service.ServiceException;
 import service.TurnoService;
-
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
@@ -12,8 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
-public class FormularioUsuarioPaciente extends JPanel implements Formulario,DecorarFormulario{
+public class FormularioUsuarioPaciente extends JPanel implements Formulario,DecorarFormulario,SetFormatoJTextField{
     PanelManager panel;
     JPanel formularioUsuarioPasiente;
     FormularioSeleccionUsuario formularioSeleccionUsuario;
@@ -23,6 +20,7 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
     JButton jButtonSend;
     JButton jButtonExit;
     TurnoService turnoService;
+
     public FormularioUsuarioPaciente(PanelManager panel){
         this.panel=panel;
         creadorFormulario();
@@ -30,7 +28,6 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
         agregarFuncionesBotones();
         decorar();
     }
-
 
     @Override
     public void creadorFormulario() {
@@ -41,7 +38,7 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
         jTextFieldDni = new JFormattedTextField();
-        setFormatoJTextFieldDni();
+        setFormatoJTextField(jTextFieldDni);
     }
 
     @Override
@@ -50,7 +47,6 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
         formularioUsuarioPasiente.add(jTextFieldDni);
         formularioUsuarioPasiente.add(jButtonExit);
         formularioUsuarioPasiente.add(jButtonSend);
-
     }
 
     @Override
@@ -81,7 +77,7 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
     }
 
     @Override
-    public JPanel getFormulario() {
+    public JPanel getFormulario(){
         return formularioUsuarioPasiente;
     }
     public NumberFormatter getNumberFormatter(){
@@ -91,8 +87,18 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
         formatter.setMaximum(99999999); // Máximo 8 dígitos
         return formatter;
     }
-    public void setFormatoJTextFieldDni() {
-        ((AbstractDocument) jTextFieldDni.getDocument()).setDocumentFilter(new DocumentFilter() {
+
+    @Override
+    public void decorar(){
+        formularioUsuarioPasiente.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioUsuarioPasiente.setBackground(Color.lightGray);
+        formularioUsuarioPasiente.setPreferredSize(new Dimension(220, 80));
+        formularioUsuarioPasiente.setOpaque(true);
+    }
+
+    @Override
+    public void setFormatoJTextField(JTextField textField) {
+        ((AbstractDocument) textField.getDocument()).setDocumentFilter(new DocumentFilter() {
             @Override
             public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
                     throws BadLocationException {
@@ -103,13 +109,5 @@ public class FormularioUsuarioPaciente extends JPanel implements Formulario,Deco
             }
         });
     }
-    @Override
-    public void decorar(){
-        formularioUsuarioPasiente.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        formularioUsuarioPasiente.setBackground(Color.lightGray);
-        formularioUsuarioPasiente.setPreferredSize(new Dimension(220, 75));
-        formularioUsuarioPasiente.setOpaque(true);
-    }
-
 
 }

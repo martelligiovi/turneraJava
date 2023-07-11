@@ -1,7 +1,6 @@
 package gui;
 
 import service.AdminService;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,6 +14,7 @@ public class FormularioLoginAdmin {
     JLabel jLabelUser;
     JLabel jLabelPassword;
     AdminService adminService;
+
     public FormularioLoginAdmin(PanelManager panel){
         this.panel=panel;
         creadorFormulario();
@@ -22,6 +22,7 @@ public class FormularioLoginAdmin {
         agregarFuncionesBotones();
         decorar();
     }
+
     public void creadorFormulario(){
         formularioLoginAdmin = new JPanel();
         formularioLoginAdmin.setLayout(new GridLayout(3,2));
@@ -32,6 +33,7 @@ public class FormularioLoginAdmin {
         jLabelUser = new JLabel("Usuario:");
         jLabelPassword = new JLabel("Contraseña:");
     }
+
     public void agregarFormulario(){
         formularioLoginAdmin.add(jLabelUser);
         formularioLoginAdmin.add(jTextFieldUser);
@@ -40,11 +42,13 @@ public class FormularioLoginAdmin {
         formularioLoginAdmin.add(jButtonExit);
         formularioLoginAdmin.add(jButtonLoginAdmin);
     }
+
     public void agregarFuncionesBotones(){
         jButtonExit.addActionListener(e -> {
             FormularioSeleccionUsuario formularioSeleccionUsuario = new FormularioSeleccionUsuario(panel);
             panel.mostrar(formularioSeleccionUsuario.getFormulario());
         });
+
         jButtonLoginAdmin.addActionListener(e -> {
             adminService = new AdminService();
             String user = jTextFieldUser.getText();
@@ -61,15 +65,16 @@ public class FormularioLoginAdmin {
             }
         });
     }
+
     public void decorar(){
         formularioLoginAdmin.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioLoginAdmin.setBackground(Color.lightGray);
         formularioLoginAdmin.setPreferredSize(new Dimension(220, 120));
-        formularioLoginAdmin.setOpaque(true);    }
+        formularioLoginAdmin.setOpaque(true);
+    }
+
     public JPanel getFormulario(){
         return formularioLoginAdmin;
     }
-
-
 
 }

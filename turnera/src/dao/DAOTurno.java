@@ -3,10 +3,8 @@ package dao;
 import entidades.Medico;
 import entidades.Paciente;
 import entidades.Turno;
-
 import java.sql.*;
 import java.util.ArrayList;
-
 
 public class DAOTurno implements DAO<Turno>{
     private String DB_JDBC_DRIVER="org.h2.Driver";
@@ -17,8 +15,6 @@ public class DAOTurno implements DAO<Turno>{
     public void guardar(Turno elemento) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
-        System.out.println("legajo");
-        System.out.println(elemento.getLegajoMedico());
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
@@ -57,8 +53,6 @@ public class DAOTurno implements DAO<Turno>{
         {
             throw  new DAOException(e.getMessage());
         }
-
-
     }
 
     @Override
@@ -92,9 +86,6 @@ public class DAOTurno implements DAO<Turno>{
             preparedStatement=connection.prepareStatement("SELECT * FROM turno  WHERE id=?");
             preparedStatement.setLong(1,id);
             ResultSet resultSet =preparedStatement.executeQuery();
-            if (resultSet.next()) {
-               // turno = new Turno(resultSet.getString("NOMBRE"));
-            }
         }
         catch (ClassNotFoundException | SQLException e)
         {
@@ -102,7 +93,6 @@ public class DAOTurno implements DAO<Turno>{
         }
         return turno;
     }
-
 
     @Override
     public ArrayList buscarTodos() throws DAOException {
@@ -116,7 +106,6 @@ public class DAOTurno implements DAO<Turno>{
             preparedStatement=connection.prepareStatement("SELECT * FROM turno");
             ResultSet resultSet =preparedStatement.executeQuery();
             while (resultSet.next()) {
-
                 turno = new Turno();
                 turno.setLegajoMedico(resultSet.getInt("legajoMedico"));
                 turno.setDniPaciente(resultSet.getInt("dniPaciente"));
@@ -154,6 +143,7 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
+
     public ArrayList<String> buscarHorariosPorPaciente(String fecha, int dni) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
@@ -177,6 +167,7 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
+
     public ArrayList<Turno> buscarTurnosMedico(String fecha, int legajoMedico) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
@@ -210,7 +201,6 @@ public class DAOTurno implements DAO<Turno>{
         PreparedStatement preparedStatement=null;
         Turno turno;
         ArrayList<Turno> datos=new ArrayList<>();
-
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
@@ -234,11 +224,12 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
+
     public ArrayList<Turno> buscarTurnosPaciente(int dni) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         ArrayList<Turno> datos=new ArrayList<>();
-        Turno turno=new Turno();
+        Turno turno;
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
@@ -259,11 +250,12 @@ public class DAOTurno implements DAO<Turno>{
         }
         return datos;
     }
+
     public ArrayList<Turno> buscarTurnosPorPacienteYMedico(int dni,int legajo) throws DAOException {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         ArrayList<Turno> datos=new ArrayList<>();
-        Turno turno=new Turno();
+        Turno turno;
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
@@ -285,15 +277,14 @@ public class DAOTurno implements DAO<Turno>{
             throw  new DAOException(e.getMessage());
         }
     }
+
     public ArrayList<Turno> calcularSumaCobrosPorRango(String fecha1, String fecha2) throws DAOException {
         ArrayList<Turno> sumaCobrosPorLegajo = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT t.legajoMedico, SUM(t.costo) AS suma_cobros, m.nombre, m.apellido FROM turno t INNER JOIN medico m ON t.legajoMedico = m.legajo WHERE t.fecha BETWEEN CONCAT(?, ' 00:00') AND CONCAT(?, ' 23:59') GROUP BY t.legajoMedico, m.nombre, m.apellido;\n")) {
-
             preparedStatement.setString(1, fecha1);
             preparedStatement.setString(2, fecha2);
             ResultSet resultSet = preparedStatement.executeQuery();
-
             while (resultSet.next()) {
                 Turno turno = new Turno();
                 turno.setLegajoMedico(resultSet.getInt("legajoMedico"));

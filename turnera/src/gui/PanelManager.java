@@ -3,13 +3,12 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelManager {
+public class PanelManager{
     public FormularioSeleccionUsuario formularioSeleccionUsuario;
     public FormularioAdmin formularioAdmin;
 
     JFrame ventana;
-    public PanelManager()
-    {
+    public PanelManager(){
         ventana=new JFrame("Clinica");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         formularioSeleccionUsuario = new FormularioSeleccionUsuario(this);
@@ -25,21 +24,12 @@ public class PanelManager {
         ventana.setLocationRelativeTo(null);
 
     }
-    //hacer el mostrarPanelAdmin
-    public void mostrarFormularioAdmin(){
-        JPanel formularioAdmin = new FormularioAdmin(this);
-        ventana.getContentPane().removeAll();
-        ventana.getContentPane().add(BorderLayout.SOUTH, formularioAdmin);
-        ventana.getContentPane().validate();
-        ventana.getContentPane().repaint();
-        ventana.pack();
-    }
-    public JFrame getVentana() {
+
+    public JFrame getVentana(){
         return ventana;
     }
 
-
-    public void cerrarVentana() {
+    public void cerrarVentana(){
         ventana.dispose();
     }
 }

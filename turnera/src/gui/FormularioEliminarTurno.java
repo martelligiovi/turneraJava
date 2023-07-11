@@ -3,19 +3,14 @@ package gui;
 import entidades.Medico;
 import entidades.Paciente;
 import entidades.Turno;
-
 import service.*;
-
-
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
 import java.util.ArrayList;
 
-public class FormularioEliminarTurno implements Formulario, DecorarFormulario {
+public class FormularioEliminarTurno implements Formulario, DecorarFormulario{
     TurnoService turnoService;
     MedicoService medicoService;
     PacienteService pacienteService;
@@ -30,6 +25,7 @@ public class FormularioEliminarTurno implements Formulario, DecorarFormulario {
     FormularioAdmin formularioAdmin;
     FormularioEliminarTurnoFecha formularioEliminarTurnoFecha;
     ArrayList<Turno> turnos;
+
     FormularioEliminarTurno (PanelManager panel) throws ServiceException {
         this.panel=panel;
         creadorFormulario();
@@ -37,6 +33,7 @@ public class FormularioEliminarTurno implements Formulario, DecorarFormulario {
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario() throws ServiceException {
         turnoService = new TurnoService();
@@ -58,6 +55,7 @@ public class FormularioEliminarTurno implements Formulario, DecorarFormulario {
             jComboBoxDniPaciente.addItem(p.getDni() + "-" + p.getNombre() + " " + p.getApellido());
         }
     }
+
     @Override
     public void agregarFormulario(){
         formularioEliminarTurno.add(jLabelDni);
@@ -66,8 +64,8 @@ public class FormularioEliminarTurno implements Formulario, DecorarFormulario {
         formularioEliminarTurno.add(jComboBoxLegajoMedico);
         formularioEliminarTurno.add(jButtonExit);
         formularioEliminarTurno.add(jButtonSend);
-
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(new ActionListener() {
@@ -89,6 +87,7 @@ public class FormularioEliminarTurno implements Formulario, DecorarFormulario {
                 }
             }
         });
+
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,24 +95,28 @@ public class FormularioEliminarTurno implements Formulario, DecorarFormulario {
                 panel.mostrar(formularioAdmin.getFormulario());
             }
         });
-
     }
+
     @Override
     public void decorar(){
         formularioEliminarTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioEliminarTurno.setBackground(Color.lightGray);
-        formularioEliminarTurno.setPreferredSize(new Dimension(220, 75));
-        formularioEliminarTurno.setOpaque(true);      }
+        formularioEliminarTurno.setPreferredSize(new Dimension(450, 120));
+        formularioEliminarTurno.setOpaque(true);
+    }
+
     @Override
     public JPanel getFormulario(){
         return formularioEliminarTurno;
     }
+
     public ArrayList<Paciente> fillarrayPacientes() throws ServiceException {
         ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
         pacienteService = new PacienteService();
         pacientes = pacienteService.buscarTodos();
         return pacientes;
     }
+
     public ArrayList<Medico> fillarrayMedicos() throws ServiceException {
         ArrayList<Medico> medicos = new ArrayList<Medico>();
         medicoService = new MedicoService();

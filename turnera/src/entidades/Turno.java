@@ -1,9 +1,7 @@
 package entidades;
 
-import dao.DAOException;
 import service.ServiceException;
 import service.TurnoService;
-
 import java.util.ArrayList;
 
 public class Turno {
@@ -19,25 +17,27 @@ public class Turno {
         this.fecha = fecha;
         this.costo = costo;
     }
+
     public Turno(){
         this.medico = new Medico();
         this.paciente = new Paciente();
         this.fecha = "";
         this.costo = 0.0;
     }
+
     public Turno(Medico medico, Paciente paciente){
         this.medico = medico;
         this.paciente = paciente;
         this.fecha = "";
         this.costo = 0.0;
     }
+
     public String getHora(){
         String[] partes = this.fecha.split(" ");
         String hora = partes[1]; // Segunda parte es la hora
         return hora;
     }
-    /*public void setNombrePaciente(String nombre) {this.paciente.setNombre(nombre);}
-    public String getNombrePaciente() {return paciente.getNombre();}*/
+
     public void setNombreMedico(String nombre) {this.medico.setNombre(nombre);}
     public String getNombreMedico() {return medico.getNombre();}
     public void setApellidoMedico(String apellido) {this.medico.setApellido(apellido);}
@@ -52,6 +52,7 @@ public class Turno {
     public void setFecha(String fecha) {this.fecha = fecha;}
     public Double getCosto() {return costo;}
     public void setCosto(Double costo) {this.costo = costo;}
+
     public ArrayList<String> fillarrayHoras() throws ServiceException {
         ArrayList<String> horariosTomados = horariosTomados(this.fecha, this.getLegajoMedico(), this.getDniPaciente());
         int horaInicial = 10; // Hora inicial (10:00)
@@ -78,4 +79,5 @@ public class Turno {
         }
         return horariosTomados;
     }
+
 }

@@ -7,6 +7,7 @@ public class AdminService {
     public AdminService(){
         daoAdmin = new DAOAdmin();
     }
+
     public boolean login(String user, String password) throws ServiceException {
         try {
             return daoAdmin.login(user,password);
@@ -14,4 +15,5 @@ public class AdminService {
             throw new ServiceException(e.getMessage());
         }
     }
+
 }

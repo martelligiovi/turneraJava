@@ -1,17 +1,18 @@
 package gui;
 
-
 import service.PacienteService;
 import entidades.Paciente;
 import service.ServiceException;
-
-
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioAgregarPaciente extends JPanel implements Formulario,DecorarFormulario{
+public class FormularioAgregarPaciente extends JPanel implements Formulario,DecorarFormulario,SetFormatoJTextField{
     PacienteService pacienteService;
     JPanel formularioAgregarPaciente;
     JLabel jLabelNombre;
@@ -34,6 +35,7 @@ public class FormularioAgregarPaciente extends JPanel implements Formulario,Deco
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario(){
         pacienteService = new PacienteService();
@@ -50,6 +52,7 @@ public class FormularioAgregarPaciente extends JPanel implements Formulario,Deco
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
     }
+
     @Override
     public void agregarFormulario(){
         formularioAgregarPaciente.add(jLabelDni);
@@ -62,7 +65,9 @@ public class FormularioAgregarPaciente extends JPanel implements Formulario,Deco
         formularioAgregarPaciente.add(jTextFieldCodObraSocial);
         formularioAgregarPaciente.add(jButtonExit);
         formularioAgregarPaciente.add(jButtonSend);
+        setFormatoJTextField(jTextFieldDni);
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonExit.addActionListener(new ActionListener() {
@@ -73,6 +78,7 @@ public class FormularioAgregarPaciente extends JPanel implements Formulario,Deco
                 panel.mostrar(formularioAdmin.getFormulario());
             }
         });
+
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -90,12 +96,8 @@ public class FormularioAgregarPaciente extends JPanel implements Formulario,Deco
                         paciente.setNombre(jTextFieldNombre.getText());
                         paciente.setApellido(jTextFieldApellido.getText());
                         paciente.setCodObraSocial(Integer.parseInt(jTextFieldCodObraSocial.getText()));
-
                         pacienteService.guardar(paciente);
                         JOptionPane.showMessageDialog(null, "Se guardo correctamente");
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Error en el formato de los campos numéricos");
-                        throw new RuntimeException(ex);
                     } catch (ServiceException ex) {
                         JOptionPane.showMessageDialog(null, "Paciente existente");
                         throw new RuntimeException(ex);
@@ -118,5 +120,18 @@ public class FormularioAgregarPaciente extends JPanel implements Formulario,Deco
         formularioAgregarPaciente.setBackground(Color.lightGray);
         formularioAgregarPaciente.setPreferredSize(new Dimension(270, 175));
         formularioAgregarPaciente.setOpaque(true);
+    }
+    @Override
+    public void setFormatoJTextField(JTextField textField) {
+        ((AbstractDocument) textField.getDocument()).setDocumentFilter(new DocumentFilter() {
+            @Override
+            public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
+                    throws BadLocationException {
+                String newText = fb.getDocument().getText(0, fb.getDocument().getLength()) + text;
+                if (newText.matches("\\d{0,8}")) {
+                    super.replace(fb, offset, length, text, attrs);
+                }
+            }
+        });
     }
 }

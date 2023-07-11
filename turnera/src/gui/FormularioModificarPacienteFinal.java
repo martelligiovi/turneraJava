@@ -3,7 +3,6 @@ package gui;
 import entidades.Paciente;
 import service.PacienteService;
 import service.ServiceException;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,6 +19,7 @@ public class FormularioModificarPacienteFinal implements Formulario,DecorarFormu
     PanelManager panel;
     FormularioAdmin formularioAdmin;
     Paciente paciente;
+
     public FormularioModificarPacienteFinal(PanelManager panel,Paciente paciente){
         this.panel=panel;
         this.paciente=paciente;
@@ -28,6 +28,7 @@ public class FormularioModificarPacienteFinal implements Formulario,DecorarFormu
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario(){
         formularioModificarPacienteFinal = new JPanel();
@@ -41,6 +42,7 @@ public class FormularioModificarPacienteFinal implements Formulario,DecorarFormu
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
     }
+
     @Override
     public void agregarFormulario(){
         formularioModificarPacienteFinal.add(jLabelNombre);
@@ -52,6 +54,7 @@ public class FormularioModificarPacienteFinal implements Formulario,DecorarFormu
         formularioModificarPacienteFinal.add(jButtonExit);
         formularioModificarPacienteFinal.add(jButtonSend);
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(e -> {
@@ -71,18 +74,21 @@ public class FormularioModificarPacienteFinal implements Formulario,DecorarFormu
             }
 
         });
+
         jButtonExit.addActionListener(e -> {
             formularioAdmin = new FormularioAdmin(panel);
             panel.mostrar(formularioAdmin.getFormulario());
         });
     }
+
     @Override
     public void decorar(){
         formularioModificarPacienteFinal.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioModificarPacienteFinal.setBackground(Color.lightGray);
-        formularioModificarPacienteFinal.setPreferredSize(new Dimension(220, 75));
+        formularioModificarPacienteFinal.setPreferredSize(new Dimension(220, 160));
         formularioModificarPacienteFinal.setOpaque(true);
     }
+
     @Override
     public JPanel getFormulario(){
         return formularioModificarPacienteFinal;

@@ -1,11 +1,8 @@
 package dao;
 
 import entidades.Paciente;
-import entidades.Paciente;
-
 import java.sql.*;
 import java.util.ArrayList;
-
 
 public class DAOPaciente implements DAO<Paciente>{
     private String DB_JDBC_DRIVER="org.h2.Driver";
@@ -24,8 +21,6 @@ public class DAOPaciente implements DAO<Paciente>{
             preparedStatement.setString(2, elemento.getNombre());
             preparedStatement.setString(3, elemento.getApellido());
             preparedStatement.setInt(4, elemento.getCodObraSocial());
-
-
             int res=preparedStatement.executeUpdate();
             System.out.println("Se agregaron " + res);
         }
@@ -37,14 +32,12 @@ public class DAOPaciente implements DAO<Paciente>{
 
     @Override
     public void modificar(Paciente elemento) throws DAOException {
-
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
             preparedStatement=connection.prepareStatement("UPDATE paciente SET nombre=?, apellido=?,codObrasocial=? WHERE dni=?");
-
             preparedStatement.setString(1, elemento.getNombre());
             preparedStatement.setString(2, elemento.getApellido());
             preparedStatement.setInt(3, elemento.getCodObraSocial());
@@ -56,8 +49,6 @@ public class DAOPaciente implements DAO<Paciente>{
         {
             throw  new DAOException(e.getMessage());
         }
-
-
     }
 
     @Override
@@ -68,7 +59,6 @@ public class DAOPaciente implements DAO<Paciente>{
             Class.forName(DB_JDBC_DRIVER);
             connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
             preparedStatement=connection.prepareStatement("DELETE FROM paciente  WHERE dni=?");
-
             preparedStatement.setLong(1,paciente.getDni());
             int res=preparedStatement.executeUpdate();
             System.out.println("Se elimino" + res);
@@ -106,7 +96,6 @@ public class DAOPaciente implements DAO<Paciente>{
         return paciente;
     }
 
-
     @Override
     public ArrayList buscarTodos() throws DAOException {
         Connection connection=null;
@@ -119,7 +108,6 @@ public class DAOPaciente implements DAO<Paciente>{
             preparedStatement=connection.prepareStatement("SELECT * FROM paciente");
             ResultSet resultSet =preparedStatement.executeQuery();
             while (resultSet.next()) {
-
                 paciente = new Paciente(
                 resultSet.getString("NOMBRE"),
                 resultSet.getString("APELLIDO"),
@@ -135,4 +123,5 @@ public class DAOPaciente implements DAO<Paciente>{
         }
         return datos;
     }
+
 }

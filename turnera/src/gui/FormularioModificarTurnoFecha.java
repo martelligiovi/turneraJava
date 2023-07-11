@@ -1,9 +1,7 @@
 package gui;
 
 import entidades.Turno;
-import service.ServiceException;
 import service.TurnoService;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -19,7 +17,6 @@ public class FormularioModificarTurnoFecha implements Formulario,DecorarFormular
     PanelManager panel;
     Turno turno;
     FormularioModificarTurnoFinal formularioModificarTurnoFinal;
-    FormularioModificarTurno formularioModificarTurno;
 
     public FormularioModificarTurnoFecha (PanelManager panel, ArrayList<Turno> turnos){
         this.panel=panel;
@@ -29,6 +26,7 @@ public class FormularioModificarTurnoFecha implements Formulario,DecorarFormular
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario(){
         formularioModificarTurnoFecha = new JPanel();
@@ -41,6 +39,7 @@ public class FormularioModificarTurnoFecha implements Formulario,DecorarFormular
             jComboBoxFecha.addItem(turno.getFecha());
         }
     }
+
     @Override
     public void agregarFormulario(){
         formularioModificarTurnoFecha.add(jLabelFecha);
@@ -48,6 +47,7 @@ public class FormularioModificarTurnoFecha implements Formulario,DecorarFormular
         formularioModificarTurnoFecha.add(jButtonExit);
         formularioModificarTurnoFecha.add(jButtonSend);
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(e -> {
@@ -56,20 +56,21 @@ public class FormularioModificarTurnoFecha implements Formulario,DecorarFormular
             turno.setFecha(jComboBoxFecha.getSelectedItem().toString());
             formularioModificarTurnoFinal = new FormularioModificarTurnoFinal(panel,turno);
             panel.mostrar(formularioModificarTurnoFinal.getFormulario());
-
-
         });
         jButtonExit.addActionListener(e -> {
             FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
             panel.mostrar(formularioAdmin.getFormulario());
         });
     }
+
     @Override
     public void decorar(){
         formularioModificarTurnoFecha.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioModificarTurnoFecha.setBackground(Color.lightGray);
-        formularioModificarTurnoFecha.setPreferredSize(new Dimension(220, 75));
-        formularioModificarTurnoFecha.setOpaque(true);    }
+        formularioModificarTurnoFecha.setPreferredSize(new Dimension(220, 80));
+        formularioModificarTurnoFecha.setOpaque(true);
+    }
+
     @Override
     public JPanel getFormulario(){
         return formularioModificarTurnoFecha;

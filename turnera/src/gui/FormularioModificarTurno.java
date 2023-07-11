@@ -3,16 +3,11 @@ package gui;
 import entidades.Medico;
 import entidades.Paciente;
 import entidades.Turno;
-
 import service.*;
-
-
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 public class FormularioModificarTurno implements Formulario, DecorarFormulario {
@@ -30,6 +25,7 @@ public class FormularioModificarTurno implements Formulario, DecorarFormulario {
     FormularioAdmin formularioAdmin;
     FormularioModificarTurnoFecha formularioModificarTurnoFecha;
     ArrayList<Turno> turnos;
+
     FormularioModificarTurno (PanelManager panel) throws ServiceException {
         this.panel=panel;
         creadorFormulario();
@@ -37,6 +33,7 @@ public class FormularioModificarTurno implements Formulario, DecorarFormulario {
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario() throws ServiceException {
         turnoService = new TurnoService();
@@ -58,6 +55,7 @@ public class FormularioModificarTurno implements Formulario, DecorarFormulario {
             jComboBoxDniPaciente.addItem(p.getDni() + "-" + p.getNombre() + " " + p.getApellido());
         }
     }
+
     @Override
     public void agregarFormulario(){
         formularioModificarTurno.add(jLabelDni);
@@ -68,6 +66,7 @@ public class FormularioModificarTurno implements Formulario, DecorarFormulario {
         formularioModificarTurno.add(jButtonSend);
 
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(new ActionListener() {
@@ -89,6 +88,7 @@ public class FormularioModificarTurno implements Formulario, DecorarFormulario {
                 }
             }
         });
+
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,22 +98,27 @@ public class FormularioModificarTurno implements Formulario, DecorarFormulario {
         });
 
     }
+
     @Override
     public void decorar(){
         formularioModificarTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioModificarTurno.setBackground(Color.lightGray);
-        formularioModificarTurno.setPreferredSize(new Dimension(220, 75));
-        formularioModificarTurno.setOpaque(true);    }
+        formularioModificarTurno.setPreferredSize(new Dimension(450, 120));
+        formularioModificarTurno.setOpaque(true);
+    }
+
     @Override
     public JPanel getFormulario(){
         return formularioModificarTurno;
     }
+
     public ArrayList<Paciente> fillarrayPacientes() throws ServiceException {
         ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
         pacienteService = new PacienteService();
         pacientes = pacienteService.buscarTodos();
         return pacientes;
     }
+
     public ArrayList<Medico> fillarrayMedicos() throws ServiceException {
         ArrayList<Medico> medicos = new ArrayList<Medico>();
         medicoService = new MedicoService();

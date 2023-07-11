@@ -3,14 +3,16 @@ package gui;
 import entidades.Medico;
 import service.MedicoService;
 import service.ServiceException;
-
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormularioAgregarMedico extends JPanel implements Formulario,DecorarFormulario{
-
+public class FormularioAgregarMedico extends JPanel implements Formulario,DecorarFormulario,SetFormatoJTextField {
     MedicoService medicoService;
     JPanel formularioAgregarMedico;
     JLabel jLabelNombre;
@@ -32,6 +34,7 @@ public class FormularioAgregarMedico extends JPanel implements Formulario,Decora
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario(){
         medicoService = new MedicoService();
@@ -48,6 +51,7 @@ public class FormularioAgregarMedico extends JPanel implements Formulario,Decora
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
     }
+
     @Override
     public void agregarFormulario(){
         formularioAgregarMedico.add(jLabelDni);
@@ -60,8 +64,10 @@ public class FormularioAgregarMedico extends JPanel implements Formulario,Decora
         formularioAgregarMedico.add(jTextFieldLegajo);
         formularioAgregarMedico.add(jButtonExit);
         formularioAgregarMedico.add(jButtonSend);
-
+        setFormatoJTextField(jTextFieldDni);
+        setFormatoJTextField(jTextFieldLegajo);
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonExit.addActionListener(new ActionListener() {
@@ -72,6 +78,7 @@ public class FormularioAgregarMedico extends JPanel implements Formulario,Decora
                 panel.mostrar(formularioAdmin.getFormulario());
             }
         });
+
         jButtonSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,9 +99,6 @@ public class FormularioAgregarMedico extends JPanel implements Formulario,Decora
 
                         medicoService.guardar(medico);
                         JOptionPane.showMessageDialog(null, "Se guardó correctamente");
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Error en el formato de los campos numéricos");
-                        throw new RuntimeException(ex);
                     } catch (ServiceException ex) {
                         JOptionPane.showMessageDialog(null, "Medico existente");
                         throw new RuntimeException(ex);
@@ -103,15 +107,14 @@ public class FormularioAgregarMedico extends JPanel implements Formulario,Decora
                     formularioAdmin = new FormularioAdmin(panel);
                     panel.mostrar(formularioAdmin.getFormulario());
                 }
-
             }
         });
     }
 
-
     public JPanel getFormulario() {
         return formularioAgregarMedico;
     }
+
     @Override
     public void decorar(){
         formularioAgregarMedico.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -119,4 +122,19 @@ public class FormularioAgregarMedico extends JPanel implements Formulario,Decora
         formularioAgregarMedico.setPreferredSize(new Dimension(220, 175));
         formularioAgregarMedico.setOpaque(true);
     }
+
+    @Override
+    public void setFormatoJTextField(JTextField textField) {
+        ((AbstractDocument) textField.getDocument()).setDocumentFilter(new DocumentFilter() {
+            @Override
+            public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
+                    throws BadLocationException {
+                String newText = fb.getDocument().getText(0, fb.getDocument().getLength()) + text;
+                if (newText.matches("\\d{0,8}")) {
+                    super.replace(fb, offset, length, text, attrs);
+                }
+            }
+        });
+    }
+
 }

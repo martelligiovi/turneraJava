@@ -6,22 +6,22 @@ public class Medico extends Persona{
         super(nombre, apellido, dni);
         this.legajo = legajo;
     }
+
     public Medico(){
         super();
     }
+
     public Medico(int legajo){
         this.legajo = legajo;
     }
+
     public int getLegajo() {
         return legajo;
     }
     public void setLegajo(int legajo) {
         this.legajo = legajo;
     }
-    /*private Turno crearTurno(int dniPaciente,String fecha, double costo){
-        Turno turno = new Turno(fecha, costo, dniPaciente, this.legajo);
-        return turno;
-    }*/
+
 }
 
 

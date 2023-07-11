@@ -3,7 +3,6 @@ package gui;
 import entidades.Turno;
 import service.ServiceException;
 import service.TurnoService;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -28,6 +27,7 @@ public class FormularioEliminarTurnoFecha implements Formulario,DecorarFormulari
          agregarFuncionesBotones();
          decorar();
     }
+
     @Override
     public void creadorFormulario(){
         formularioEliminarTurnoFecha = new JPanel();
@@ -40,6 +40,7 @@ public class FormularioEliminarTurnoFecha implements Formulario,DecorarFormulari
             jComboBoxFecha.addItem(turno.getFecha());
         }
     }
+
     @Override
     public void agregarFormulario(){
         formularioEliminarTurnoFecha.add(jLabelFecha);
@@ -47,6 +48,7 @@ public class FormularioEliminarTurnoFecha implements Formulario,DecorarFormulari
         formularioEliminarTurnoFecha.add(jButtonExit);
         formularioEliminarTurnoFecha.add(jButtonSend);
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(e -> {
@@ -64,18 +66,21 @@ public class FormularioEliminarTurnoFecha implements Formulario,DecorarFormulari
             panel.mostrar(formularioAdmin.getFormulario());
             JOptionPane.showMessageDialog(null,"Turno eliminado");
         });
+
         jButtonExit.addActionListener(e -> {
             FormularioAdmin formularioAdmin = new FormularioAdmin(panel);
             panel.mostrar(formularioAdmin.getFormulario());
         });
     }
+
     @Override
     public void decorar(){
         formularioEliminarTurnoFecha.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioEliminarTurnoFecha.setBackground(Color.lightGray);
-        formularioEliminarTurnoFecha.setPreferredSize(new Dimension(220, 75));
+        formularioEliminarTurnoFecha.setPreferredSize(new Dimension(220, 80));
         formularioEliminarTurnoFecha.setOpaque(true);
     }
+
     @Override
     public JPanel getFormulario(){
         return formularioEliminarTurnoFecha;

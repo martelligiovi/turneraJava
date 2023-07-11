@@ -1,14 +1,16 @@
 package service;
+
 import dao.DAOPaciente;
 import entidades.Paciente;
-
 import java.util.ArrayList;
 
 public class PacienteService {
     private DAOPaciente daoPaciente;
+
     public PacienteService(){
         daoPaciente = new DAOPaciente();
     }
+
     public void guardar(Paciente paciente) throws ServiceException {
         try {
             daoPaciente.guardar(paciente);
@@ -16,6 +18,7 @@ public class PacienteService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public void modificar(Paciente paciente) throws ServiceException {
         try {
             daoPaciente.modificar(paciente);
@@ -23,6 +26,7 @@ public class PacienteService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public void eliminar(Paciente paciente) throws ServiceException {
         try {
             daoPaciente.eliminar(paciente);
@@ -30,6 +34,7 @@ public class PacienteService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public Paciente buscar(Paciente paciente) throws ServiceException {
         try {
             return daoPaciente.buscar(paciente.getDni());
@@ -37,6 +42,7 @@ public class PacienteService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList buscarTodos() throws ServiceException {
         try {
             return daoPaciente.buscarTodos();
@@ -44,4 +50,5 @@ public class PacienteService {
             throw new ServiceException(e.getMessage());
         }
     }
+
 }

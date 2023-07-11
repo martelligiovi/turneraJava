@@ -1,14 +1,14 @@
 package gui;
 
 import service.ServiceException;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 
-public class FormularioAdmin extends JPanel implements Formulario,DecorarFormulario{
+public class FormularioAdmin extends JPanel implements Formulario,DecorarFormulario {
+
     FormularioSeleccionUsuario formularioSeleccionUsuario;
     FormularioAgregarMedico formularioAgregarMedico;
     FormularioAgregarPaciente formularioAgregarPaciente;
@@ -34,6 +34,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
     JButton jButtonReportes;
     JButton jButtonReporteAdicional;
     FormularioReporteAdicional formularioReporteAdicional;
+
     public FormularioAdmin(PanelManager panel){
         this.panel=panel;
         creadorFormulario();
@@ -41,6 +42,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario(){
         formularioAdmin = new JPanel();
@@ -56,9 +58,8 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         jButtonModificarTurno = new JButton("Modificar Turno");
         jButtonReportes = new JButton("Reportes");
         jButtonReporteAdicional = new JButton("Reporte Total");
-
-
     }
+
     @Override
     public void agregarFormulario(){
         formularioAdmin.add(jButtonRegistrarMedico);
@@ -70,11 +71,10 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         formularioAdmin.add(jButtonModificarMedico);
         formularioAdmin.add(jButtonModificarPaciente);
         formularioAdmin.add(jButtonModificarTurno);
-        //quiero agregar una objeto invisible para que se vea bien
         formularioAdmin.add(jButtonReporteAdicional);
         formularioAdmin.add(jButtonReportes);
-
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonRegistrarMedico.addActionListener(new ActionListener() {
@@ -84,6 +84,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioAgregarMedico.getFormulario());
             }
         });
+
         jButtonRegistrarPaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,6 +92,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioAgregarPaciente.getFormulario());
             }
         });
+
         jButtonRegistrarTurno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -104,6 +106,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioAgregarTurno.getFormulario());
             }
         });
+
         jButtonReportes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -115,6 +118,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioReporte.getFormulario());
             }
         });
+
         jButtonEliminarMedico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -122,6 +126,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioEliminarMedico.getFormulario());
             }
         });
+
         jButtonEliminarPaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -129,6 +134,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioEliminarPaciente.getFormulario());
             }
         });
+
         jButonEliminarTurno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -140,6 +146,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioEliminarTurno.getFormulario());
             }
         });
+
         jButtonModificarMedico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -147,6 +154,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioModificarMedico.getFormulario());
             }
         });
+
         jButtonModificarPaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -154,6 +162,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioModificarPaciente.getFormulario());
             }
         });
+
         jButtonModificarTurno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -165,6 +174,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioModificarTurno.getFormulario());
             }
         });
+
         jButtonReporteAdicional.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -177,10 +187,12 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
             }
         });
     }
+
     @Override
     public JPanel getFormulario(){
         return formularioAdmin;
     }
+
     @Override
     public void decorar(){
         formularioAdmin.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -188,4 +200,5 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         formularioAdmin.setPreferredSize(new Dimension(450, 160));
         formularioAdmin.setOpaque(true);
     }
+
 }

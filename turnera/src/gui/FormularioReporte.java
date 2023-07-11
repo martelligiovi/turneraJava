@@ -4,9 +4,7 @@ import service.MedicoService;
 import service.ServiceException;
 import service.TurnoService;
 import entidades.Medico;
-import entidades.Paciente;
 import entidades.Turno;
-
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
@@ -32,15 +30,16 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
     JButton jButtonExit;
     TurnoService turnoService;
 
-    public FormularioReporte(PanelManager panel) throws ServiceException {
+    public FormularioReporte(PanelManager panel) throws ServiceException{
         this.panel=panel;
         creadorFormulario();
         agregarFormulario();
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
-    public void creadorFormulario() throws ServiceException {
+    public void creadorFormulario() throws ServiceException{
         formularioReporte = new JPanel();
         jButtonSend = new JButton("Buscar");
         jLabelLegajo = new JLabel("Legajo");
@@ -51,11 +50,12 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
         jButtonExit = new JButton("Salir");
         jComboBoxLegajoMedico = new JComboBox();
         ArrayList<Medico> medicos = fillarrayMedicos();
-        for (Medico m : medicos) {
+        for (Medico m : medicos){
             jComboBoxLegajoMedico.addItem(m.getLegajo() + "-" + m.getNombre() + " " + m.getApellido());
         }
         formularioReporte.setLayout(new GridLayout(4,2));
     }
+
     @Override
     public void agregarFormulario(){
         formularioReporte.add(jLabelLegajo);
@@ -67,6 +67,7 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
         formularioReporte.add(jButtonExit);
         formularioReporte.add(jButtonSend);
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(new ActionListener() {
@@ -84,6 +85,7 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
                 }
             }
         });
+
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,10 +94,12 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
             }
         });
     }
-    public JPanel getFormulario() {
+
+    public JPanel getFormulario(){
         return formularioReporte;
     }
-    private MaskFormatter createMaskFormatter(String mask) {
+
+    private MaskFormatter createMaskFormatter(String mask){
         MaskFormatter formatter = null;
         try {
             formatter = new MaskFormatter(mask);
@@ -105,7 +109,8 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
         }
         return formatter;
     }
-    public ArrayList<Medico> fillarrayMedicos() throws ServiceException {
+
+    public ArrayList<Medico> fillarrayMedicos() throws ServiceException{
         ArrayList<Medico> medicos = new ArrayList<Medico>();
         medicoService = new MedicoService();
         medicos = medicoService.buscarTodos();
@@ -116,10 +121,8 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
     public void decorar(){
         formularioReporte.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioReporte.setBackground(Color.lightGray);
-        formularioReporte.setPreferredSize(new Dimension(450, 140));
+        formularioReporte.setPreferredSize(new Dimension(450, 160));
         formularioReporte.setOpaque(true);
     }
-
-
 
 }

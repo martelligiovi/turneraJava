@@ -1,10 +1,8 @@
 package gui;
 
-
 import entidades.Turno;
 import service.ServiceException;
 import service.TurnoService;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +21,7 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
     JButton jButtonExit;
     PanelManager panel;
     Turno turno;
+
     public FormularioHora (PanelManager panel,Turno turno) throws ServiceException {
         this.panel=panel;
         this.turno=turno;
@@ -32,6 +31,7 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario() throws ServiceException {
         turnoService = new TurnoService();
@@ -46,6 +46,7 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
             jComboBoxHora.addItem(hora);
         }
     }
+
     @Override
     public void agregarFormulario(){
         formularioHora.add(jLabelHora);
@@ -53,6 +54,7 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
         formularioHora.add(jButtonExit);
         formularioHora.add(jButtonSend);
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonSend.addActionListener(new ActionListener() {
@@ -73,6 +75,7 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
                 panel.mostrar(formularioAdmin.getFormulario());
             }
         });
+
         jButtonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,20 +90,23 @@ public class FormularioHora extends JPanel implements Formulario,DecorarFormular
             }
         });
     }
+
     public DefaultComboBoxModel<String> model(ArrayList<String> horarios) {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         model.addAll(horarios); // Agrega todos los elementos del array a la
         return model;
     }
+
     @Override
     public JPanel getFormulario() {
         return formularioHora;
     }
+
     @Override
     public void decorar(){
         formularioHora.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioHora.setBackground(Color.lightGray);
-        formularioHora.setPreferredSize(new Dimension(220, 70));
+        formularioHora.setPreferredSize(new Dimension(220, 80));
         formularioHora.setOpaque(true);
     }
 

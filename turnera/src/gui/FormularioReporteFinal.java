@@ -1,7 +1,7 @@
 package gui;
+
 import entidades.Turno;
 import service.ServiceException;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class FormularioReporteFinal extends JPanel implements DecorarFormulario {
+public class FormularioReporteFinal extends JPanel implements DecorarFormulario{
     PanelManager panel;
     JPanel formularioReporteFinal;
     ArrayList<Turno> listaTurnos;
@@ -20,7 +20,7 @@ public class FormularioReporteFinal extends JPanel implements DecorarFormulario 
     String fecha1;
     String fecha2;
 
-    public FormularioReporteFinal(PanelManager panel, ArrayList<Turno> turnos, String fecha1, String fecha2) {
+    public FormularioReporteFinal(PanelManager panel, ArrayList<Turno> turnos, String fecha1, String fecha2){
         this.listaTurnos = turnos;
         this.panel = panel;
         this.fecha1 = fecha1;
@@ -29,7 +29,7 @@ public class FormularioReporteFinal extends JPanel implements DecorarFormulario 
         decorar();
     }
 
-    private void crearFormularioReporteFinal() {
+    private void crearFormularioReporteFinal(){
         formularioReporteFinal = new JPanel(new GridBagLayout());
         gbc = new GridBagConstraints();
         jLabelIntro = new JLabel("<html><div style=\"font-size:10px; margin-top: -5px; line-height: 0;\">El médico con legajo: <b><span style=\"font-size:14px;\">" + listaTurnos.get(0).getLegajoMedico() + "</b><br><br></span> entre las fechas <b><span style=\"font-size:14px;\">" + this.fecha1 + "</b></span> y <b><span style=\"font-size:14px;\">" + this.fecha2 + "</div></html>");
@@ -68,7 +68,6 @@ public class FormularioReporteFinal extends JPanel implements DecorarFormulario 
         gbc.anchor = GridBagConstraints.CENTER;
         formularioReporteFinal.add(exitButton, gbc);
 
-        // Agregar ActionListener al botón Exit
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,15 +83,16 @@ public class FormularioReporteFinal extends JPanel implements DecorarFormulario 
         });
     }
 
-    public JPanel getFormulario() {
+    public JPanel getFormulario(){
         return formularioReporteFinal;
     }
 
     @Override
-    public void decorar() {
+    public void decorar(){
         formularioReporteFinal.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         formularioReporteFinal.setBackground(Color.lightGray);
         formularioReporteFinal.setOpaque(true);
     }
+
 }
 

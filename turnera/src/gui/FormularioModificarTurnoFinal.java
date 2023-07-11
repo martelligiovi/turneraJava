@@ -3,12 +3,10 @@ package gui;
 import entidades.Turno;
 import service.ServiceException;
 import service.TurnoService;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
-public class FormularioModificarTurnoFinal implements Formulario, DecorarFormulario{
+public class FormularioModificarTurnoFinal implements Formulario, DecorarFormulario {
     Turno turno;
     JPanel formularioModificarTurnoFinal;
     JLabel jLabelCosto;
@@ -28,8 +26,9 @@ public class FormularioModificarTurnoFinal implements Formulario, DecorarFormula
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
-    public void creadorFormulario(){
+    public void creadorFormulario() {
         formularioModificarTurnoFinal = new JPanel();
         formularioModificarTurnoFinal.setLayout(new GridLayout(2,2));
         jLabelCosto = new JLabel("Costo");
@@ -37,15 +36,17 @@ public class FormularioModificarTurnoFinal implements Formulario, DecorarFormula
         jButtonSend = new JButton("Enviar");
         jButtonExit = new JButton("Salir");
     }
+
     @Override
-    public void agregarFormulario(){
+    public void agregarFormulario() {
         formularioModificarTurnoFinal.add(jLabelCosto);
         formularioModificarTurnoFinal.add(jTextFieldCosto);
         formularioModificarTurnoFinal.add(jButtonExit);
         formularioModificarTurnoFinal.add(jButtonSend);
     }
+
     @Override
-    public void agregarFuncionesBotones(){
+    public void agregarFuncionesBotones() {
         jButtonSend.addActionListener(e -> {
             turnoService = new TurnoService();
             try {
@@ -61,8 +62,8 @@ public class FormularioModificarTurnoFinal implements Formulario, DecorarFormula
                     exception.printStackTrace();
                 }
             }
-
         });
+
             jButtonExit.addActionListener(e -> {
                 try {
                     formularioModificarTurno = new FormularioModificarTurno(panel);
@@ -72,14 +73,18 @@ public class FormularioModificarTurnoFinal implements Formulario, DecorarFormula
                 panel.mostrar(formularioModificarTurno.getFormulario());
         });
     }
+
     @Override
     public void decorar(){
         formularioModificarTurnoFinal.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioModificarTurnoFinal.setBackground(Color.lightGray);
-        formularioModificarTurnoFinal.setPreferredSize(new Dimension(220, 75));
-        formularioModificarTurnoFinal.setOpaque(true);    }
+        formularioModificarTurnoFinal.setPreferredSize(new Dimension(220, 80));
+        formularioModificarTurnoFinal.setOpaque(true);
+    }
+
     @Override
     public JPanel getFormulario(){
         return formularioModificarTurnoFinal;
     }
+
 }

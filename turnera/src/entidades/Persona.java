@@ -10,10 +10,13 @@ public abstract class Persona {
         this.apellido = apellido;
         this.dni = dni;
     }
+
     public Persona() {}
+
     public Persona(int dni) {
         this.dni = dni;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -28,4 +31,5 @@ public abstract class Persona {
     public void setDni(int dni) {
         this.dni = dni;
     }
+
 }

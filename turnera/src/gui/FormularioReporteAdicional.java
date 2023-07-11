@@ -1,14 +1,8 @@
 package gui;
 
 import service.ServiceException;
-
-import service.MedicoService;
-import service.ServiceException;
 import service.TurnoService;
-import entidades.Medico;
-import entidades.Paciente;
 import entidades.Turno;
-
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
@@ -16,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
-
 
 public class FormularioReporteAdicional implements Formulario,DecorarFormulario{
     JPanel formularioReporteAdicional;
@@ -30,7 +23,8 @@ public class FormularioReporteAdicional implements Formulario,DecorarFormulario{
     FormularioAdmin formularioAdmin;
     FormularioReporteAdicionalFinal formularioReporteAdicionalFinal;
     ArrayList<Turno> listaTurnos;
-    public FormularioReporteAdicional(PanelManager panel) throws ServiceException {
+
+    public FormularioReporteAdicional(PanelManager panel) throws ServiceException{
         this.panel=panel;
         creadorFormulario();
         agregarFormulario();
@@ -39,7 +33,7 @@ public class FormularioReporteAdicional implements Formulario,DecorarFormulario{
     }
 
     @Override
-    public void creadorFormulario() throws ServiceException {
+    public void creadorFormulario() throws ServiceException{
         formularioReporteAdicional = new JPanel();
         jButtonSend = new JButton("Buscar");
         jTextFieldFecha1 = new JFormattedTextField(createMaskFormatter("####/##/##"));
@@ -49,6 +43,7 @@ public class FormularioReporteAdicional implements Formulario,DecorarFormulario{
         jButtonExit = new JButton("Salir");
         formularioReporteAdicional.setLayout(new GridLayout(3,2));
     }
+
     @Override
     public void agregarFormulario(){
         formularioReporteAdicional.add(jLabelFecha1);
@@ -58,49 +53,53 @@ public class FormularioReporteAdicional implements Formulario,DecorarFormulario{
         formularioReporteAdicional.add(jButtonSend);
         formularioReporteAdicional.add(jButtonExit);
     }
+
     @Override
     public void agregarFuncionesBotones(){
-        jButtonSend.addActionListener(new ActionListener() {
+        jButtonSend.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){
                 listaTurnos = new ArrayList<>();
                 TurnoService turnoService = new TurnoService();
-                try {
+                try{
                     listaTurnos = turnoService.calcularSumaCobrosPorRango(jTextFieldFecha1.getText(),jTextFieldFecha2.getText());
                     formularioReporteAdicionalFinal = new FormularioReporteAdicionalFinal(panel,listaTurnos);
                     panel.mostrar(formularioReporteAdicionalFinal.getFormulario());
-                } catch (ServiceException ex) {
+                } catch (ServiceException ex){
                     throw new RuntimeException(ex);
                 }
-
             }
         });
-        jButtonExit.addActionListener(new ActionListener() {
+        jButtonExit.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){
                 formularioAdmin = new FormularioAdmin(panel);
                 panel.mostrar(formularioAdmin.getFormulario());
             }
         });
     }
+
     @Override
     public void decorar(){
         formularioReporteAdicional.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioReporteAdicional.setBackground(Color.lightGray);
-        formularioReporteAdicional.setPreferredSize(new Dimension(220, 75));
+        formularioReporteAdicional.setPreferredSize(new Dimension(220, 120));
         formularioReporteAdicional.setOpaque(true);
     }
+
     @Override
-    public JPanel getFormulario() {
+    public JPanel getFormulario(){
         return formularioReporteAdicional;
     }
-    private MaskFormatter createMaskFormatter(String mask) {
+
+    private MaskFormatter createMaskFormatter(String mask){
         MaskFormatter formatter = null;
-        try {
+        try{
             formatter = new MaskFormatter(mask);
             formatter.setPlaceholderCharacter('_');
-        } catch (ParseException e) {
+        } catch (ParseException e){
             e.printStackTrace();
         }return formatter;
     }
+
 }

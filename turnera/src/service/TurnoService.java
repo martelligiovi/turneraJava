@@ -2,14 +2,15 @@ package service;
 
 import dao.DAOTurno;
 import entidades.Turno;
-
 import java.util.ArrayList;
 
 public class TurnoService {
     private DAOTurno daoTurno;
+
     public TurnoService(){
         daoTurno = new DAOTurno();
     }
+
     public void guardar(Turno turno) throws ServiceException {
         try {
             daoTurno.guardar(turno);
@@ -17,6 +18,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public void modificar(Turno turno) throws ServiceException {
         try {
             daoTurno.modificar(turno);
@@ -24,6 +26,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public void eliminar(Turno turno) throws ServiceException {
         try {
             daoTurno.eliminar(turno);
@@ -31,6 +34,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public Turno buscar(String dni) throws ServiceException {
         try {
             return daoTurno.buscar(1);
@@ -38,6 +42,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList buscarTodos() throws ServiceException {
         try {
             return daoTurno.buscarTodos();
@@ -45,6 +50,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList buscarHorariosPorMedico(String fecha,int legajoMedico) throws ServiceException {
         try {
             return daoTurno.buscarHorariosPorMedico(fecha,legajoMedico);
@@ -52,6 +58,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList<String> buscarHorariosPorPaciente(String fecha,int dniPaciente) throws ServiceException {
         try {
             return daoTurno.buscarHorariosPorPaciente(fecha,dniPaciente);
@@ -59,6 +66,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList<Turno> buscarTurnosMedico(String fecha, int legajoMedico) throws ServiceException {
         try {
             return daoTurno.buscarTurnosMedico(fecha,legajoMedico);
@@ -66,6 +74,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList<Turno>buscarCobros(String fecha1, String fecha2, int legajo) throws ServiceException {
         try {
             return daoTurno.buscarCobros(fecha1,fecha2,legajo);
@@ -73,6 +82,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList<Turno> buscarTurnosPaciente(int dni) throws ServiceException {
         try {
             return daoTurno.buscarTurnosPaciente(dni);
@@ -80,6 +90,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList<Turno> buscarTurnosPorPacienteYMedico(Turno turno) throws ServiceException {
         try {
             return daoTurno.buscarTurnosPorPacienteYMedico(turno.getDniPaciente(), turno.getLegajoMedico());
@@ -87,6 +98,7 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
     public ArrayList<Turno> calcularSumaCobrosPorRango(String fecha1, String fecha2) throws ServiceException {
         try {
             return daoTurno.calcularSumaCobrosPorRango(fecha1,fecha2);
@@ -94,4 +106,5 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+
 }

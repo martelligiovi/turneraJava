@@ -7,4 +7,5 @@ public class RelacionMedicoObraSocial {
         this.medico = medico;
         this.codObraSocial = obraSocial;
     }
+
 }

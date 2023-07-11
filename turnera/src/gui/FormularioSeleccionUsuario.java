@@ -1,11 +1,11 @@
 package gui;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormularioSeleccionUsuario extends JPanel implements Formulario,DecorarFormulario{
-
     JPanel formularioSeleccionUsuario;
     FormularioLoginAdmin formularioLoginAdmin;
     FormularioUsuarioMedico formularioUsuarioMedico;
@@ -14,6 +14,7 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario,Dec
     JButton jButtonAdmin;
     JButton jButtonMedico;
     JButton jButtonPaciente;
+
     public FormularioSeleccionUsuario (PanelManager panel){
         this.panel=panel;
         creadorFormulario();
@@ -21,6 +22,7 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario,Dec
         agregarFuncionesBotones();
         decorar();
     }
+
     @Override
     public void creadorFormulario(){
         formularioSeleccionUsuario = new JPanel();
@@ -29,12 +31,14 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario,Dec
         jButtonMedico = new JButton("Medico");
         jButtonPaciente = new JButton("Paciente");
     }
+
     @Override
     public void agregarFormulario(){
         formularioSeleccionUsuario.add(jButtonAdmin);
         formularioSeleccionUsuario.add(jButtonMedico);
         formularioSeleccionUsuario.add(jButtonPaciente);
     }
+
     @Override
     public void agregarFuncionesBotones(){
         jButtonMedico.addActionListener(new ActionListener() {
@@ -59,8 +63,11 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario,Dec
             }
         });
     }
+
     @Override
-    public JPanel getFormulario() {return formularioSeleccionUsuario;}
+    public JPanel getFormulario(){
+        return formularioSeleccionUsuario;
+    }
     @Override
     public void decorar(){
         formularioSeleccionUsuario.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -68,5 +75,6 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario,Dec
         formularioSeleccionUsuario.setPreferredSize(new Dimension(220, 120));
         formularioSeleccionUsuario.setOpaque(true);
     }
+
 }
 
