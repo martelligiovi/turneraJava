@@ -65,7 +65,7 @@ public class FormularioSeleccionUsuario extends JPanel implements Formulario,Dec
     public void decorar(){
         formularioSeleccionUsuario.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioSeleccionUsuario.setBackground(Color.lightGray);
-        formularioSeleccionUsuario.setPreferredSize(new Dimension(220, 105));
+        formularioSeleccionUsuario.setPreferredSize(new Dimension(220, 120));
         formularioSeleccionUsuario.setOpaque(true);
     }
 }

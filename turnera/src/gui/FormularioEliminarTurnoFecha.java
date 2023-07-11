@@ -72,6 +72,9 @@ public class FormularioEliminarTurnoFecha implements Formulario,DecorarFormulari
     @Override
     public void decorar(){
         formularioEliminarTurnoFecha.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioEliminarTurnoFecha.setBackground(Color.lightGray);
+        formularioEliminarTurnoFecha.setPreferredSize(new Dimension(220, 75));
+        formularioEliminarTurnoFecha.setOpaque(true);
     }
     @Override
     public JPanel getFormulario(){

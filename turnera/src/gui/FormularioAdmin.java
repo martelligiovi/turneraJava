@@ -32,6 +32,8 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
     JButton jButtonModificarMedico;
     FormularioModificarMedico formularioModificarMedico;
     JButton jButtonReportes;
+    JButton jButtonReporteAdicional;
+    FormularioReporteAdicional formularioReporteAdicional;
     public FormularioAdmin(PanelManager panel){
         this.panel=panel;
         creadorFormulario();
@@ -53,6 +55,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         jButtonModificarPaciente = new JButton("Modificar Paciente");
         jButtonModificarTurno = new JButton("Modificar Turno");
         jButtonReportes = new JButton("Reportes");
+        jButtonReporteAdicional = new JButton("Reporte Total");
 
 
     }
@@ -68,7 +71,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
         formularioAdmin.add(jButtonModificarPaciente);
         formularioAdmin.add(jButtonModificarTurno);
         //quiero agregar una objeto invisible para que se vea bien
-        formularioAdmin.add(new JLabel(""));
+        formularioAdmin.add(jButtonReporteAdicional);
         formularioAdmin.add(jButtonReportes);
 
     }
@@ -162,6 +165,17 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
                 panel.mostrar(formularioModificarTurno.getFormulario());
             }
         });
+        jButtonReporteAdicional.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    formularioReporteAdicional = new FormularioReporteAdicional(panel);
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                }
+                panel.mostrar(formularioReporteAdicional.getFormulario());
+            }
+        });
     }
     @Override
     public JPanel getFormulario(){
@@ -171,7 +185,7 @@ public class FormularioAdmin extends JPanel implements Formulario,DecorarFormula
     public void decorar(){
         formularioAdmin.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioAdmin.setBackground(Color.lightGray);
-        formularioAdmin.setPreferredSize(new Dimension(450, 175));
+        formularioAdmin.setPreferredSize(new Dimension(450, 160));
         formularioAdmin.setOpaque(true);
     }
 }

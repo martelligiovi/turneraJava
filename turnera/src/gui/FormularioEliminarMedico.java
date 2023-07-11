@@ -76,7 +76,9 @@ public class FormularioEliminarMedico implements Formulario,DecorarFormulario{
     @Override
     public void decorar(){
         formularioEliminarMedico.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-    }
+        formularioEliminarMedico.setBackground(Color.lightGray);
+        formularioEliminarMedico.setPreferredSize(new Dimension(220, 75));
+        formularioEliminarMedico.setOpaque(true);      }
     @Override
     public JPanel getFormulario(){
         return formularioEliminarMedico;

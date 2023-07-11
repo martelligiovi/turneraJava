@@ -36,6 +36,12 @@ public class Turno {
         String hora = partes[1]; // Segunda parte es la hora
         return hora;
     }
+    /*public void setNombrePaciente(String nombre) {this.paciente.setNombre(nombre);}
+    public String getNombrePaciente() {return paciente.getNombre();}*/
+    public void setNombreMedico(String nombre) {this.medico.setNombre(nombre);}
+    public String getNombreMedico() {return medico.getNombre();}
+    public void setApellidoMedico(String apellido) {this.medico.setApellido(apellido);}
+    public String getApellidoMedico() {return medico.getApellido();}
     public void setDniPaciente(int dniPaciente) {this.paciente.setDni(dniPaciente);}
     public void setLegajoMedico(int legajoMedico) {this.medico.setLegajo(legajoMedico);}
     public int getDniPaciente() {return paciente.getDni();}

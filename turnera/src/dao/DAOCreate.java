@@ -53,7 +53,7 @@ public class DAOCreate{
             System.out.println(e.getMessage());
         }
     }
-    private static void createRelacionMedicoObrasocial(){
+    public static void createRelacionMedicoObrasocial(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
@@ -66,13 +66,13 @@ public class DAOCreate{
             System.out.println(e.getMessage());
         }
     }
-    private static void createObraSocial(){
+    public static void createObraSocial(){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            preparedStatement = connection.prepareStatement("CREATE TABLE ObraSocial (cod INT PRIMARY KEY, nombre VARCHAR(50))");
+            preparedStatement = connection.prepareStatement("CREATE TABLE ObraSocial (cod INT PRIMARY KEY)");
             int res = preparedStatement.executeUpdate();
             System.out.println("Se ha creado la tabla ObraSocial " + res);
         }catch (ClassNotFoundException | SQLException e){

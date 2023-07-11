@@ -64,7 +64,7 @@ public class FormularioLoginAdmin {
     public void decorar(){
         formularioLoginAdmin.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         formularioLoginAdmin.setBackground(Color.lightGray);
-        formularioLoginAdmin.setPreferredSize(new Dimension(220, 105));
+        formularioLoginAdmin.setPreferredSize(new Dimension(220, 120));
         formularioLoginAdmin.setOpaque(true);    }
     public JPanel getFormulario(){
         return formularioLoginAdmin;

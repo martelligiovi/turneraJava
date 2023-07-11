@@ -77,8 +77,10 @@ public class FormularioModificarMedicoFinal implements Formulario,DecorarFormula
     }
     @Override
     public void decorar(){
-        formularioModificarMedicoFinal.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
-    }
+        formularioModificarMedicoFinal.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioModificarMedicoFinal.setBackground(Color.lightGray);
+        formularioModificarMedicoFinal.setPreferredSize(new Dimension(220, 75));
+        formularioModificarMedicoFinal.setOpaque(true);     }
     @Override
     public JPanel getFormulario(){
         return formularioModificarMedicoFinal;

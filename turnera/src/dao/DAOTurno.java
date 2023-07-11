@@ -285,4 +285,27 @@ public class DAOTurno implements DAO<Turno>{
             throw  new DAOException(e.getMessage());
         }
     }
+    public ArrayList<Turno> calcularSumaCobrosPorRango(String fecha1, String fecha2) throws DAOException {
+        ArrayList<Turno> sumaCobrosPorLegajo = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT t.legajoMedico, SUM(t.costo) AS suma_cobros, m.nombre, m.apellido FROM turno t INNER JOIN medico m ON t.legajoMedico = m.legajo WHERE t.fecha BETWEEN CONCAT(?, ' 00:00') AND CONCAT(?, ' 23:59') GROUP BY t.legajoMedico, m.nombre, m.apellido;\n")) {
+
+            preparedStatement.setString(1, fecha1);
+            preparedStatement.setString(2, fecha2);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Turno turno = new Turno();
+                turno.setLegajoMedico(resultSet.getInt("legajoMedico"));
+                turno.setCosto(resultSet.getDouble("suma_cobros"));
+                turno.setNombreMedico(resultSet.getString("nombre"));
+                turno.setApellidoMedico(resultSet.getString("apellido"));
+                sumaCobrosPorLegajo.add(turno);
+            }
+        } catch (SQLException e) {
+            throw new DAOException(e.getMessage());
+        }
+        return sumaCobrosPorLegajo;
+    }
+
 }

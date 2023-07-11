@@ -87,4 +87,11 @@ public class TurnoService {
             throw new ServiceException(e.getMessage());
         }
     }
+    public ArrayList<Turno> calcularSumaCobrosPorRango(String fecha1, String fecha2) throws ServiceException {
+        try {
+            return daoTurno.calcularSumaCobrosPorRango(fecha1,fecha2);
+        } catch (Exception e) {
+            throw new ServiceException(e.getMessage());
+        }
+    }
 }

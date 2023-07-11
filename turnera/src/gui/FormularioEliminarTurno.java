@@ -101,7 +101,9 @@ public class FormularioEliminarTurno implements Formulario, DecorarFormulario {
     @Override
     public void decorar(){
         formularioEliminarTurno.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-    }
+        formularioEliminarTurno.setBackground(Color.lightGray);
+        formularioEliminarTurno.setPreferredSize(new Dimension(220, 75));
+        formularioEliminarTurno.setOpaque(true);      }
     @Override
     public JPanel getFormulario(){
         return formularioEliminarTurno;

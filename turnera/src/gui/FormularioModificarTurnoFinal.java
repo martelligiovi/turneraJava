@@ -74,8 +74,10 @@ public class FormularioModificarTurnoFinal implements Formulario, DecorarFormula
     }
     @Override
     public void decorar(){
-        formularioModificarTurnoFinal.setBorder(BorderFactory.createEmptyBorder(100,100,100,100));
-    }
+        formularioModificarTurnoFinal.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        formularioModificarTurnoFinal.setBackground(Color.lightGray);
+        formularioModificarTurnoFinal.setPreferredSize(new Dimension(220, 75));
+        formularioModificarTurnoFinal.setOpaque(true);    }
     @Override
     public JPanel getFormulario(){
         return formularioModificarTurnoFinal;
