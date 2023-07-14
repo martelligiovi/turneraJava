@@ -76,7 +76,7 @@ public class FormularioReporte extends JPanel implements Formulario,DecorarFormu
                 try {
                     turnoService = new TurnoService();
                     listaTurnos = new ArrayList<>();
-                    ArrayList<Turno> listaTurnos = turnoService.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),(Integer) jComboBoxLegajoMedico.getSelectedItem());
+                    ArrayList<Turno> listaTurnos = turnoService.buscarCobros(jTextFieldFecha1.getText(),jTextFieldFecha2.getText(),Integer.parseInt(jComboBoxLegajoMedico.getSelectedItem().toString().split("-")[0]));
                     formularioReporteFinal = new FormularioReporteFinal(panel,listaTurnos,jTextFieldFecha1.getText(),jTextFieldFecha2.getText());
                     panel.mostrar(formularioReporteFinal.getFormulario());
                 } catch (Exception exception) {

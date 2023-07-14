@@ -5,63 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9596d58-07b7-4f28-8b75-ef6e5dbdb60f" name="Changes" comment="el proyecto es portable, integre la base datos">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Librerias/H2/bin/h2-2.1.214.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/test.h2.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/test.mv.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/test.trace.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAOAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAOCreate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAOException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAOMedico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAOObraSocial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAOPaciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAORelacionMedicoObraSocial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/DAOTurno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entidades/Medico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entidades/ObraSocial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entidades/Paciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entidades/Persona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entidades/RelacionMedicoObraSocial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entidades/Turno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/DecorarFormulario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/Formulario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioAgregarMedico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioAgregarPaciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioAgregarTurno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioEliminarMedico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioEliminarPaciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioEliminarTurno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioEliminarTurnoFecha.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioHora.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioLoginAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioModificarMedico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioModificarMedicoFinal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioModificarPaciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioModificarPacienteFinal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioModificarTurno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioModificarTurnoFecha.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioModificarTurnoFinal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioReporte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioReporteAdicional.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioReporteAdicionalFinal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioReporteFinal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioSeleccionUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioTurnosMedicos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioTurnosPaciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioUsuarioMedico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/FormularioUsuarioPaciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/PanelManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/SetFormatoJTextField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/MedicoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/PacienteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/ServiceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/TurnoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/test.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/test.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/FormularioReporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/FormularioReporte.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +17,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -90,18 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-20&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bnbgi/Downloads/turnera&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.20851688&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-20",
+    "last_opened_file_path": "C:/Users/bnbgi/OneDrive/Documentos/turnera",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.20851688",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -125,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689293762061</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="el proyecto es portable, integre la base datos">
+      <created>1689294723626</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689294723626</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
