@@ -4,406 +4,145 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c7c8972-ef49-4ebe-92ec-8704881a6af9" name="Changes" comment="hay q ajustar los valores de tamaño, pero esta instalado el formato decorar, y reporte total">
-      <change afterPath="$PROJECT_DIR$/turnera/src/gui/SetFormatoJTextField.java" afterDir="false" />
+    <list default="true" id="f9596d58-07b7-4f28-8b75-ef6e5dbdb60f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/h2_2_1_214.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/h2_2_1_214.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jcalendar_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/dao/DAOAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/dao/DAOAdmin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/dao/DAOCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/dao/DAOCreate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/dao/DAOMedico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/dao/DAOMedico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/dao/DAOPaciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/dao/DAOPaciente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/dao/DAOTurno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/dao/DAOTurno.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/entidades/Medico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/entidades/Medico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/entidades/Paciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/entidades/Paciente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/entidades/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/entidades/Persona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/entidades/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/entidades/Turno.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioHora$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioHora$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioHora$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioHora$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioHora.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioHora.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioLoginAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioLoginAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporte$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporte$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporte$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporte$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporteFinal$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporteFinal$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporteFinal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioReporteFinal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioSeleccionUsuario$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioSeleccionUsuario$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioSeleccionUsuario$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioSeleccionUsuario$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioSeleccionUsuario$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioSeleccionUsuario$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioSeleccionUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioSeleccionUsuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioTurnosMedicos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioTurnosMedicos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioTurnosPaciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioTurnosPaciente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioMedico$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioMedico$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioMedico$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioMedico$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioMedico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioMedico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioPaciente$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioPaciente$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioPaciente$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioPaciente$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioPaciente$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioPaciente$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioPaciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/FormularioUsuarioPaciente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/turnera/gui/PanelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/gui/PanelManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOMedico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/dao/DAOTurno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/Medico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/RelacionMedicoObraSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/RelacionMedicoObraSocial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/entidades/Turno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAgregarMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioAgregarMedico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAgregarPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioAgregarPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarMedico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarTurno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarTurnoFecha.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarTurnoFecha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioHora.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioHora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioLoginAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioLoginAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarMedico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarMedicoFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarMedicoFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarPacienteFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarPacienteFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurnoFecha.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurnoFecha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurnoFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurnoFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporte.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioReporte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteAdicional.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteAdicional.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteAdicionalFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteAdicionalFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioSeleccionUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioSeleccionUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosMedicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosMedicos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioMedico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/gui/PanelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/gui/PanelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/service/MedicoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/service/MedicoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/service/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/service/PacienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/service/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/service/ServiceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnera/src/service/TurnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/turnera/src/service/TurnoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/service/PacienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/service/PacienteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/turnera/service/TurnoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/turnera/service/TurnoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera.iml" beforeDir="false" afterPath="$PROJECT_DIR$/turnera.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/database/test.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/database/test.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOCreate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOMedico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOObraSocial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOPaciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAORelacionMedicoObraSocial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/dao/DAOTurno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Medico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/ObraSocial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Paciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Persona.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/RelacionMedicoObraSocial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/entidades/Turno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/DecorarFormulario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/Formulario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAgregarMedico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAgregarPaciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioAgregarTurno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarMedico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarPaciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarTurno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioEliminarTurnoFecha.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioHora.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioLoginAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarMedico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarMedicoFinal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarPaciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarPacienteFinal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurnoFecha.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioModificarTurnoFinal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporte.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteAdicional.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteAdicionalFinal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioReporteFinal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioSeleccionUsuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosMedicos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioTurnosPaciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioMedico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/FormularioUsuarioPaciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/PanelManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/gui/SetFormatoJTextField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/service/AdminService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/service/MedicoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/service/PacienteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/service/ServiceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/src/service/TurnoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnera/turnera.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="Interface" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="8be21ffc-7b53-4e05-a052-0d31cbd4cfcc" />
-        <option name="url" value="https://github.com/martelligiovi/turneraJava.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="ProjectId" id="2PfrIN8Nyrgxf5NozLx9NrMCyqf" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2SXITe9RwTojDQhTq3sVi2PgQ3T" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bnbgi/Downloads/Trabajo-Final-Turnera-Medica-main&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.20851688&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-20",
+    "last_opened_file_path": "C:/Users/bnbgi/Downloads/turnera",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.20851688",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="gui" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="dao" />
-    </key>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3c7c8972-ef49-4ebe-92ec-8704881a6af9" name="Changes" comment="" />
-      <created>1683858900265</created>
+      <changelist id="f9596d58-07b7-4f28-8b75-ef6e5dbdb60f" name="Changes" comment="" />
+      <created>1689286508283</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683858900265</updated>
+      <updated>1689286508283</updated>
     </task>
-    <task id="LOCAL-00001" summary="dao">
-      <created>1684843319243</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1684843319243</updated>
-    </task>
-    <task id="LOCAL-00002" summary="dao implement">
-      <created>1684847708118</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1684847708118</updated>
-    </task>
-    <task id="LOCAL-00003" summary="dao implement">
-      <created>1684849001301</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1684849001301</updated>
-    </task>
-    <task id="LOCAL-00004" summary="implemente la base de dato, me falta adaptar las sentencias">
-      <created>1684877677528</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1684877677528</updated>
-    </task>
-    <task id="LOCAL-00005" summary="implemente la base de dato, me falta adaptar las sentencias">
-      <created>1684947308310</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1684947308310</updated>
-    </task>
-    <task id="LOCAL-00006" summary="implemente la base de dato, me falta adaptar las sentencias">
-      <created>1684947326472</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1684947326472</updated>
-    </task>
-    <task id="LOCAL-00007" summary="termine hasta DAOObrasocial">
-      <created>1684970068174</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1684970068174</updated>
-    </task>
-    <task id="LOCAL-00008" summary="solo me quedo el la RelacionMedicoObraSocial, cosa que no voy a usar ahora. depues tengo un tema de como hago para eliminar en turno, ya que es una pk compuesta y el parametro de la funcion de la interfaz es simple.">
-      <created>1685474856112</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1685474856112</updated>
-    </task>
-    <task id="LOCAL-00009" summary="avance general, y funciona el gui">
-      <created>1686093734502</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1686093734502</updated>
-    </task>
-    <task id="LOCAL-00010" summary="coneccion a la base de datos de formulariomedico">
-      <created>1686415726337</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1686415726337</updated>
-    </task>
-    <task id="LOCAL-00011" summary="creacion y coneccion de formularios, y coneccion con la base de datos de el formulario de turnos y paciente">
-      <created>1686445299129</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1686445299129</updated>
-    </task>
-    <task id="LOCAL-00012" summary="funciona el boton de exit c:">
-      <created>1686581662592</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1686581662592</updated>
-    </task>
-    <task id="LOCAL-00013" summary="prueba de calendario y cracion alpha de el usuario medico">
-      <created>1686610931921</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1686610931921</updated>
-    </task>
-    <task id="LOCAL-00014" summary="al final el calendario no lo implementamos, administrador casi completo, implemente una mascara a fecha, pero tengo q cambiar lo dde hs">
-      <created>1686943605669</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1686943605669</updated>
-    </task>
-    <task id="LOCAL-00015" summary="tod administrador implementado, menos algun boto de exit c:">
-      <created>1686954178423</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1686954178423</updated>
-    </task>
-    <task id="LOCAL-00016" summary="el medico puede ver una tabla con los turnos de x dia">
-      <created>1687036456853</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1687036456853</updated>
-    </task>
-    <task id="LOCAL-00017" summary="proyecto basico terminado, falta pulir cosas">
-      <created>1687707090405</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1687707090405</updated>
-    </task>
-    <task id="LOCAL-00018" summary="organizando los metodos">
-      <created>1687730085971</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1687730085971</updated>
-    </task>
-    <task id="LOCAL-00019" summary="organizando los metodos">
-      <created>1687730115054</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1687730115054</updated>
-    </task>
-    <task id="LOCAL-00020" summary="divide el metodo de crear en 3 metodos mas chicos">
-      <created>1687732503201</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1687732503201</updated>
-    </task>
-    <task id="LOCAL-00021" summary="implementado la interfaz Formulario">
-      <created>1687736936524</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1687736936524</updated>
-    </task>
-    <task id="LOCAL-00022" summary="el usuario paciente funciona, necesito sacar de la jcombobox de formularioturno, los horarios que ya tomo el paciente para ese dia">
-      <created>1687751565262</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1687751565262</updated>
-    </task>
-    <task id="LOCAL-00023" summary="una decoracion para que te mas lindo">
-      <created>1687795745463</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1687795745463</updated>
-    </task>
-    <task id="LOCAL-00024" summary="terminamos">
-      <created>1687805771106</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1687805771106</updated>
-    </task>
-    <task id="LOCAL-00025" summary="no hay un error de tipeo en un form, no hay lógica en los formulario, turno almacena objeto medico y paciente y cree los service, falta implementarlos">
-      <created>1688915944660</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1688915944660</updated>
-    </task>
-    <task id="LOCAL-00026" summary="implementado el service">
-      <created>1688934106211</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1688934106211</updated>
-    </task>
-    <task id="LOCAL-00027" summary="se validan las acciones y hay manejo de errores para  el usuario admin">
-      <created>1688940485524</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1688940485524</updated>
-    </task>
-    <task id="LOCAL-00028" summary="cree un login para el admin">
-      <created>1688960645359</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1688960645359</updated>
-    </task>
-    <task id="LOCAL-00029" summary="cree un login para el admin">
-      <created>1688960722969</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1688960722969</updated>
-    </task>
-    <task id="LOCAL-00030" summary="agregue la botonera de admin, pero no sus funciones">
-      <created>1688966085411</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1688966085411</updated>
-    </task>
-    <task id="LOCAL-00031" summary="ya manda el mensaje de que no hay turnos">
-      <created>1689002173692</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1689002173692</updated>
-    </task>
-    <task id="LOCAL-00032" summary="muy terminado">
-      <created>1689019202397</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1689019202397</updated>
-    </task>
-    <task id="LOCAL-00033" summary="hay q ajustar los valores de tamaño, pero esta instalado el formato decorar, y reporte total">
-      <created>1689039258081</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1689039258081</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="solo me quedo el la RelacionMedicoObraSocial, cosa que no voy a usar ahora. depues tengo un tema de como hago para eliminar en turno, ya que es una pk compuesta y el parametro de la funcion de la interfaz es simple." />
-    <MESSAGE value="avance general, y funciona el gui" />
-    <MESSAGE value="coneccion a la base de datos de formulariomedico" />
-    <MESSAGE value="creacion y coneccion de formularios, y coneccion con la base de datos de el formulario de turnos y paciente" />
-    <MESSAGE value="funciona el boton de exit c:" />
-    <MESSAGE value="prueba de calendario y cracion alpha de el usuario medico" />
-    <MESSAGE value="al final el calendario no lo implementamos, administrador casi completo, implemente una mascara a fecha, pero tengo q cambiar lo dde hs" />
-    <MESSAGE value="tod administrador implementado, menos algun boto de exit c:" />
-    <MESSAGE value="el medico puede ver una tabla con los turnos de x dia" />
-    <MESSAGE value="proyecto basico terminado, falta pulir cosas" />
-    <MESSAGE value="organizando los metodos" />
-    <MESSAGE value="divide el metodo de crear en 3 metodos mas chicos" />
-    <MESSAGE value="implementado la interfaz Formulario" />
-    <MESSAGE value="el usuario paciente funciona, necesito sacar de la jcombobox de formularioturno, los horarios que ya tomo el paciente para ese dia" />
-    <MESSAGE value="una decoracion para que te mas lindo" />
-    <MESSAGE value="terminamos" />
-    <MESSAGE value="no hay un error de tipeo en un form, no hay lógica en los formulario, turno almacena objeto medico y paciente y cree los service, falta implementarlos" />
-    <MESSAGE value="implementado el service" />
-    <MESSAGE value="se validan las acciones y hay manejo de errores para  el usuario admin" />
-    <MESSAGE value="cree un login para el admin" />
-    <MESSAGE value="agregue la botonera de admin, pero no sus funciones" />
-    <MESSAGE value="implemente los eliminar, me falta que avise que no hay turnos, en caso q este vacia la lista" />
-    <MESSAGE value="ya manda el mensaje de que no hay turnos" />
-    <MESSAGE value="muy terminado" />
-    <MESSAGE value="hay q ajustar los valores de tamaño, pero esta instalado el formato decorar, y reporte total" />
-    <option name="LAST_COMMIT_MESSAGE" value="hay q ajustar los valores de tamaño, pero esta instalado el formato decorar, y reporte total" />
   </component>
 </project>
